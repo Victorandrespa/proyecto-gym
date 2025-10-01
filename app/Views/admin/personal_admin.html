@@ -11,14 +11,14 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="../app.js"></script>
-    <title>Puestos</title>
 
+    <title>Personal</title>
 </head>
 
 <body class="container mt-4">
 
 
-    <h1 class="mt-5">Gestion de Puestos <i class="bi bi-person-gear"></i></h1>
+    <h1 class="mt-5">Gestion personal <i class="bi bi-person-rolodex"></i></h1>
     <h4 class="mb-5">Admin</h4>
     <!-- <a href="log" class="btn btn-outline-dark">LOG IN <i class="bi bi-people-fill"></i></a>
     <br> -->
@@ -27,12 +27,18 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="personal_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+         <a href="admin_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-dark ">
-            Agregar puesto <i class="bi bi-person-workspace"></i>
-        </button>
-    </div>
+        <div class="d-flex flex-column align-items-right">
+            <button type="button" class="btn btn-outline-dark my-1" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                Agregar Personal <i class="bi bi-person-workspace"></i>
+            </button>
+            <button type="button" class="btn btn-outline-dark ">
+                Agregar puesto <i class="bi bi-person-workspace"></i>
+            </button>
+        </div>
+
 
     </div>
 
@@ -95,13 +101,19 @@
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
-                    <th>Rol</th>
-                    <th>Departamento</th>
-                    <th>Descripcion</th>
+                    <th>Puesto</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Fecha de Contratacion</th>
+                    <th>Estado</th>
+                    <th>Horario</th>
+                    <th>Sede</th>
                     <th class="text-center">Editar</th>
                 </tr>
             </thead>
-            <tbody id="verPuestos-admin">
+            <tbody id="verPersonal-admin">
 
             </tbody>
         </table>
