@@ -40,35 +40,29 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Actividad</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Membresia</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="agregarEditorial" method="post">
 
-                        <label for="txt_actividad_id" class="form-label">Actividad ID</label>
-                        <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control">
+                        <label for="txt_membresia_id" class="form-label">ID: </label>
+                        <input type="text" name="txt_membresia_id" id="txt_membresia_id" class="form-control">
 
-                        <label for="txt_personal_id" class="form-label">Personal_id</label>
-                        <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control">
+                        <label for="txt_tipo_plan" class="form-label">Tipo de Plan:</label>
+                        <input type="text" name="txt_tipo_plan" id="txt_tipo_plan" class="form-control">
 
-                        <label for="txt_nombre" class="form-label">Nombre:</label>
-                        <input type="text" name="txt_nombre" id="txt_nombre" class="form-control">
+                        <label for="txt_precio" class="form-label">Precio:</label>
+                        <input type="number" name="txt_precio" id="txt_precio" class="form-control">
 
-                        <label for="txt_modalidad" class="form-label">Modalidad:</label>
-                        <input type="text" name="txt_modalidad" id="txt_modalidad" class="form-control">
+                        <label for="txt_duracion_meses" class="form-label">Duracion (meses):</label>
+                        <input type="number" name="txt_duracion_meses" id="txt_duracion_meses" class="form-control">
 
-                        <label for="txt_nivel" class="form-label">Nivel:</label>
-                        <input type="text" name="txt_nivel" id="txt_nivel" class="form-control">
+                        <label for="txt_beneficios" class="form-label">Beneficios:</label>
+                        <input type="text" name="txt_beneficios" id="txt_beneficios" class="form-control">
 
-                        <label for="txt_cupo" class="form-label">Cupo Maximo:</label>
-                        <input type="number" name="txt_cupo" id="txt_cupo" class="form-control">
-
-                        <label for="txt_dias" class="form-label">Disponibilidad (dias):</label>
-                        <input type="number" name="txt_dias" id="txt_dias" class="form-control">
-
-                        <label for="txt_horario" class="form-label">Horario:</label>
-                        <input type="number" name="txt_horario" id="txt_horario" class="form-control">
+                        <label for="txt_sede    " class="form-label">Sede:</label>
+                        <input type="text" name="txt_sede   " id="txt_sede " class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
                             <button type="submit"

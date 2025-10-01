@@ -27,16 +27,16 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-         <a href="admin_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="admin_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
         <div class="d-flex flex-column align-items-right">
             <button type="button" class="btn btn-outline-dark my-1" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
-                Agregar Personal <i class="bi bi-person-workspace"></i>
+                Agregar Personal <i class="bi bi-person-plus"></i>
             </button>
-            <button type="button" class="btn btn-outline-dark ">
-                Agregar puesto <i class="bi bi-person-workspace"></i>
-            </button>
+
+            <a href="puesto_admin.html" class="btn btn btn-outline-dark">Ir a puestos <i
+                    class="bi bi-person-gear"></i></a>
         </div>
 
 
@@ -47,35 +47,39 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Actividad</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Nuevo Personal</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="agregarEditorial" method="post">
 
-                        <label for="txt_actividad_id" class="form-label">Actividad ID</label>
-                        <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control">
-
-                        <label for="txt_personal_id" class="form-label">Personal_id</label>
-                        <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control">
+                        <label for="txt_puesto_id" class="form-label">Puesto ID:</label>
+                        <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control">
 
                         <label for="txt_nombre" class="form-label">Nombre:</label>
                         <input type="text" name="txt_nombre" id="txt_nombre" class="form-control">
 
-                        <label for="txt_modalidad" class="form-label">Modalidad:</label>
-                        <input type="text" name="txt_modalidad" id="txt_modalidad" class="form-control">
+                        <label for="txt_apellido" class="form-label">Apellido:</label>
+                        <input type="text" name="txt_apellido" id="txt_apellido" class="form-control">
 
-                        <label for="txt_nivel" class="form-label">Nivel:</label>
-                        <input type="text" name="txt_nivel" id="txt_nivel" class="form-control">
+                        <label for="txt_telefono" class="form-label">Telefono:</label>
+                        <input type="number" name="txt_telefono" id="txt_telefono" class="form-control">
 
-                        <label for="txt_cupo" class="form-label">Cupo Maximo:</label>
-                        <input type="number" name="txt_cupo" id="txt_cupo" class="form-control">
+                        <label for="txt_email" class="form-label">Email:</label>
+                        <input type="email" name="txt_email" id="txt_email" class="form-control">
 
-                        <label for="txt_dias" class="form-label">Disponibilidad (dias):</label>
-                        <input type="number" name="txt_dias" id="txt_dias" class="form-control">
+                        <label for="txt_fecha_contratacion" class="form-label">Fecha Contratacion:</label>
+                        <input type="date" name="txt_fecha_contratacion" id="txt_fecha_contratacion"
+                            class="form-control">
+
+                        <label for="txt_estado" class="form-label">Estado:</label>
+                        <input type="text" name="txt_estado" id="txt_estado" class="form-control">
 
                         <label for="txt_horario" class="form-label">Horario:</label>
                         <input type="number" name="txt_horario" id="txt_horario" class="form-control">
+
+                        <label for="txt_sede" class="form-label">Sede:</label>
+                        <input type="text" name="txt_sede" id="txt_sede" class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
                             <button type="submit"

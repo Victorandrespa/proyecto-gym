@@ -36,11 +36,9 @@ async function consumirActividades() {
         console.error("error en datos: ", error)
     }
 }
-
 consumirActividades();
 
 //tabla de personal - admin
-
 
 async function consumirPersonalAdmin() {
     try {
@@ -87,11 +85,9 @@ async function consumirPersonalAdmin() {
         console.error("error en datos: ", error)
     }
 }
-
-
 consumirPersonalAdmin();
 
-
+//tabla de Membresias - admin
 
 async function consumirMembresiaAdmin() {
     try {
@@ -134,10 +130,10 @@ async function consumirMembresiaAdmin() {
         console.error("error en datos: ", error)
     }
 }
-
-
 consumirMembresiaAdmin();
 
+
+//tabla de Pagos - admin
 
 async function consumirPagosAdmin() {
     try {
@@ -181,10 +177,10 @@ async function consumirPagosAdmin() {
         console.error("error en datos: ", error)
     }
 }
-
 consumirPagosAdmin();
 
 
+//tabla de Puestos - admin
 
 async function consumirPuestosAdmin() {
     try {
@@ -225,5 +221,87 @@ async function consumirPuestosAdmin() {
         console.error("error en datos: ", error)
     }
 }
-
 consumirPuestosAdmin();
+
+
+
+//tabla de Estados Membresia 
+
+async function consumirEstadosMembresias() {
+    try {
+        const leerDatos = await fetch(URL);
+        const convertir = await leerDatos.json();
+
+        // Buscar la tabla "actividad"
+        const tablaEstadoMembresia = convertir.find(item => item.type === "table" && item.name === "estado_membresia");
+        const estadoMembresia = tablaEstadoMembresia.data;
+
+        if (!tablaEstadoMembresia) {
+            console.error("⚠️ No se encontró la tabla 'personal' en el JSON");
+            return;
+        }
+
+        const printDatos = document.getElementById("verEstadoMembresia");
+
+        estadoMembresia.forEach(element => {
+            const filaRegistro = document.createElement("tr");
+            filaRegistro.innerHTML = `
+                <td>${element.estado_membresia_id}</td>
+                <td>${element.membresia_id}</td>
+                <td>${element.cliente_id}</td>
+                <td>${element.fecha_inicio}</td>
+                <td>${element.fecha_fin}</td>
+                <td>${element.estado}</td>
+            `;
+
+            printDatos.appendChild(filaRegistro);
+
+        });
+    } catch (error) {
+        console.error("error en datos: ", error)
+    }
+}
+consumirEstadosMembresias();
+
+
+
+//tabla de Clientes
+
+async function consumirTablaClientes() {
+    try {
+        const leerDatos = await fetch(URL);
+        const convertir = await leerDatos.json();
+
+        // Buscar la tabla "actividad"
+        const tablaClientes = convertir.find(item => item.type === "table" && item.name === "cliente");
+        const registroClientes = tablaClientes.data;
+
+        if (!tablaClientes) {
+            console.error("⚠️ No se encontró la tabla 'personal' en el JSON");
+            return;
+        }
+
+        const printDatos = document.getElementById("verTablaCliente");
+
+        registroClientes.forEach(element => {
+            const filaRegistro = document.createElement("tr");
+            filaRegistro.innerHTML = `
+                <td>${element.cliente_id}</td>
+                <td>${element.nombre}</td>
+                <td>${element.apellido}</td>
+                <td>${element.edad}</td>
+                <td>${element.telefono}</td>
+                <td>${element.email}</td>
+                <td>${element.contacto_emergencia}</td>
+                <td>${element.telefono_emergencia}</td>
+                <td>${element.fecha_registro}</td>
+            `;
+
+            printDatos.appendChild(filaRegistro);
+
+        });
+    } catch (error) {
+        console.error("error en datos: ", error)
+    }
+}
+consumirTablaClientes();
