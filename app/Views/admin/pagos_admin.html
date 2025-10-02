@@ -12,13 +12,13 @@
         crossorigin="anonymous"></script>
     <script src="../app.js"></script>
 
-    <title>Membresias</title>
+    <title>Pagos</title>
 </head>
 
 <body class="container mt-4">
 
 
-    <h1 class="mt-5">Gestion de Membresias <i class="bi bi-floppy"></i></h1>
+    <h1 class="mt-5">Gestion de Pagos <i class="bi bi-cash-stack"></i></h1>
     <h4 class="mb-5">Admin</h4>
     <!-- <a href="log" class="btn btn-outline-dark">LOG IN <i class="bi bi-people-fill"></i></a>
     <br> -->
@@ -30,7 +30,7 @@
         <a href="admin_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Agregar membresia <i class="bi bi-plus-circle"></i>
+            Realizar un Pago <i class="bi bi-plus-circle"></i>
         </button>
 
     </div>
@@ -40,29 +40,29 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Membresia</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Realizar un Pago</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="agregarEditorial" method="post">
 
-                        <label for="txt_membresia_id" class="form-label">ID: </label>
-                        <input type="text" name="txt_membresia_id" id="txt_membresia_id" class="form-control">
+                        <label for="txt_actividad_id" class="form-label">ID:</label>
+                        <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control">
 
-                        <label for="txt_tipo_plan" class="form-label">Tipo de Plan:</label>
-                        <input type="text" name="txt_tipo_plan" id="txt_tipo_plan" class="form-control">
+                        <label for="txt_personal_id" class="form-label">Cliente ID:</label>
+                        <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control">
 
-                        <label for="txt_precio" class="form-label">Precio:</label>
-                        <input type="number" name="txt_precio" id="txt_precio" class="form-control">
+                        <label for="txt_nombre" class="form-label">Membresia ID:</label>
+                        <input type="text" name="txt_nombre" id="txt_nombre" class="form-control">
 
-                        <label for="txt_duracion_meses" class="form-label">Duracion (meses):</label>
-                        <input type="number" name="txt_duracion_meses" id="txt_duracion_meses" class="form-control">
+                        <label for="txt_modalidad" class="form-label">Fecha de pago:</label>
+                        <input type="date" name="txt_modalidad" id="txt_modalidad" class="form-control">
 
-                        <label for="txt_beneficios" class="form-label">Beneficios:</label>
-                        <input type="text" name="txt_beneficios" id="txt_beneficios" class="form-control">
+                        <label for="txt_nivel" class="form-label">Monto:</label>
+                        <input type="number" name="txt_nivel" id="txt_nivel" class="form-control">
 
-                        <label for="txt_sede    " class="form-label">Sede:</label>
-                        <input type="text" name="txt_sede   " id="txt_sede " class="form-control">
+                        <label for="txt_cupo" class="form-label">Concepto:</label>
+                        <input type="text" name="txt_cupo" id="txt_cupo" class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
                             <button type="submit"
@@ -88,15 +88,16 @@
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
-                    <th>Tipo de plan</th>
-                    <th>Precio</th>
-                    <th>Duracion en meses</th>
-                    <th>Beneficios</th>
-                    <th>sede</th>
+                    <th>Cliente</th>
+                    <th>Membresia</th>
+                    <th>Fecha de pago</th>
+                    <th>Monto</th>
+                    <th>Metodo de pago</th>
+                    <th>Concepto</th>
                     <th class="text-center">Editar</th>
                 </tr>
             </thead>
-            <tbody id="verMembresia-admin">
+            <tbody id="verPagos-admin">
 
             </tbody>
         </table>
