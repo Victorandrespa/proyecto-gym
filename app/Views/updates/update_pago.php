@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-8 offset-2">
                 <h2 class="my-4">Update Pago</h2>
-                <form action="<?= base_url('editar_grado') ?>" method="post">
+                <form action="<?= base_url('editar_pago') ?>" method="post">
 
                     <label for="txt_pago_id" class="form-label">Pago ID:</label>
                     <input type="text" name="txt_pago_id" id="txt_pago_id" class="form-control"

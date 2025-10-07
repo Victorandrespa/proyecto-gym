@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-8 offset-2">
                 <h2 class="my-4">Update Puesto</h2>
-                <form action="<?= base_url('editar_grado') ?>" method="post">
+                <form action="<?= base_url('editar_puesto') ?>" method="post">
 
                     <label for="txt_puesto_id" class="form-label">Puesto ID:</label>
                     <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control"

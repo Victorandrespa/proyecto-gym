@@ -19,27 +19,27 @@
 
                     <label for="txt_estado_membresia_id" class="form-label">Estado Membresia ID:</label>
                     <input type="text" name="txt_estado_membresia_id" id="txt_estado_membresia_id" class="form-control"
-                        value="<?= $datos['pago_id'] ?>" readonly>
+                        value="<?= $datos['estado_membresia_id'] ?>" readonly>
 
                     <label for="txt_membresia_id" class="form-label">Membresia ID:</label>
                     <input type="text" name="txt_membresia_id" id="txt_membresia_id" class="form-control"
-                        value="<?= $datos['cliente_id'] ?>">
+                        value="<?= $datos['membresia_id'] ?>">
 
                     <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
                     <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control"
-                        value="<?= $datos['membresia_id'] ?>">
+                        value="<?= $datos['cliente_id'] ?>">
 
                     <label for="txt_fecha_inicio" class="form-label">Fecha Inicio:</label>
                     <input type="text" name="txt_fecha_inicio" id="txt_fecha_inicio" class="form-control"
-                        value="<?= $datos['fecha_pago'] ?>">
+                        value="<?= $datos['fecha_inicio'] ?>">
 
                     <label for="txt_fecha_fin" class="form-label">Fecha Fin:</label>
                     <input type="text" name="txt_fecha_fin" id="txt_fecha_fin" class="form-control"
-                        value="<?= $datos['monto'] ?>">
+                        value="<?= $datos['fecha_fin'] ?>">
 
                     <label for="txt_estado" class="form-label">Estado:</label>
                     <input type="text" name="txt_estado" id="txt_estado" class="form-control"
-                        value="<?= $datos['concepto'] ?>">
+                        value="<?= $datos['estado'] ?>">
 
 
                     <button type="submit" class="btn btn-outline-dark mt-3 w-100">Guardar</button>
