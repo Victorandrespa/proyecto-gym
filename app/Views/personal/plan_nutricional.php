@@ -37,7 +37,7 @@
     </div>
 
     <!-- Modal -->
-     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -80,30 +80,55 @@
     </div>
 
 
-
-
-
-
     <br><br>
 
-    <!-- Contenido -->
-    <div class="d-flex justify-content-center align-items-center gap-2">
-        <table class="table table-sm table-hover table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Personal </th>
-                    <th>Objetivo</th>
-                    <th>Duracion</th>
-                    <th>Descripcion</th>
-                    <th class="text-center">Editar</th>
-                </tr>
-            </thead>
-            <tbody id="verPlanNutricional_personal">
 
-            </tbody>
-        </table>
-    </div>
+
+    <!-- Tabla de resultados -->
+
+    <table class="table mt-5 table-hover table-bordered">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Personal </th>
+                <th>Objetivo</th>
+                <th>Duracion</th>
+                <th>Descripcion</th>
+                <th class="text-center">Editar</th>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($datos as $registro) {
+                    ?>
+            <td>
+                <?php echo ($registro['plan_id']) ?>
+            </td>
+            <td>
+                <?= $registro['personal_id']; ?>
+            </td>
+            <td>
+                <?= $registro['objetivo']; ?>
+            </td>
+            <td>
+                <?= $registro['duracion']; ?>
+            </td>
+            <td>
+                <?= $registro['descripcion']; ?>
+            </td>
+            
+
+
+            <td class="d-flex justify-content-center gap-2 ">
+                <a href="<?= base_url('update_plan/') . $registro['plan_id']; ?>"
+                    class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                <a href="<?= base_url('eliminar_plan/') . $registro['plan_id']; ?>"
+                    class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+            </td>
+            <?php
+                }
+                ?>
+        </tbody>
+    </table>
 
 
 

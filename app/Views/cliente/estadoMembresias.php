@@ -12,26 +12,34 @@
         crossorigin="anonymous"></script>
     <script src="../app.js"></script>
 
-    <title>Pagos</title>
+    <title>Estado Membresias</title>
 </head>
 
 <body class="container mt-4">
 
 
-    <h1 class="mt-5">Gestion de Pagos <i class="bi bi-cash-stack"></i></h1>
-    <h4 class="mb-5">Admin</h4>
+    <h1 class="mt-5">Estado de Membresias <i class="bi bi-bar-chart"></i></h1>
+    <h4 class="mb-5">Cliente</h4>
     <!-- <a href="log" class="btn btn-outline-dark">LOG IN <i class="bi bi-people-fill"></i></a>
     <br> -->
+
+
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <a href="cliente_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+    </div>
+
+
 
     <!-- Modal para agregar usuario -->
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="admin_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="../home_principal.html" class="btn btn btn-outline-dark">Home Principal<i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Realizar un Pago <i class="bi bi-plus-circle"></i>
+            Realizar un Pago <i class="bi bi-credit-card"></i>
         </button>
+
 
     </div>
 
@@ -78,31 +86,51 @@
     </div>
 
 
-
-
     <br><br>
 
-    <!-- Contenido -->
-    <div class="d-flex justify-content-center align-items-center gap-2">
-        <table class="table table-sm table-hover table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Cliente</th>
-                    <th>Membresia</th>
-                    <th>Fecha de pago</th>
-                    <th>Monto</th>
-                    <th>Metodo de pago</th>
-                    <th>Concepto</th>
-                    <th class="text-center">Editar</th>
-                </tr>
-            </thead>
-            <tbody id="verPagos-admin">
 
-            </tbody>
-        </table>
-    </div>
 
+    <!-- Tabla de resultados -->
+
+    <table class="table mt-5 table-hover table-bordered">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Membresia </th>
+                <th>Cliente </th>
+                <th>Fecha de inicio</th>
+                <th>Fecha Fin</th>
+                <th>Estado</th>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($datos as $registro) {
+                    ?>
+            <tr>
+                 <td>
+                    <?php echo ($registro['estado_membresia_id']) ?>
+                </td>
+                <td>
+                    <?= $registro['membresia_id']; ?>
+                </td>
+                <td>
+                    <?= $registro['cliente_id']; ?>
+                </td>
+                <td>
+                    <?= $registro['fecha_inicio']; ?>
+                </td>
+                <td>
+                    <?= $registro['fecha_fin']; ?>
+                </td>
+                <td>
+                    <?= $registro['estado']; ?>
+                </td>
+            </tr>
+            <?php
+                }
+                ?>
+        </tbody>
+    </table>
 
 
 

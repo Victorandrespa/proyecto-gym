@@ -10,7 +10,7 @@ class ClienteController extends BaseController
         //Crea un objeto 
         $registro = new ClienteModel();
         $datos['datos'] = $registro->findAll();
-        return view('cliente', $datos);
+        return view('admin/clientes_admin.php', $datos);
     }
 
     public function agregarCliente()

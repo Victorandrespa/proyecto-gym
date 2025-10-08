@@ -95,34 +95,75 @@
         </div>
     </div>
 
-
-
-
     <br><br>
 
-    <!-- Contenido -->
-    <div class="d-flex justify-content-center align-items-center gap-2">
-        <table class="table table-sm table-hover table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Puesto</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Telefono</th>
-                    <th>Email</th>
-                    <th>Fecha de Contratacion</th>
-                    <th>Estado</th>
-                    <th>Horario</th>
-                    <th>Sede</th>
-                    <th class="text-center">Editar</th>
-                </tr>
-            </thead>
-            <tbody id="verPersonal-admin">
+   
+    <!-- Tabla de resultados -->
 
-            </tbody>
-        </table>
-    </div>
+    <table class="table mt-5 table-hover table-bordered">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Puesto</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Fecha de Contratacion</th>
+                <th>Estado</th>
+                <th>Horario</th>
+                <th>Sede</th>
+                <th class="text-center">Editar</th>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($datos as $registro) {
+                    ?>
+            <tr>
+                <td>
+                    <?php echo ($registro['personal_id']) ?>
+                </td>
+                <td>
+                    <?= $registro['puesto_id']; ?>
+                </td>
+                <td>
+                    <?= $registro['nombre']; ?>
+                </td>
+                <td>
+                    <?= $registro['apellido']; ?>
+                </td>
+                <td>
+                    <?= $registro['telefono']; ?>
+                </td>
+                <td>
+                    <?= $registro['email']; ?>
+                </td>
+                <td>
+                    <?= $registro['fecha_contratacion']; ?>
+                </td>
+                 <td>
+                    <?= $registro['estado']; ?>
+                </td>
+                <td>
+                    <?= $registro['horario']; ?>
+                </td>
+                 <td>
+                    <?= $registro['sede_principal']; ?>
+                </td>
+
+
+                <td class="d-flex justify-content-center gap-2 ">
+                    <a href="<?= base_url('update_personal/') . $registro['personal_id']; ?>" class="btn btn-outline-dark"><i
+                            class="bi bi-pencil"></i></a>
+                    <a href="<?= base_url('eliminar_personal/') . $registro['personal_id']; ?>"
+                        class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+            <?php
+                }
+                ?>
+        </tbody>
+    </table>
 
 
 

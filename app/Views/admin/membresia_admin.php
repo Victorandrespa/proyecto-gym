@@ -78,31 +78,60 @@
     </div>
 
 
-
-
     <br><br>
 
-    <!-- Contenido -->
-    <div class="d-flex justify-content-center align-items-center gap-2">
-        <table class="table table-sm table-hover table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Tipo de plan</th>
-                    <th>Precio</th>
-                    <th>Duracion en meses</th>
-                    <th>Beneficios</th>
-                    <th>sede</th>
-                    <th class="text-center">Editar</th>
-                </tr>
-            </thead>
-            <tbody id="verMembresia-admin">
+  
 
-            </tbody>
-        </table>
-    </div>
+    <!-- Tabla de resultados -->
 
+    <table class="table mt-5 table-hover table-bordered">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Tipo de plan</th>
+                <th>Precio</th>
+                <th>Duracion en meses</th>
+                <th>Beneficios</th>
+                <th>sede</th>
+                <th class="text-center">Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($datos as $registro) {
+                    ?>
+            <tr>
+                <td>
+                    <?php echo ($registro['membresia_id']) ?>
+                </td>
+                <td>
+                    <?= $registro['tipo_plan']; ?>
+                </td>
+                <td>
+                    <?= $registro['precio']; ?>
+                </td>
+                <td>
+                    <?= $registro['duracion_meses']; ?>
+                </td>
+                <td>
+                    <?= $registro['beneficios']; ?>
+                </td>
+                <td>
+                    <?= $registro['sede']; ?>
+                </td>
 
+                <td class="d-flex justify-content-center gap-2 ">
+                    <a href="<?= base_url('update_membresia/') . $registro['membresia_id']; ?>"
+                        class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                    <a href="<?= base_url('eliminar_membresia/') . $registro['membresia_id']; ?>"
+                        class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+            <?php
+                }
+                ?>
+        </tbody>
+    </table>
 
 
 

@@ -19,7 +19,7 @@
 
 
     <h1 class="mt-5">Base de datos Clientes <i class="bi bi-database"></i></h1>
-    <h4 class="mb-5">Admin</h4>
+    <h4 class="mb-5">Personal</h4>
     <!-- <a href="log" class="btn btn-outline-dark">LOG IN <i class="bi bi-people-fill"></i></a>
     <br> -->
 
@@ -27,7 +27,7 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-         <a href="admin_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="../home_principal.html" class="btn btn btn-outline-dark">Home Principal<i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Agrega un Cliente <i class="bi bi-person-plus"></i>
@@ -45,7 +45,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="agregarCliente" method="post">
+                    <form action="agregarEditorial" method="post">
 
                         <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
                         <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control">
@@ -87,35 +87,64 @@
         </div>
     </div>
 
-
-
-
     <br><br>
 
-    <!-- Contenido -->
-    <div class="d-flex justify-content-center align-items-center gap-2">
-        <table class="table table-sm table-hover table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre </th>
-                    <th>Apellido </th>
-                    <th>Edad </th>
-                    <th>Telefono</th>
-                    <th>Email</th>
-                    <th>Contacto de Emergencia</th>
-                    <th>Telefono de Emergencia</th>
-                    <th>Fecha de Registro</th>
-                    <th class="text-center">Editar</th>                 
-                </tr>
-            </thead>
-            <tbody id="verTablaCliente_admin">
+  
+    <!-- Tabla de resultados -->
 
-            </tbody>
-        </table>
-    </div>
+    <table class="table mt-5 table-hover table-bordered">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Nombre </th>
+                <th>Apellido </th>
+                <th>Edad </th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Contacto de Emergencia</th>
+                <th>Telefono de Emergencia</th>
+                <th>Fecha de Registro</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($datos as $registro) {
+                    ?>
+            <tr>
+                <td>
+                    <?php echo ($registro['cliente_id']) ?>
+                </td>
+                <td>
+                    <?= $registro['nombre']; ?>
+                </td>
+                <td>
+                    <?= $registro['apellido']; ?>
+                </td>
+                <td>
+                    <?= $registro['edad']; ?>
+                </td>
+                <td>
+                    <?= $registro['telefono']; ?>
+                </td>
+                <td>
+                    <?= $registro['email']; ?>
+                </td>
+                <td>
+                    <?= $registro['contacto_emergencia']; ?>
+                </td>
+                <td>
+                    <?= $registro['telefono_emergencia']; ?>
+                </td>
+                 <td>
+                    <?= $registro['fecha_registro']; ?>
+                </td>                
 
-
+            </tr>
+            <?php
+                }
+                ?>
+        </tbody>
+    </table>
 
 
 

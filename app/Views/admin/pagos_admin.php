@@ -12,13 +12,13 @@
         crossorigin="anonymous"></script>
     <script src="../app.js"></script>
 
-    <title>Estado Membresias</title>
+    <title>Pagos</title>
 </head>
 
 <body class="container mt-4">
 
 
-    <h1 class="mt-5">Estado de Membresias <i class="bi bi-bar-chart"></i></h1>
+    <h1 class="mt-5">Gestion de Pagos <i class="bi bi-cash-stack"></i></h1>
     <h4 class="mb-5">Admin</h4>
     <!-- <a href="log" class="btn btn-outline-dark">LOG IN <i class="bi bi-people-fill"></i></a>
     <br> -->
@@ -27,17 +27,16 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-         <a href="admin_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="admin_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Realizar un Pago <i class="bi bi-credit-card"></i>
+            Realizar un Pago <i class="bi bi-plus-circle"></i>
         </button>
-
 
     </div>
 
     <!-- Modal -->
-     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -83,25 +82,62 @@
 
     <br><br>
 
-    <!-- Contenido -->
-    <div class="d-flex justify-content-center align-items-center gap-2">
-        <table class="table table-sm table-hover table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Membresia </th>
-                    <th>Cliente </th>
-                    <th>Fecha de inicio</th>
-                    <th>Fecha Fin</th>
-                    <th>Estado</th>
-                    <th class="text-center">Editar</th>
-                </tr>
-            </thead>
-            <tbody id="verEstadoMembresia-admin">
 
-            </tbody>
-        </table>
-    </div>
+
+    <!-- Tabla de resultados -->
+
+    <table class="table mt-5 table-hover table-bordered">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Membresia</th>
+                <th>Fecha de pago</th>
+                <th>Monto</th>
+                <th>Metodo de pago</th>
+                <th>Concepto</th>
+                <th class="text-center">Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($datos as $registro) {
+                    ?>
+            <tr>
+                <td>
+                    <?php echo ($registro['pago_id']) ?>
+                </td>
+                <td>
+                    <?= $registro['cliente_id']; ?>
+                </td>
+                <td>
+                    <?= $registro['membresia_id']; ?>
+                </td>
+                <td>
+                    <?= $registro['fecha_pago']; ?>
+                </td>
+                <td>
+                    <?= $registro['monto']; ?>
+                </td>
+                <td>
+                    <?= $registro['metodo_pago']; ?>
+                </td>
+                 <td>
+                    <?= $registro['concepto']; ?>
+                </td>
+
+                <td class="d-flex justify-content-center gap-2 ">
+                    <a href="<?= base_url('update_pago/') . $registro['pago_id']; ?>"
+                        class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                    <a href="<?= base_url('eliminar_pago/') . $registro['pago_id']; ?>"
+                        class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+            <?php
+                }
+                ?>
+        </tbody>
+    </table>
 
 
 
