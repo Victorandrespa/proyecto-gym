@@ -43,7 +43,7 @@ class PlanNutricionController extends BaseController
     {
         $registro= new PlanNutricionModel();
         $datos['datos']= $registro->where(['plan_id' => $id])->first();
-        return view('update_plan_nutricional', $datos);
+        return view('update_plan_nutricion', $datos);
     }
     public function editar($id)
     {

@@ -10,7 +10,6 @@ class PlanNutricionModel extends Model
     protected $primaryKey = 'plan_id';
     protected $allowedFields = [
         'plan_id', 
-        'cliente_id', 
         'personal_id', 
         'objetivo', 
         'duracion', 
