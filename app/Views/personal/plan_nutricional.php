@@ -119,9 +119,9 @@
 
 
             <td class="d-flex justify-content-center gap-2 ">
-                <a href="<?= base_url('update_plan/') . $registro['plan_id']; ?>"
+                <a href="<?= base_url('update_plan_nutricion/') . $registro['plan_id']; ?>"
                     class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                <a href="<?= base_url('eliminar_plan/') . $registro['plan_id']; ?>"
+                <a href="<?= base_url('eliminar_plan_nutricion/') . $registro['plan_id']; ?>"
                     class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
             </td>
             <?php

@@ -10,7 +10,7 @@ class MembresiaController extends BaseController
         //Crea un objeto 
         $registro = new MembresiaModel();
         $datos['datos'] = $registro->findAll();
-        return view('membresia', $datos);
+        return view('admin/membresia_admin.php', $datos);
     }
 
     public function agregarMembresia()

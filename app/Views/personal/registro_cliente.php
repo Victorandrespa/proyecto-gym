@@ -45,7 +45,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="agregarEditorial" method="post">
+                    <form action="agregarCliente" method="post">
 
                         <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
                         <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control">

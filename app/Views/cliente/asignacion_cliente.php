@@ -31,56 +31,60 @@
     <br><br>
 
 
+
     <!-- Tabla de resultados -->
 
     <table class="table mt-5 table-hover table-bordered">
         <thead class="table-dark text-center">
             <tr>
-                <th>Activiadad</th>
-                <th>Personal</th>
-                <th>Clase</th>
-                <th>Modalidad</th>
-                <th>Nivel</th>
-                <th>Cupo</th>
-                <th class="text-center">Asignacion</th>
+                <th>ID</th>
+                <th>Nombre </th>
+                <th>Apellido </th>
+                <th>Edad </th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Contacto de Emergencia</th>
+                <th>Telefono de Emergencia</th>
+                <th>Fecha de Registro</th>
+            </tr>
         </thead>
         <tbody>
             <?php
-                foreach ($datos as $registro) {
-                    ?>
-            <tr>
-                <td>
-                    <?php echo ($registro['actividad_id']) ?>
-                </td>
-                <td>
-                    <?= $registro['personal_id']; ?>
-                </td>
-                <td>
-                    <?= $registro['nombre']; ?>
-                </td>
-                <td>
-                    <?= $registro['modalidad']; ?>
-                </td>
-                <td>
-                    <?= $registro['nivel']; ?>
-                </td>
-                <td>
-                    <?= $registro['cupo_maximo']; ?>
-                </td>
-                
+            foreach ($datos as $registro) {
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ($registro['cliente_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['nombre']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['apellido']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['edad']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['telefono']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['email']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['contacto_emergencia']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['telefono_emergencia']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha_registro']; ?>
+                    </td>
 
-
-
-                <td class="d-flex justify-content-center gap-2 ">
-                    <a href="<?= base_url('update_actividad/') . $registro['actividad_id']; ?>"
-                        class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                    <a href="<?= base_url('eliminar_actividad/') . $registro['actividad_id']; ?>"
-                        class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-                </td>
-            </tr>
+                </tr>
             <?php
-                }
-                ?>
+            }
+            ?>
         </tbody>
     </table>
 

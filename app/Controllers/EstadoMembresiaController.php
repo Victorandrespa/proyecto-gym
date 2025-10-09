@@ -10,7 +10,7 @@ class EstadoMembresiaController extends BaseController
         //Crea un objeto 
         $registro = new EstadoMembresiaModel();
         $datos['datos'] = $registro->findAll();
-        return view('admin/estado_membresia_admin', $datos);
+        return view('admin/estado_membresia_admin.php', $datos);
     }
 
     public function agregarEstadoMembresia()

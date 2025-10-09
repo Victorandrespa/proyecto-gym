@@ -10,7 +10,7 @@ class AsignacionController extends BaseController
         //Crea un objeto 
         $registro = new AsignacionModel();
         $datos['datos'] = $registro->findAll();
-        return view('asignacion', $datos);
+        return view('cliente/asignacion_cliente.php', $datos);
     }
 
     public function agregarAsignacion()

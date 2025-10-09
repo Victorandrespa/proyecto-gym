@@ -10,8 +10,21 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/', 'Home::index');
 
-$routes->get('verClientes', 'ClienteController::index');
+$routes->get('verCliente', 'ClienteController::index');
 $routes->get('verEstadoMembresia', 'EstadoMembresiaController::index');
+$routes->get('verMembresia', 'MembresiaController::index');
+$routes->get('verPago', 'PagoController::index');
+$routes->get('verAsignaicion', 'AsignacionController::index');
+$routes->get('verPlanNutricion', 'PlanNutricionController::index');
+$routes->get('verHistorialMedicion', 'HistorialMedicionController::index');
+
+$routes->get('verActividad', 'ActividadController::index');
+$routes->get('verActividad_personal', 'ActividadController::index');
+
+
+
+$routes->get('verPersonal', 'PersonalController::index');
+$routes->get('verPuesto', 'PuestoController::index');
 
 
 
@@ -72,13 +85,16 @@ $routes->get('update_actividad/(:segment)', 'ActividadController::buscar/$1');
 $routes->post('agregarActividad', 'ActividadController::agregarActividad');
 $routes->post('editar_actividad', 'ActividadController::editar/$1');
 
+
+
+
 //Plan Nutricional
 
-$routes->get('eliminar_plan/(:segment)', 'PlanNutricionController::eliminar/$1');
-$routes->get('update_plan/(:segment)', 'PlanNutricionController::buscar/$1');
+$routes->get('eliminar_plan_nutricion/(:segment)', 'PlanNutricionController::eliminar/$1');
+$routes->get('update_plan_nutricion/(:segment)', 'PlanNutricionController::buscar/$1');
 
-$routes->post('agregarPlan', 'PlanNutricionController::agregarPlan');
-$routes->post('editar_plan', 'PlanNutricionController::editar/$1');
+$routes->post('agregarPlanNutricion', 'PlanNutricionController::agregarPlan');
+$routes->post('editar_plan_nutricion', 'PlanNutricionController::editar/$1');
 
 //Historial Medicion
 

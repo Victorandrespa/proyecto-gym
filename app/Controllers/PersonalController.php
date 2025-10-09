@@ -10,7 +10,7 @@ class PersonalController extends BaseController
         //Crea un objeto 
         $registro = new PersonalModel();
         $datos['datos'] = $registro->findAll();
-        return view('personal', $datos);
+        return view('admin/personal_admin.php', $datos);
     }
 
     public function agregarPersonal()

@@ -10,7 +10,7 @@ class PuestoController extends BaseController
         //Crea un objeto 
         $registro = new PuestoModel();
         $datos['datos'] = $registro->findAll();
-        return view('puesto', $datos);
+        return view('admin/puesto_admin.php', $datos);
     }
 
     public function agregarPuesto()

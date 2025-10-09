@@ -10,7 +10,7 @@ class HistorialMedicionController extends BaseController
         //Crea un objeto 
         $registro = new HistorialMedicionModel();
         $datos['datos'] = $registro->findAll();
-        return view('historial_medicion', $datos);
+        return view('personal/historial_medicion.php', $datos);
     }
 
     public function agregarHistorialMedicion()

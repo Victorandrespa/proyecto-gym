@@ -10,8 +10,9 @@ class ActividadController extends BaseController
         //Crea un objeto 
         $registro = new ActividadModel();
         $datos['datos'] = $registro->findAll();
-        return view('actividad', $datos);
+        return view('personal/actividades_personal.php', $datos);
     }
+
 
     public function agregarActividad()
     {
@@ -38,7 +39,7 @@ class ActividadController extends BaseController
 
         session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
 
-        return redirect()->to(base_url('verActividad'));
+        return redirect()->to(base_url('verActividad_personal'));
     }
     public function buscar($id)
     {

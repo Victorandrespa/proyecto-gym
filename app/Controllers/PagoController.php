@@ -10,7 +10,7 @@ class PagoController extends BaseController
         //Crea un objeto 
         $registro = new PagoModel();
         $datos['datos'] = $registro->findAll();
-        return view('pago', $datos);
+        return view('admin/pagos_admin.php', $datos);
     }
 
     public function agregarPago()

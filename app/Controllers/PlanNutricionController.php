@@ -10,7 +10,7 @@ class PlanNutricionController extends BaseController
         //Crea un objeto 
         $registro = new PlanNutricionModel();
         $datos['datos'] = $registro->findAll();
-        return view('plan_nutricional', $datos);
+        return view('personal/plan_nutricional.php', $datos);
     }
 
     public function agregarPlanNutricional()

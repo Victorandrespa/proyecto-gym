@@ -39,7 +39,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="agregarHistorial" method="post">
+                    <form action="agregarMedicion" method="post">
 
                         <label for="txt_medicion_id" class="form-label">Medicion ID</label>
                         <input type="text" name="txt_medicion_id" id="txt_medicion_id" class="form-control">

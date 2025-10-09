@@ -121,9 +121,9 @@
                 </td>
 
                 <td class="d-flex justify-content-center gap-2 ">
-                    <a href="<?= base_url('update_estado/') . $registro['estado_membresia_id']; ?>"
+                    <a href="<?= base_url('update_estado_membresia/') . $registro['estado_membresia_id']; ?>"
                         class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                    <a href="<?= base_url('eliminar_estado/') . $registro['estado_membresia_id']; ?>"
+                    <a href="<?= base_url('eliminar_estado_membresia/') . $registro['estado_membresia_id']; ?>"
                         class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
                 </td>
             </tr>
