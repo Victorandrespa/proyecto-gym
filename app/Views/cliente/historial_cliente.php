@@ -22,7 +22,7 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="cliente_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="verClienteHome" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
 
     </div>
 
@@ -48,36 +48,38 @@
         <tbody>
             <?php
             foreach ($datos as $registro) {
-                ?>
-                <td>
-                    <?php echo ($registro['medicion_id']) ?>
-                </td>
-                <td>
-                    <?= $registro['plan_id']; ?>
-                </td>
-                <td>
-                    <?= $registro['cliente_id']; ?>
-                </td>
-                <td>
-                    <?= $registro['fecha_medicion']; ?>
-                </td>
-                <td>
-                    <?= $registro['peso']; ?>
-                </td>
-                <td>
-                    <?= $registro['altura']; ?>
-                </td>
-                <td>
-                    <?= $registro['indice_masaCorporal']; ?>
-                </td>
-                <td>
-                    <?= $registro['promedio_calorias']; ?>
-                </td>
-                <td>
-                    <?= $registro['observaciones']; ?>
-                </td>
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ($registro['medicion_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['plan_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['cliente_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha_medicion']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['peso']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['altura']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['indice_masaCorporal']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['promedio_calorias']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['observaciones']; ?>
+                    </td>
+                </tr>
 
-                <?php
+            <?php
             }
             ?>
         </tbody>

@@ -22,11 +22,17 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="personal_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="verPersonalHome" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Agregar Historial <i class="bi bi-folder2-open"></i>
-        </button>
+
+        <div class="d-flex flex-column align-items-right">
+            <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Agregar Historial <i class="bi bi-folder2-open"></i>
+            </button>
+
+            <a href="verPlanNutricionPersonal" class="btn btn btn-outline-dark">Planes Nutricionales <i class="bi bi-clipboard-heart"></i></a>
+        </div>
+
 
     </div>
 
@@ -86,6 +92,7 @@
     <br><br>
 
 
+
     <!-- Tabla de resultados -->
 
     <table class="table mt-5 table-hover table-bordered">
@@ -104,46 +111,48 @@
         </thead>
         <tbody>
             <?php
-                foreach ($datos as $registro) {
-                    ?>
-            <td>
-                <?php echo ($registro['medicion_id']) ?>
-            </td>
-            <td>
-                <?= $registro['plan_id']; ?>
-            </td>
-            <td>
-                <?= $registro['cliente_id']; ?>
-            </td>
-            <td>
-                <?= $registro['fecha_medicion']; ?>
-            </td>
-            <td>
-                <?= $registro['peso']; ?>
-            </td>
-            <td>
-                <?= $registro['altura']; ?>
-            </td>
-            <td>
-                <?= $registro['indice_masaCorporal']; ?>
-            </td>
-            <td>
-                <?= $registro['promedio_calorias']; ?>
-            </td>
-            <td>
-                <?= $registro['observaciones']; ?>
-            </td>
+            foreach ($datos as $registro) {
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ($registro['medicion_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['plan_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['cliente_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha_medicion']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['peso']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['altura']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['indice_masaCorporal']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['promedio_calorias']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['observaciones']; ?>
+                    </td>
 
 
-            <td class="d-flex justify-content-center gap-2 ">
-                <a href="<?= base_url('update_medicion/') . $registro['medicion_id']; ?>"
-                    class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                <a href="<?= base_url('eliminar_medicion/') . $registro['medicion_id']; ?>"
-                    class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-            </td>
+                    <td class="d-flex justify-content-center gap-2 ">
+                        <a href="<?= base_url('update_medicion/') . $registro['medicion_id']; ?>"
+                            class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                        <a href="<?= base_url('eliminar_medicion/') . $registro['medicion_id']; ?>"
+                            class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
             <?php
-                }
-                ?>
+            }
+            ?>
         </tbody>
     </table>
 

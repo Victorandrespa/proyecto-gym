@@ -5,12 +5,20 @@ use App\Models\ClienteModel;
 
 class ClienteController extends BaseController
 {
-    public function index(): string
+    public function index_admin(): string
     {
         //Crea un objeto 
         $registro = new ClienteModel();
         $datos['datos'] = $registro->findAll();
         return view('admin/clientes_admin.php', $datos);
+    }
+
+     public function index_personal(): string
+    {
+        //Crea un objeto 
+        $registro = new ClienteModel();
+        $datos['datos'] = $registro->findAll();
+        return view('personal/registro_cliente.php', $datos);
     }
 
     public function agregarCliente()
@@ -30,7 +38,7 @@ class ClienteController extends BaseController
          
         ];
         $registro->insert($datos);
-        return $this->index();
+        return $this->index_personal();
     }
     public function eliminar($id)
     {
@@ -40,7 +48,7 @@ class ClienteController extends BaseController
 
         session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
 
-        return redirect()->to(base_url('verCliente'));
+        return redirect()->to(base_url('verClienteAdmin'));
     }
     public function buscar($id)
     {
@@ -64,7 +72,7 @@ class ClienteController extends BaseController
         //print_r($datos);
         $registro= new ClienteModel();
         $registro->update($datos['cliente_id'],$datos);
-        return $this->index();
+        return $this->index_admin();
     }
 
 }

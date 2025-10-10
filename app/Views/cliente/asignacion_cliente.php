@@ -24,7 +24,7 @@
 
 
     <div class="d-flex flex-row justify-content-between align-items-center">
-        <a href="cliente_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="verClienteHome" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
     </div>
 
 
@@ -38,14 +38,13 @@
         <thead class="table-dark text-center">
             <tr>
                 <th>ID</th>
-                <th>Nombre </th>
-                <th>Apellido </th>
-                <th>Edad </th>
-                <th>Telefono</th>
-                <th>Email</th>
-                <th>Contacto de Emergencia</th>
-                <th>Telefono de Emergencia</th>
-                <th>Fecha de Registro</th>
+                <th>Clinete </th>
+                <th>Actividad </th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Estado</th>
+                <th>Fecha Reservacion</th>
+                <th class="text-center">Asignacion</th>
             </tr>
         </thead>
         <tbody>
@@ -54,31 +53,29 @@
             ?>
                 <tr>
                     <td>
-                        <?php echo ($registro['cliente_id']) ?>
+                        <?php echo ($registro['asignacion_id']) ?>
                     </td>
                     <td>
-                        <?= $registro['nombre']; ?>
+                        <?= $registro['cliente_id']; ?>
                     </td>
                     <td>
-                        <?= $registro['apellido']; ?>
+                        <?= $registro['actividad_id']; ?>
                     </td>
                     <td>
-                        <?= $registro['edad']; ?>
+                        <?= $registro['fecha']; ?>
                     </td>
                     <td>
-                        <?= $registro['telefono']; ?>
+                        <?= $registro['hora']; ?>
                     </td>
                     <td>
-                        <?= $registro['email']; ?>
+                        <?= $registro['estado']; ?>
                     </td>
                     <td>
-                        <?= $registro['contacto_emergencia']; ?>
+                        <?= $registro['fecha_reservacion']; ?>
                     </td>
-                    <td>
-                        <?= $registro['telefono_emergencia']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['fecha_registro']; ?>
+                    <td class="d-flex justify-content-center gap-2 ">
+                        <a href="<?= base_url('update_asignacion/') . $registro['actividad_id']; ?>"
+                            class="btn btn-outline-dark"><i class="bi bi-pin-angle"></i></a>                        
                     </td>
 
                 </tr>

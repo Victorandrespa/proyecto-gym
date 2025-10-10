@@ -24,9 +24,7 @@
     <br> -->
 
 
-    <div class="d-flex flex-row justify-content-between align-items-center">
-        <a href="cliente_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
-    </div>
+
 
 
 
@@ -34,7 +32,7 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="../home_principal.html" class="btn btn btn-outline-dark">Home Principal<i class="bi bi-house"></i></a>
+        <a href="verHome" class="btn btn btn-outline-dark">Home Principal<i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Realizar un Pago <i class="bi bi-credit-card"></i>

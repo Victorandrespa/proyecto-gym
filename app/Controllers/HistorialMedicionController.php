@@ -5,7 +5,15 @@ use App\Models\HistorialMedicionModel;
 
 class HistorialMedicionController extends BaseController
 {
-    public function index(): string
+    public function index_cliente(): string
+    {
+        //Crea un objeto 
+        $registro = new HistorialMedicionModel();
+        $datos['datos'] = $registro->findAll();
+        return view('cliente/historial_cliente.php', $datos);
+    }
+
+    public function index_personal(): string
     {
         //Crea un objeto 
         $registro = new HistorialMedicionModel();
@@ -30,7 +38,7 @@ class HistorialMedicionController extends BaseController
 
         ];
         $registro->insert($datos);
-        return $this->index();
+        return $this->index_personal();
     }
     public function eliminar($id)
     {
@@ -63,7 +71,7 @@ class HistorialMedicionController extends BaseController
         //print_r($datos);
         $registro= new HistorialMedicionModel();
         $registro->update($datos['medicion_id'],$datos);
-        return $this->index();
+        return $this->index_personal();
     }
 
 }

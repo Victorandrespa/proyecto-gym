@@ -27,8 +27,12 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="personal_home.html" class="btn btn btn-outline-dark">Home Principal<i class="bi bi-house"></i></a>
-        <!-- Button trigger modal -->
+
+        <div class="d-flex flex-column align-items-left">
+            <a href="verPersonalHome" class="btn btn btn-outline-dark mb-1">Home Principal<i class="bi bi-house"></i></a>
+            <a href="verHistorialMedicionPersonal" class="btn btn btn-outline-dark">Regresar Historial <i class="bi bi-arrow-return-left"></i></a>
+        </div>
+
         <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Agrega Plan Nutricional <i class="bi bi-clipboard2-check"></i>
         </button>
@@ -98,35 +102,37 @@
         </thead>
         <tbody>
             <?php
-                foreach ($datos as $registro) {
-                    ?>
-            <td>
-                <?php echo ($registro['plan_id']) ?>
-            </td>
-            <td>
-                <?= $registro['personal_id']; ?>
-            </td>
-            <td>
-                <?= $registro['objetivo']; ?>
-            </td>
-            <td>
-                <?= $registro['duracion']; ?>
-            </td>
-            <td>
-                <?= $registro['descripcion']; ?>
-            </td>
-            
+            foreach ($datos as $registro) {
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ($registro['plan_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['personal_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['objetivo']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['duracion']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['descripcion']; ?>
+                    </td>
 
 
-            <td class="d-flex justify-content-center gap-2 ">
-                <a href="<?= base_url('update_plan_nutricion/') . $registro['plan_id']; ?>"
-                    class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                <a href="<?= base_url('eliminar_plan_nutricion/') . $registro['plan_id']; ?>"
-                    class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-            </td>
+
+                    <td class="d-flex justify-content-center gap-2 ">
+                        <a href="<?= base_url('update_plan_nutricion/') . $registro['plan_id']; ?>"
+                            class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                        <a href="<?= base_url('eliminar_plan_nutricion/') . $registro['plan_id']; ?>"
+                            class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
             <?php
-                }
-                ?>
+            }
+            ?>
         </tbody>
     </table>
 

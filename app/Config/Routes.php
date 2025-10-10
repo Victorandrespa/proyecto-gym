@@ -6,25 +6,37 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-/* Vistas */
 
+
+//Vistas Navegacion
 $routes->get('/', 'Home::index');
-
-$routes->get('verCliente', 'ClienteController::index');
-$routes->get('verEstadoMembresia', 'EstadoMembresiaController::index');
-$routes->get('verMembresia', 'MembresiaController::index');
-$routes->get('verPago', 'PagoController::index');
-$routes->get('verAsignaicion', 'AsignacionController::index');
-$routes->get('verPlanNutricion', 'PlanNutricionController::index');
-$routes->get('verHistorialMedicion', 'HistorialMedicionController::index');
-
-$routes->get('verActividad', 'ActividadController::index');
-$routes->get('verActividad_personal', 'ActividadController::index');
+$routes->get('verHome', 'Home::index');
+$routes->get('verAdminHome', 'Home::admin_view');
+$routes->get('verClienteHome', 'Home::cliente_view');
+$routes->get('verPersonalHome', 'Home::personal_view');
 
 
 
-$routes->get('verPersonal', 'PersonalController::index');
-$routes->get('verPuesto', 'PuestoController::index');
+
+//Vistas administrador
+$routes->get('verClienteAdmin', 'ClienteController::index_admin');
+$routes->get('verEstadoMembresiaAdmin', 'EstadoMembresiaController::index_admin');
+$routes->get('verMembresiaAdmin', 'MembresiaController::index');
+$routes->get('verPagoAdmin', 'PagoController::index');
+$routes->get('verPersonalAdmin', 'PersonalController::index');
+$routes->get('verPuestoAdmin', 'PuestoController::index');
+
+
+//Vistas Cliente
+$routes->get('verAsignacionCliente', 'AsignacionController::index');
+$routes->get('verEstadoMembresiaCliente', 'EstadoMembresiaController::index_cliente');
+$routes->get('verHistorialMedicionCliente', 'HistorialMedicionController::index_cliente');
+
+//Vistas Personal
+$routes->get('verActividadPersonal', 'ActividadController::index');
+$routes->get('verHistorialMedicionPersonal', 'HistorialMedicionController::index_personal');
+$routes->get('verPlanNutricionPersonal', 'PlanNutricionController::index');
+$routes->get('verClientePersonal', 'ClienteController::index_personal');
 
 
 

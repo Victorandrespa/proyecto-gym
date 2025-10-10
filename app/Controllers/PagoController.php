@@ -28,7 +28,7 @@ class PagoController extends BaseController
 
         ];
         $registro->insert($datos);
-        return $this->index();
+        return redirect()->to(base_url('verEstadoMembresiaCliente'));
     }
     public function eliminar($id)
     {
@@ -38,7 +38,7 @@ class PagoController extends BaseController
 
         session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
 
-        return redirect()->to(base_url('verPago'));
+        return redirect()->to(base_url('verPagoAdmin'));
     }
     public function buscar($id)
     {

@@ -19,7 +19,7 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="../home_principal.html" class="btn btn btn-outline-dark">Menu Principal <i class="bi bi-house"></i></a>
+        <a href="verHome" class="btn btn btn-outline-dark">Menu Principal <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
 
     </div>
@@ -27,11 +27,11 @@
     <div class="d-flex justify-content-around mt-3">
 
         <div class="d-grid gap-2 mt-5" style="width: 50%;">
-            <a href="asignacion_cliente.html" class="btn btn-outline-dark fs-4">Asignarme actividades <i
+            <a href="verAsignacionCliente" class="btn btn-outline-dark fs-4">Asignarme actividades <i
                     class="bi bi-flag"></i></a>
-            <a href="historial_cliente.html" class="btn btn-outline-dark fs-4">Historial de Medicion <i
+            <a href="verHistorialMedicionCliente" class="btn btn-outline-dark fs-4">Historial de Medicion <i
                     class="bi bi-clipboard-check"></i></a>
-            <a href="estadoMembresias.html" class="btn btn-outline-dark fs-4">Estado membresia <i
+            <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4">Estado membresia <i
                     class="bi bi-file-person"></i></a>
             <button type="button" class="btn btn-outline-dark fs-4" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">

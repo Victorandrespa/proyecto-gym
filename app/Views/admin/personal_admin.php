@@ -27,7 +27,7 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="admin_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="verAdminHome" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
 
         <!-- Button trigger modal -->
         <div class="d-flex flex-column align-items-right">
@@ -36,7 +36,7 @@
                 Agregar Personal <i class="bi bi-person-plus"></i>
             </button>
 
-            <a href="puesto_admin.html" class="btn btn btn-outline-dark">Ir a puestos <i
+            <a href="verPuestoAdmin" class="btn btn btn-outline-dark">Ir a puestos <i
                     class="bi bi-person-gear"></i></a>
         </div>
 

@@ -18,7 +18,7 @@
 
          <div class="d-flex flex-row justify-content-between align-items-center">
 
-            <a href="../home_principal.html" class="btn btn btn-outline-dark">Menu Principal <i class="bi bi-house"></i></a>
+            <a href="verHome" class="btn btn btn-outline-dark">Menu Principal <i class="bi bi-house"></i></a>
             <!-- Button trigger modal -->
 
         </div>
@@ -26,11 +26,11 @@
         <div class="d-flex justify-content-around mt-3">
 
             <div class="d-grid gap-2 mt-5" style="width: 50%;">          
-                <a href="personal_admin.html" class="btn btn-outline-dark fs-4">Gestion de Personal <i class="bi bi-person"></i></a>
-                <a href="membresia_admin.html" class="btn btn-outline-dark fs-4">Gestion de Membresias <i class="bi bi-file-bar-graph"></i></a>
-                <a href="pagos_admin.html" class="btn btn-outline-dark fs-4">Administrador de Pagos <i class="bi bi-credit-card"></i></a>
-                <a href="estado_membresia_admin.html" class="btn btn-outline-dark fs-4">Estado de Membresias <i class="bi bi-bar-chart"></i></a>
-                <a href="clientes_admin.html" class="btn btn-outline-dark fs-4">Base de datos Clientes <i class="bi bi-database"></i></a>                
+                <a href="verPersonalAdmin" class="btn btn-outline-dark fs-4">Gestion de Personal <i class="bi bi-person"></i></a>
+                <a href="verMembresiaAdmin" class="btn btn-outline-dark fs-4">Gestion de Membresias <i class="bi bi-file-bar-graph"></i></a>
+                <a href="verPagoAdmin" class="btn btn-outline-dark fs-4">Administrador de Pagos <i class="bi bi-credit-card"></i></a>
+                <a href="verEstadoMembresiaAdmin" class="btn btn-outline-dark fs-4">Estado de Membresias <i class="bi bi-bar-chart"></i></a>
+                <a href="verClienteAdmin" class="btn btn-outline-dark fs-4">Base de datos Clientes <i class="bi bi-database"></i></a>                
                 
             </div>
 

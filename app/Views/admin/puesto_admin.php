@@ -28,8 +28,8 @@
     <div class="d-flex flex-row justify-content-between align-items-center">
 
         <div class="d-flex flex-column justify-content-between align-items-left">
-            <a href="admin_home.html" class="btn btn btn-outline-dark my-1">Home <i class="bi bi-house"></i></a>
-            <a href="personal_admin.html" class="btn btn btn-outline-dark">Gestion de Personal <i
+            <a href="verAdminHome" class="btn btn btn-outline-dark my-1">Home <i class="bi bi-house"></i></a>
+            <a href="verPersonalAdmin" class="btn btn btn-outline-dark">Gestion de Personal <i
                     class="bi bi-person-rolodex"></i></a>
         </div>
         <!-- Button trigger modal -->

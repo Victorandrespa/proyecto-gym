@@ -26,9 +26,9 @@
         <div class="d-flex justify-content-around align-items-center mt-3">
 
             <div class="d-grid gap-2 mt-5" style="width: 50%;">          
-                <a href="admin/admin_home.html" class="btn btn-outline-dark fs-4">Administrador - Gerente <i class="bi bi-key"></i></a>
-                <a href="personal/personal_home.html" class="btn btn-outline-dark fs-4">Administrador - Personal <i class="bi bi-building"></i></a>
-                <a href="cliente/cliente_home.html" class="btn btn-outline-dark fs-4">Cliente App <i class="bi bi-person-badge"></i></a>
+                <a href="verAdminHome" class="btn btn-outline-dark fs-4">Administrador - Gerente <i class="bi bi-key"></i></a>
+                <a href="verPersonalHome" class="btn btn-outline-dark fs-4">Administrador - Personal <i class="bi bi-building"></i></a>
+                <a href="verClienteHome" class="btn btn-outline-dark fs-4">Cliente App <i class="bi bi-person-badge"></i></a>
                 
             </div>
 
