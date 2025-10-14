@@ -39,13 +39,13 @@ class ActividadController extends BaseController
 
         session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
 
-        return redirect()->to(base_url('verActividad_personal'));
+        return redirect()->to(base_url('verActividadPersonal'));
     }
     public function buscar($id)
     {
         $registro= new ActividadModel();
         $datos['datos']= $registro->where(['actividad_id' => $id])->first();
-        return view('update_actividad', $datos);
+        return view('updates/update_actividad.php', $datos);
     }
     public function editar($id)
     {

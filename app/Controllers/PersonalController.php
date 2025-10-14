@@ -42,7 +42,7 @@ class PersonalController extends BaseController
 
         session()->setFlashdata('mensaje', 'Registro: ' . $id . ' eliminado exitosamente.');
 
-        return redirect()->to(base_url('verPersonal'));
+        return redirect()->to(base_url('verPersonalAdmin'));
     }
     public function buscar($id)
     {

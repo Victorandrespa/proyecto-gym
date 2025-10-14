@@ -35,13 +35,13 @@ class PuestoController extends BaseController
 
         session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
 
-        return redirect()->to(base_url('verPuesto'));
+        return redirect()->to(base_url('verPuestoAdmin'));
     }
     public function buscar($id)
     {
         $registro= new PuestoModel();
         $datos['datos']= $registro->where(['puesto_id' => $id])->first();
-        return view('update_puesto', $datos);
+        return view('updates/update_puesto.php', $datos);
     }
     public function editar($id)
     {

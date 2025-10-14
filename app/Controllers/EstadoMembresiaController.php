@@ -47,13 +47,13 @@ class EstadoMembresiaController extends BaseController
 
         session()->setFlashdata('mensaje', 'Registro: ' . $id . ' eliminado exitosamente.');
 
-        return redirect()->to(base_url('verEstadoMembresia'));
+        return redirect()->to(base_url('verEstadoMembresiaAdmin'));
     }
     public function buscar($id)
     {
         $registro = new EstadoMembresiaModel();
         $datos['datos'] = $registro->where(['estado_membresia_id' => $id])->first();
-        return view('update_estado_membresia', $datos);
+        return view('updates/update_estado_membresia.php', $datos);
     }
     public function editar($id)
     {

@@ -39,13 +39,13 @@ class AsignacionController extends BaseController
 
         session()->setFlashdata('mensaje', 'Registro: ' . $id . ' eliminado exitosamente.');
 
-        return redirect()->to(base_url('verAsignacion'));
+        return redirect()->to(base_url('verAsignacionCliente'));
     }
     public function buscar($id)
     {
         $registro = new AsignacionModel();
         $datos['datos'] = $registro->where(['asignacion_id' => $id])->first();
-        return view('update_asignacion', $datos);
+        return view('updates/update_asignacion.php', $datos);
     }
     public function editar($id)
     {

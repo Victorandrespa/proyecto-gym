@@ -54,7 +54,7 @@ class ClienteController extends BaseController
     {
         $registro= new ClienteModel();
         $datos['datos']= $registro->where(['cliente_id' => $id])->first();
-        return view('update_cliente', $datos);
+        return view('updates/update_cliente.php', $datos);
     }
     public function editar($id)
     {

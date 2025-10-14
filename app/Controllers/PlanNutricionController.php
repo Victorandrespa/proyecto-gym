@@ -37,13 +37,13 @@ class PlanNutricionController extends BaseController
 
         session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
 
-        return redirect()->to(base_url('verPlanNutricion'));
+        return redirect()->to(base_url('verPlanNutricionPersonal'));
     }
     public function buscar($id)
     {
         $registro= new PlanNutricionModel();
         $datos['datos']= $registro->where(['plan_id' => $id])->first();
-        return view('update_plan_nutricion', $datos);
+        return view('updates/update_plan_nutricion.php', $datos);
     }
     public function editar($id)
     {

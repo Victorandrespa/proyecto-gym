@@ -48,13 +48,13 @@ class HistorialMedicionController extends BaseController
 
         session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
 
-        return redirect()->to(base_url('verHistorialMedicion'));
+        return redirect()->to(base_url('verHistorialMedicionPersonal'));
     }
     public function buscar($id)
     {
         $registro= new HistorialMedicionModel();
         $datos['datos']= $registro->where(['medicion_id' => $id])->first();
-        return view('update_historial_medicion', $datos);
+        return view('updates/update_historial_medicion.php', $datos);
     }
     public function editar($id)
     {

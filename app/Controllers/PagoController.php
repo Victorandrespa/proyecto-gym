@@ -44,7 +44,7 @@ class PagoController extends BaseController
     {
         $registro= new PagoModel();
         $datos['datos']= $registro->where(['pago_id' => $id])->first();
-        return view('update_pago', $datos);
+        return view('updates/update_pago.php', $datos);
     }
     public function editar($id)
     {
