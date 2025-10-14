@@ -50,6 +50,7 @@ class ActividadController extends BaseController
     public function editar($id)
     {
         $datos= [
+            'actividad_id' => $this->request->getPost('txt_actividad_id'),
             'personal_id' => $this->request->getPost('txt_personal_id'),
             'nombre' => $this->request->getPost('txt_nombre'),
             'modalidad' => $this->request->getPost('txt_modalidad'),

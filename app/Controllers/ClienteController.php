@@ -59,6 +59,7 @@ class ClienteController extends BaseController
     public function editar($id)
     {
         $datos= [
+            'cliente_id' => $this->request->getPost('txt_cliente_id'),
             'nombre' => $this->request->getPost('txt_nombre'),
             'apellido' => $this->request->getPost('txt_apellido'),
             'edad' => $this->request->getPost('txt_edad'),

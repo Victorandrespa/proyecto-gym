@@ -59,6 +59,7 @@ class HistorialMedicionController extends BaseController
     public function editar($id)
     {
         $datos= [
+            'medicion_id' => $this->request->getPost('txt_medicion_id'),
             'plan_id' => $this->request->getPost('txt_plan_id'),
             'cliente_id' => $this->request->getPost('txt_cliente_id'),
             'fecha_medicion' => $this->request->getPost('txt_fecha_medicion'),

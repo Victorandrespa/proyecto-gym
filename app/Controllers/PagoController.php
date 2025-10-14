@@ -49,6 +49,7 @@ class PagoController extends BaseController
     public function editar($id)
     {
         $datos= [
+            'pago_id' => $this->request->getPost('txt_pago_id'),
             'cliente_id' => $this->request->getPost('txt_cliente_id'),
             'membresia_id' => $this->request->getPost('txt_membresia_id'),
             'fecha_pago' => $this->request->getPost('txt_fecha_pago'),

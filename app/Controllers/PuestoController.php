@@ -46,6 +46,7 @@ class PuestoController extends BaseController
     public function editar($id)
     {
         $datos= [
+            'puesto_id' => $this->request->getPost('txt_puesto_id'),
             'rol' => $this->request->getPost('txt_rol'),
             'departamento' => $this->request->getPost('txt_departamento'),
             'descripcion' => $this->request->getPost('txt_descripcion'),           

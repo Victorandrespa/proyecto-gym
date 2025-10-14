@@ -48,6 +48,7 @@ class MembresiaController extends BaseController
     public function editar($id)
     {
         $datos= [
+            'membresia_id' => $this->request->getPost('txt_membresia_id'),
             'tipo_plan' => $this->request->getPost('txt_tipo_plan'),
             'nombre' => $this->request->getPost('txt_precio'),
             'duracion_meses' => $this->request->getPost('txt_durecion_meses'),

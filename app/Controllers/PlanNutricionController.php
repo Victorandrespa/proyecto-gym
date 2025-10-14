@@ -48,6 +48,7 @@ class PlanNutricionController extends BaseController
     public function editar($id)
     {
         $datos= [
+            'plan_id' => $this->request->getPost('txt_plan_id'),
             'cliente_id' => $this->request->getPost('txt_cliente_id'),
             'personal_id' => $this->request->getPost('txt_personal_id'),
             'objetivo' => $this->request->getPost('txt_objetivo'),
