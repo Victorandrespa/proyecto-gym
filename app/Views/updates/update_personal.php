@@ -17,9 +17,13 @@
                 <h2 class="my-4">Update Personal</h2>
                 <form action="<?= base_url('editar_personal') ?>" method="post">
 
+                    <label for="txt_personal_id" class="form-label">Personal ID:</label>
+                    <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control"
+                        value="<?= $datos['personal_id'] ?>" readonly>
+
                     <label for="txt_puesto_id" class="form-label">Puesto ID:</label>
                     <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control"
-                        value="<?= $datos['puesto_id'] ?>" readonly>
+                        value="<?= $datos['puesto_id'] ?>" >
 
                     <label for="txt_nombre" class="form-label">Nombre:</label>
                     <input type="text" name="txt_nombre" id="txt_nombre" class="form-control"
@@ -49,9 +53,9 @@
                     <input type="text" name="txt_horario" id="txt_horario" class="form-control"
                         value="<?= $datos['horario'] ?>">
 
-                     <label for="txt_sede" class="form-label">Sede principal:</label>
+                    <label for="txt_sede" class="form-label">Sede principal:</label>
                     <input type="text" name="txt_sede" id="txt_sede" class="form-control"
-                        value="<?= $datos['sede'] ?>">
+                        value="<?= $datos['sede_principal'] ?>">
 
                     <button type="submit" class="btn btn-outline-dark mt-3 w-100">Guardar</button>
 

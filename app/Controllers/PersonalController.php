@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\PersonalModel;
 
 class PersonalController extends BaseController
@@ -39,19 +40,20 @@ class PersonalController extends BaseController
         $registro = new PersonalModel();
         $registro->delete($id);
 
-        session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
+        session()->setFlashdata('mensaje', 'Registro: ' . $id . ' eliminado exitosamente.');
 
         return redirect()->to(base_url('verPersonal'));
     }
     public function buscar($id)
     {
-        $registro= new PersonalModel();
-        $datos['datos']= $registro->where(['personal_id' => $id])->first();
-        return view('update_personal', $datos);
+        $registro = new PersonalModel();
+        $datos['datos'] = $registro->where(['personal_id' => $id])->first();
+        return view('updates/update_personal.php', $datos);
     }
     public function editar($id)
     {
-        $datos= [
+        $datos = [
+            'personal_id' => $this->request->getPost('txt_personal_id'),
             'puesto_id' => $this->request->getPost('txt_puesto_id'),
             'nombre' => $this->request->getPost('txt_nombre'),
             'apellido' => $this->request->getPost('txt_apellido'),
@@ -60,12 +62,11 @@ class PersonalController extends BaseController
             'fecha_contratacion' => $this->request->getPost('txt_fecha_contratacion'),
             'estado' => $this->request->getPost('txt_estado'),
             'horario' => $this->request->getPost('txt_horario'),
-            'sede_principal' => $this->request->getPost('txt_sede'),      
+            'sede_principal' => $this->request->getPost('txt_sede'),
         ];
         //print_r($datos);
-        $registro= new PersonalModel();
-        $registro->update($datos['personal_id'],$datos);
+        $registro = new PersonalModel();
+        $registro->update($datos['personal_id'], $datos);
         return $this->index();
     }
-
 }
