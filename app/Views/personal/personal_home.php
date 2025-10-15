@@ -87,6 +87,9 @@
                         <label for="txt_nivel" class="form-label">Monto:</label>
                         <input type="number" name="txt_nivel" id="txt_nivel" class="form-control">
 
+                        <label for="txt_metodo_pago" class="form-label">Metodo de Pago:</label>
+                        <input type="text" name="txt_metodo_pago" id="txt_metodo_pago" class="form-control">
+
                         <label for="txt_cupo" class="form-label">Concepto:</label>
                         <input type="text" name="txt_cupo" id="txt_cupo" class="form-control">
 

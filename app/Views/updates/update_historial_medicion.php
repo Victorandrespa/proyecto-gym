@@ -30,23 +30,23 @@
                         value="<?= $datos['cliente_id'] ?>">
 
                     <label for="txt_fecha_medicion" class="form-label">Fecha Medicion:</label>
-                    <input type="text" name="txt_fecha_medicion" id="txt_fecha_medicion" class="form-control"
+                    <input type="date" name="txt_fecha_medicion" id="txt_fecha_medicion" class="form-control"
                         value="<?= $datos['fecha_medicion'] ?>">
 
                     <label for="txt_peso" class="form-label">Peso:</label>
-                    <input type="text" name="txt_peso" id="txt_peso" class="form-control"
+                    <input type="number" name="txt_peso" id="txt_peso" class="form-control"
                         value="<?= $datos['peso'] ?>">
 
                     <label for="txt_altura" class="form-label">Altura:</label>
-                    <input type="text" name="txt_altura" id="txt_altura" class="form-control"
+                    <input type="number" name="txt_altura" id="txt_altura" class="form-control"
                         value="<?= $datos['altura'] ?>">
 
                     <label for="txt_indice_masaCorporal" class="form-label">Indice Masa Corporal:</label>
-                    <input type="text" name="txt_indice_masaCorporal" id="txt_indice_masaCorporal" class="form-control"
+                    <input type="number" name="txt_indice_masaCorporal" id="txt_indice_masaCorporal" class="form-control"
                         value="<?= $datos['indice_masaCorporal'] ?>">
 
                     <label for="txt_promedio_calorias" class="form-label">Promedio Calorias:</label>
-                    <input type="text" name="txt_promedio_calorias" id="txt_promedio_calorias" class="form-control"
+                    <input type="number" name="txt_promedio_calorias" id="txt_promedio_calorias" class="form-control"
                         value="<?= $datos['promedio_calorias'] ?>">
 
                     <label for="txt_observaciones" class="form-label">Observaciones:</label>

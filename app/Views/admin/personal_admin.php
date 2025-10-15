@@ -54,6 +54,9 @@
                 <div class="modal-body">
                     <form action="agregarPersonal" method="post">
 
+                        <label for="txt_personal_id" class="form-label">Personal ID:</label>
+                        <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control">
+
                         <label for="txt_puesto_id" class="form-label">Puesto ID:</label>
                         <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control">
 
@@ -97,7 +100,7 @@
 
     <br><br>
 
-   
+
     <!-- Tabla de resultados -->
 
     <table class="table mt-5 table-hover table-bordered">
@@ -117,51 +120,51 @@
         </thead>
         <tbody>
             <?php
-                foreach ($datos as $registro) {
-                    ?>
-            <tr>
-                <td>
-                    <?php echo ($registro['personal_id']) ?>
-                </td>
-                <td>
-                    <?= $registro['puesto_id']; ?>
-                </td>
-                <td>
-                    <?= $registro['nombre']; ?>
-                </td>
-                <td>
-                    <?= $registro['apellido']; ?>
-                </td>
-                <td>
-                    <?= $registro['telefono']; ?>
-                </td>
-                <td>
-                    <?= $registro['email']; ?>
-                </td>
-                <td>
-                    <?= $registro['fecha_contratacion']; ?>
-                </td>
-                 <td>
-                    <?= $registro['estado']; ?>
-                </td>
-                <td>
-                    <?= $registro['horario']; ?>
-                </td>
-                 <td>
-                    <?= $registro['sede_principal']; ?>
-                </td>
+            foreach ($datos as $registro) {
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ($registro['personal_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['puesto_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['nombre']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['apellido']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['telefono']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['email']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha_contratacion']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['estado']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['horario']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['sede_principal']; ?>
+                    </td>
 
 
-                <td class="d-flex justify-content-center gap-2 ">
-                    <a href="<?= base_url('update_personal/') . $registro['personal_id']; ?>" class="btn btn-outline-dark"><i
-                            class="bi bi-pencil"></i></a>
-                    <a href="<?= base_url('eliminar_personal/') . $registro['personal_id']; ?>"
-                        class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-                </td>
-            </tr>
+                    <td class="d-flex justify-content-center gap-2 ">
+                        <a href="<?= base_url('update_personal/') . $registro['personal_id']; ?>" class="btn btn-outline-dark"><i
+                                class="bi bi-pencil"></i></a>
+                        <a href="<?= base_url('eliminar_personal/') . $registro['personal_id']; ?>"
+                            class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
             <?php
-                }
-                ?>
+            }
+            ?>
         </tbody>
     </table>
 

@@ -113,7 +113,7 @@ $routes->post('editar_plan_nutricion', 'PlanNutricionController::editar/$1');
 $routes->get('eliminar_medicion/(:segment)', 'HistorialMedicionController::eliminar/$1');
 $routes->get('update_medicion/(:segment)', 'HistorialMedicionController::buscar/$1');
 
-$routes->post('agregarMedicion', 'HistorialMedicionController::agregarMedicion');
+$routes->post('agregarMedicion', 'HistorialMedicionController::agregarHistorialMedicion');
 $routes->post('editar_medicion', 'HistorialMedicionController::editar/$1');
 
 //Asignacion

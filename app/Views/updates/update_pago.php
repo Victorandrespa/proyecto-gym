@@ -37,6 +37,10 @@
                     <input type="text" name="txt_monto" id="txt_monto" class="form-control"
                         value="<?= $datos['monto'] ?>">
 
+                    <label for="txt_metodo_pago" class="form-label">Metodo de pago:</label>
+                    <input type="text" name="txt_metodo_pago" id="txt_metodo_pago" class="form-control"
+                        value="<?= $datos['monto'] ?>">
+
                     <label for="txt_concepto" class="form-label">Concepto:</label>
                     <input type="text" name="txt_concepto" id="txt_concepto" class="form-control"
                         value="<?= $datos['concepto'] ?>">

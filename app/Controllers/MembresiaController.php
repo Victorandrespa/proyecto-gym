@@ -20,8 +20,8 @@ class MembresiaController extends BaseController
         $datos = [
             'membresia_id' => $this->request->getPost('txt_membresia_id'),
             'tipo_plan' => $this->request->getPost('txt_tipo_plan'),
-            'nombre' => $this->request->getPost('txt_precio'),
-            'duracion_meses' => $this->request->getPost('txt_durecion_meses'),
+            'precio' => $this->request->getPost('txt_precio'),
+            'duracion_meses' => $this->request->getPost('txt_duracion_meses'),
             'beneficios' => $this->request->getPost('txt_beneficios'),
             'sede' => $this->request->getPost('txt_sede'),
 
@@ -50,8 +50,8 @@ class MembresiaController extends BaseController
         $datos= [
             'membresia_id' => $this->request->getPost('txt_membresia_id'),
             'tipo_plan' => $this->request->getPost('txt_tipo_plan'),
-            'nombre' => $this->request->getPost('txt_precio'),
-            'duracion_meses' => $this->request->getPost('txt_durecion_meses'),
+            'precio' => $this->request->getPost('txt_precio'),
+            'duracion_meses' => $this->request->getPost('txt_duracion_meses'),
             'beneficios' => $this->request->getPost('txt_beneficios'),
             'sede' => $this->request->getPost('txt_sede'),
 

@@ -39,7 +39,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="agregarActiviadad" method="post">
+                    <form action="agregarActividad" method="post">
 
                         <label for="txt_actividad_id" class="form-label">Actividad ID</label>
                         <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control">

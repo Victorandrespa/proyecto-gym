@@ -62,6 +62,9 @@
                         <label for="txt_monto" class="form-label">Monto:</label>
                         <input type="number" name="txt_monto" id="txt_monto" class="form-control">
 
+                        <label for="txt_metodo_pago" class="form-label">Metodo de Pago:</label>
+                        <input type="text" name="txt_metodo_pago" id="txt_metodo_pago" class="form-control">
+
                         <label for="txt_concepto" class="form-label">Concepto:</label>
                         <input type="text" name="txt_concepto" id="txt_concepto" class="form-control">
 
@@ -98,38 +101,38 @@
         </thead>
         <tbody>
             <?php
-                foreach ($datos as $registro) {
-                    ?>
-            <tr>
-                <td>
-                    <?php echo ($registro['estado_membresia_id']) ?>
-                </td>
-                <td>
-                    <?= $registro['membresia_id']; ?>
-                </td>
-                <td>
-                    <?= $registro['cliente_id']; ?>
-                </td>
-                <td>
-                    <?= $registro['fecha_inicio']; ?>
-                </td>
-                <td>
-                    <?= $registro['fecha_fin']; ?>
-                </td>
-                <td>
-                    <?= $registro['estado']; ?>
-                </td>
+            foreach ($datos as $registro) {
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ($registro['estado_membresia_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['membresia_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['cliente_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha_inicio']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha_fin']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['estado']; ?>
+                    </td>
 
-                <td class="d-flex justify-content-center gap-2 ">
-                    <a href="<?= base_url('update_estado_membresia/') . $registro['estado_membresia_id']; ?>"
-                        class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                    <a href="<?= base_url('eliminar_estado_membresia/') . $registro['estado_membresia_id']; ?>"
-                        class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-                </td>
-            </tr>
+                    <td class="d-flex justify-content-center gap-2 ">
+                        <a href="<?= base_url('update_estado_membresia/') . $registro['estado_membresia_id']; ?>"
+                            class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                        <a href="<?= base_url('eliminar_estado_membresia/') . $registro['estado_membresia_id']; ?>"
+                            class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
             <?php
-                }
-                ?>
+            }
+            ?>
         </tbody>
     </table>
 

@@ -67,6 +67,9 @@
                         <label for="txt_monto" class="form-label">Monto:</label>
                         <input type="number" name="txt_monto" id="txt_monto" class="form-control">
 
+                        <label for="txt_metodo_pago" class="form-label">Metodo de Pago:</label>
+                        <input type="text" name="txt_metodo_pago" id="txt_metodo_pago" class="form-control">
+
                         <label for="txt_concepto" class="form-label">Concepto:</label>
                         <input type="text" name="txt_concepto" id="txt_concepto" class="form-control">
 

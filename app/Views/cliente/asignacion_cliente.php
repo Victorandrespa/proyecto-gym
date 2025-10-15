@@ -74,7 +74,7 @@
                         <?= $registro['fecha_reservacion']; ?>
                     </td>
                     <td class="d-flex justify-content-center gap-2 ">
-                        <a href="<?= base_url('update_asignacion/') . $registro['actividad_id']; ?>"
+                        <a href="<?= base_url('update_asignacion/') . $registro['asignacion_id']; ?>"
                             class="btn btn-outline-dark"><i class="bi bi-pin-angle"></i></a>                        
                     </td>
 

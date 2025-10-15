@@ -30,11 +30,11 @@
                         value="<?= $datos['actividad_id'] ?>">
 
                     <label for="txt_fecha" class="form-label">Fecha:</label>
-                    <input type="text" name="txt_fecha" id="txt_fecha" class="form-control"
+                    <input type="date" name="txt_fecha" id="txt_fecha" class="form-control"
                         value="<?= $datos['fecha'] ?>">
 
                     <label for="txt_hora" class="form-label">Hora:</label>
-                    <input type="text" name="txt_hora" id="txt_hora" class="form-control"
+                    <input type="number" name="txt_hora" id="txt_hora" class="form-control"
                         value="<?= $datos['hora'] ?>">
 
                     <label for="txt_estado" class="form-label">Estado:</label>
@@ -42,7 +42,7 @@
                         value="<?= $datos['estado'] ?>">
 
                     <label for="txt_fecha_reservacion" class="form-label">Fecha Reservacion:</label>
-                    <input type="text" name="txt_fecha_reservacion" id="txt_fecha_reservacion" class="form-control"
+                    <input type="date" name="txt_fecha_reservacion" id="txt_fecha_reservacion" class="form-control"
                         value="<?= $datos['fecha_reservacion'] ?>">
 
 
