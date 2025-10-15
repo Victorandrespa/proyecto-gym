@@ -18,7 +18,7 @@
                 <form action="<?= base_url('editar_medicion') ?>" method="post">
 
                     <label for="txt_medicion_id" class="form-label">Medicion ID:</label>
-                    <input type="text" name="txt_medicionn_id" id="txt_medicion_id" class="form-control"
+                    <input type="text" name="txt_medicion_id" id="txt_medicion_id" class="form-control"
                         value="<?= $datos['medicion_id'] ?>" readonly>
 
                     <label for="txt_plan_id" class="form-label">Plan ID:</label>
