@@ -21,10 +21,6 @@
                     <input type="text" name="txt_plan_id" id="txt_plan_id" class="form-control"
                         value="<?= $datos['plan_id'] ?>" readonly>
 
-                    <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
-                    <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control"
-                        value="<?= $datos['cliente_id'] ?>">
-
                     <label for="txt_personal_id" class="form-label">Personal ID:</label>
                     <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control"
                         value="<?= $datos['personal_id'] ?>">
