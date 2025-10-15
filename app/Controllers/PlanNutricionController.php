@@ -19,7 +19,6 @@ class PlanNutricionController extends BaseController
         $registro = new PlanNutricionModel();
         $datos = [
             'plan_id' => $this->request->getPost('txt_plan_id'),
-            'cliente_id' => $this->request->getPost('txt_cliente_id'),
             'personal_id' => $this->request->getPost('txt_personal_id'),
             'objetivo' => $this->request->getPost('txt_objetivo'),
             'duracion' => $this->request->getPost('txt_duracion'),
@@ -49,7 +48,6 @@ class PlanNutricionController extends BaseController
     {
         $datos= [
             'plan_id' => $this->request->getPost('txt_plan_id'),
-            'cliente_id' => $this->request->getPost('txt_cliente_id'),
             'personal_id' => $this->request->getPost('txt_personal_id'),
             'objetivo' => $this->request->getPost('txt_objetivo'),
             'duracion' => $this->request->getPost('txt_duracion'),

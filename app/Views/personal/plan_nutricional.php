@@ -54,9 +54,6 @@
                         <label for="txt_plan_id" class="form-label">Plan ID:</label>
                         <input type="text" name="txt_plan_id" id="txt_plan_id" class="form-control">
 
-                        <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
-                        <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control">
-
                         <label for="txt_personal_id" class="form-label">Personal ID:</label>
                         <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control">
 

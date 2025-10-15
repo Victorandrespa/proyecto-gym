@@ -21,8 +21,8 @@
                     <input type="text" name="txt_asignacion_id" id="txt_asignacion_id" class="form-control"
                         value="<?= $datos['asignacion_id'] ?>" readonly>
 
-                    <label for="txt_cliente" class="form-label">Cliente:</label>
-                    <input type="text" name="txt_cliente" id="txt_cliente" class="form-control"
+                    <label for="txt_cliente_id" class="form-label">Cliente:</label>
+                    <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control"
                         value="<?= $datos['cliente_id'] ?>">
 
                     <label for="txt_actividad_id" class="form-label">Actividad ID:</label>
