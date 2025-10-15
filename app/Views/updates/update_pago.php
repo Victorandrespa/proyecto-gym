@@ -30,16 +30,16 @@
                         value="<?= $datos['membresia_id'] ?>">
 
                     <label for="txt_fecha_pago" class="form-label">Fecha de pago:</label>
-                    <input type="text" name="txt_fecha_pago" id="txt_fecha_pago" class="form-control"
+                    <input type="date" name="txt_fecha_pago" id="txt_fecha_pago" class="form-control"
                         value="<?= $datos['fecha_pago'] ?>">
 
                     <label for="txt_monto" class="form-label">Monto:</label>
-                    <input type="text" name="txt_monto" id="txt_monto" class="form-control"
+                    <input type="number" name="txt_monto" id="txt_monto" class="form-control"
                         value="<?= $datos['monto'] ?>">
 
                     <label for="txt_metodo_pago" class="form-label">Metodo de pago:</label>
                     <input type="text" name="txt_metodo_pago" id="txt_metodo_pago" class="form-control"
-                        value="<?= $datos['monto'] ?>">
+                        value="<?= $datos['metodo_pago'] ?>">
 
                     <label for="txt_concepto" class="form-label">Concepto:</label>
                     <input type="text" name="txt_concepto" id="txt_concepto" class="form-control"

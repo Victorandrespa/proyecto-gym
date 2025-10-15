@@ -26,11 +26,11 @@
                         value="<?= $datos['tipo_plan'] ?>">
 
                     <label for="txt_precio" class="form-label">Precio:</label>
-                    <input type="text" name="txt_precio" id="txt_precio" class="form-control"
+                    <input type="number" name="txt_precio" id="txt_precio" class="form-control"
                         value="<?= $datos['precio'] ?>">
 
                     <label for="txt_duracion_meses" class="form-label">Duracion (meses):</label>
-                    <input type="text" name="txt_duracion_meses" id="txt_duracion_meses" class="form-control"
+                    <input type="number" name="txt_duracion_meses" id="txt_duracion_meses" class="form-control"
                         value="<?= $datos['duracion_meses'] ?>">
 
                     <label for="txt_beneficios" class="form-label">Beneficios:</label>

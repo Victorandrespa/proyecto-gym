@@ -30,11 +30,11 @@
                         value="<?= $datos['cliente_id'] ?>">
 
                     <label for="txt_fecha_inicio" class="form-label">Fecha Inicio:</label>
-                    <input type="text" name="txt_fecha_inicio" id="txt_fecha_inicio" class="form-control"
+                    <input type="date" name="txt_fecha_inicio" id="txt_fecha_inicio" class="form-control"
                         value="<?= $datos['fecha_inicio'] ?>">
 
                     <label for="txt_fecha_fin" class="form-label">Fecha Fin:</label>
-                    <input type="text" name="txt_fecha_fin" id="txt_fecha_fin" class="form-control"
+                    <input type="date" name="txt_fecha_fin" id="txt_fecha_fin" class="form-control"
                         value="<?= $datos['fecha_fin'] ?>">
 
                     <label for="txt_estado" class="form-label">Estado:</label>

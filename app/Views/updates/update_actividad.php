@@ -38,7 +38,7 @@
                         value="<?= $datos['nivel'] ?>">
 
                     <label for="txt_cupo" class="form-label">Cupo Maximo:</label>
-                    <input type="text" name="txt_cupo" id="txt_cupo" class="form-control"
+                    <input type="number" name="txt_cupo" id="txt_cupo" class="form-control"
                         value="<?= $datos['cupo_maximo'] ?>">
 
 

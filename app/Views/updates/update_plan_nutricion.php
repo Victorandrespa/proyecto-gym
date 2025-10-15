@@ -34,7 +34,7 @@
                         value="<?= $datos['objetivo'] ?>">
 
                     <label for="txt_duracion" class="form-label">Duracion:</label>
-                    <input type="text" name="txt_duracion" id="txt_duracion" class="form-control"
+                    <input type="number" name="txt_duracion" id="txt_duracion" class="form-control"
                         value="<?= $datos['duracion'] ?>">
 
                     <label for="txt_descripcion" class="form-label">Descripcion:</label>
