@@ -105,7 +105,7 @@ $routes->post('editar_actividad', 'ActividadController::editar/$1');
 $routes->get('eliminar_plan_nutricion/(:segment)', 'PlanNutricionController::eliminar/$1');
 $routes->get('update_plan_nutricion/(:segment)', 'PlanNutricionController::buscar/$1');
 
-$routes->post('agregarPlanNutricion', 'PlanNutricionController::agregarPlan');
+$routes->post('agregarPlanNutricion', 'PlanNutricionController::agregarPlanNutricion');
 $routes->post('editar_plan_nutricion', 'PlanNutricionController::editar/$1');
 
 //Historial Medicion
