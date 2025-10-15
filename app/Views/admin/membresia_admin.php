@@ -27,7 +27,7 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="admin_home.html" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="verAdminHome" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Agregar membresia <i class="bi bi-plus-circle"></i>
@@ -44,9 +44,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="agregarEditorial" method="post">
+                    <form action="agregarMembresia" method="post">
 
-                        <label for="txt_membresia_id" class="form-label">ID: </label>
+                        <label for="txt_membresia_id" class="form-label">Membresia ID: </label>
                         <input type="text" name="txt_membresia_id" id="txt_membresia_id" class="form-control">
 
                         <label for="txt_tipo_plan" class="form-label">Tipo de Plan:</label>
@@ -61,8 +61,8 @@
                         <label for="txt_beneficios" class="form-label">Beneficios:</label>
                         <input type="text" name="txt_beneficios" id="txt_beneficios" class="form-control">
 
-                        <label for="txt_sede    " class="form-label">Sede:</label>
-                        <input type="text" name="txt_sede   " id="txt_sede " class="form-control">
+                        <label for="txt_sede" class="form-label">Sede:</label>
+                        <input type="text" name="txt_sede" id="txt_sede" class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
                             <button type="submit"
@@ -78,31 +78,60 @@
     </div>
 
 
-
-
     <br><br>
 
-    <!-- Contenido -->
-    <div class="d-flex justify-content-center align-items-center gap-2">
-        <table class="table table-sm table-hover table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Tipo de plan</th>
-                    <th>Precio</th>
-                    <th>Duracion en meses</th>
-                    <th>Beneficios</th>
-                    <th>sede</th>
-                    <th class="text-center">Editar</th>
-                </tr>
-            </thead>
-            <tbody id="verMembresia-admin">
+  
 
-            </tbody>
-        </table>
-    </div>
+    <!-- Tabla de resultados -->
 
+    <table class="table mt-5 table-hover table-bordered">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Tipo de plan</th>
+                <th>Precio</th>
+                <th>Duracion en meses</th>
+                <th>Beneficios</th>
+                <th>sede</th>
+                <th class="text-center">Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach ($datos as $registro) {
+                    ?>
+            <tr>
+                <td>
+                    <?php echo ($registro['membresia_id']) ?>
+                </td>
+                <td>
+                    <?= $registro['tipo_plan']; ?>
+                </td>
+                <td>
+                    <?= $registro['precio']; ?>
+                </td>
+                <td>
+                    <?= $registro['duracion_meses']; ?>
+                </td>
+                <td>
+                    <?= $registro['beneficios']; ?>
+                </td>
+                <td>
+                    <?= $registro['sede']; ?>
+                </td>
 
+                <td class="d-flex justify-content-center gap-2 ">
+                    <a href="<?= base_url('update_membresia/') . $registro['membresia_id']; ?>"
+                        class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                    <a href="<?= base_url('eliminar_membresia/') . $registro['membresia_id']; ?>"
+                        class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+            <?php
+                }
+                ?>
+        </tbody>
+    </table>
 
 
 

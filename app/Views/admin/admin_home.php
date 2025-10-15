@@ -6,18 +6,19 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <title>Cliente</title>
+    <title>Gerencia</title>
 </head>
 <body class="container mt-4">
 
 
- <h1 class="mt-5">Cliente App</h1>
- <h5 class="mb-4">Bienvenido</h5>
-
+ <h1 class="mt-5">Administrador <i class="bi bi-key"></i></h1>
+ <h4 class="mb-4">Gerencia</h4>
+<!-- <a href="log" class="btn btn-outline-dark">LOG IN  <i class="bi bi-people-fill"></i></a>
+        <br> -->
 
          <div class="d-flex flex-row justify-content-between align-items-center">
 
-            <a href=" " class="btn btn btn-outline-dark">Menu Principal <i class="bi bi-house"></i></a>
+            <a href="verHome" class="btn btn btn-outline-dark">Menu Principal <i class="bi bi-house"></i></a>
             <!-- Button trigger modal -->
 
         </div>
@@ -25,18 +26,15 @@
         <div class="d-flex justify-content-around mt-3">
 
             <div class="d-grid gap-2 mt-5" style="width: 50%;">          
-                <a href="verAutores" class="btn btn-outline-dark fs-4">Asignarme actividades <i class="bi bi-flag"></i></a>
-                <a href="verEditoriales" class="btn btn-outline-dark fs-4">Ver mi Plan Nutricional <i class="bi bi-clipboard-check"></i></a>
-                <a href="verEmpleados" class="btn btn-outline-dark fs-4">Estado membresia <i class="bi bi-file-person"></i></a>
-                <a href="verEmpleados" class="btn btn-outline-dark fs-4">Pago de membresia <i class="bi bi-credit-card"></i></a>
+                <a href="verPersonalAdmin" class="btn btn-outline-dark fs-4">Gestion de Personal <i class="bi bi-person"></i></a>
+                <a href="verMembresiaAdmin" class="btn btn-outline-dark fs-4">Gestion de Membresias <i class="bi bi-file-bar-graph"></i></a>
+                <a href="verPagoAdmin" class="btn btn-outline-dark fs-4">Administrador de Pagos <i class="bi bi-credit-card"></i></a>
+                <a href="verEstadoMembresiaAdmin" class="btn btn-outline-dark fs-4">Estado de Membresias <i class="bi bi-bar-chart"></i></a>
+                <a href="verClienteAdmin" class="btn btn-outline-dark fs-4">Base de datos Clientes <i class="bi bi-database"></i></a>                
                 
             </div>
 
         </div>
-
-
-
-        
 
 
 
