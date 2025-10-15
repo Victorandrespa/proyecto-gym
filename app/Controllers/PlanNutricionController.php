@@ -13,7 +13,7 @@ class PlanNutricionController extends BaseController
         return view('personal/plan_nutricional.php', $datos);
     }
 
-    public function agregarPlanNutricional()
+    public function agregarPlanNutricion()
     {
         //crear un objeto de tipo empleado model
         $registro = new PlanNutricionModel();

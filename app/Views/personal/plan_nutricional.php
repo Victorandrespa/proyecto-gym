@@ -66,7 +66,6 @@
                         <label for="txt_descripcion" class="form-label">Descripcion:</label>
                         <input type="text" name="txt_descripcion" id="txt_descripcion" class="form-control">
 
-
                         <div class="d-flex justify-content-center mt-3">
                             <button type="submit"
                                 class="btn btn-outline-dark mt-2 justify-content-center">Guardar</button>
