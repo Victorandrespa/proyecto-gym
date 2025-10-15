@@ -34,15 +34,15 @@
                         value="<?= $datos['apellido'] ?>">
 
                     <label for="txt_telefono" class="form-label">Telefono:</label>
-                    <input type="text" name="txt_telefono" id="txt_telefono" class="form-control"
+                    <input type="number" name="txt_telefono" id="txt_telefono" class="form-control"
                         value="<?= $datos['telefono'] ?>">
 
                     <label for="txt_email" class="form-label">Email:</label>
-                    <input type="text" name="txt_email" id="txt_email" class="form-control"
+                    <input type="email" name="txt_email" id="txt_email" class="form-control"
                         value="<?= $datos['email'] ?>">
 
                     <label for="txt_fecha_contratacion" class="form-label">Fecha Contratacion:</label>
-                    <input type="text" name="txt_fecha_contratacion" id="txt_fecha_contratacion" class="form-control"
+                    <input type="date" name="txt_fecha_contratacion" id="txt_fecha_contratacion" class="form-control"
                         value="<?= $datos['fecha_contratacion'] ?>">
 
                     <label for="txt_estado" class="form-label">Estado:</label>
@@ -50,7 +50,7 @@
                         value="<?= $datos['estado'] ?>">
 
                     <label for="txt_horario" class="form-label">Horario:</label>
-                    <input type="text" name="txt_horario" id="txt_horario" class="form-control"
+                    <input type="number" name="txt_horario" id="txt_horario" class="form-control"
                         value="<?= $datos['horario'] ?>">
 
                     <label for="txt_sede" class="form-label">Sede principal:</label>
