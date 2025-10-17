@@ -20,7 +20,7 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href=" " class="btn btn btn-outline-dark">Menu Principal <i class="bi bi-house"></i></a>
+        <a href="verHome" class="btn btn btn-outline-dark">Menu Principal <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
 
     </div>
@@ -28,7 +28,7 @@
     <div class="d-flex justify-content-around mt-3">
 
         <div class="d-grid gap-2 mt-5" style="width: 50%;">
-            <a href="actividades_entrenador.html" class="btn btn-outline-dark fs-4">Gestionar Actividades <i
+            <a href="verActividadPersonal" class="btn btn-outline-dark fs-4">Gestionar Actividades <i
                     class="bi bi-flag"></i></a>
 
             <!-- Button trigger modal -->
@@ -37,7 +37,7 @@
                 Registro de Clientes <i class="bi bi-person"></i>
             </button>
 
-            <a href="registro_cliente.html" class="btn btn-outline-dark fs-4">Base de datos Clientes <i
+            <a href="verClientePersonal" class="btn btn-outline-dark fs-4">Base de datos Clientes <i
                     class="bi bi-database"></i></a>
 
             <!-- Button trigger modal -->
@@ -47,11 +47,13 @@
             </button>
 
             
-            <a href="../cliente/estadoMembresias.html" class="btn btn-outline-dark fs-4">Estados membresias <i
+            <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4">Estados membresias <i
                     class="bi bi-file-bar-graph"></i></a>
 
-            <a href="verPlanes-personal" class="btn btn-outline-dark fs-4">Planes Nutricionales <i
+            <a href="verHistorialMedicionPersonal" class="btn btn-outline-dark fs-4">Historial Medicion <i
                     class="bi bi-clipboard-check"></i></a>
+
+            
 
 
         </div>
@@ -68,7 +70,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="agregarEditorial" method="post">
+                    <form action="agregarPago" method="post">
 
                         <label for="txt_actividad_id" class="form-label">ID:</label>
                         <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control">
@@ -84,6 +86,9 @@
 
                         <label for="txt_nivel" class="form-label">Monto:</label>
                         <input type="number" name="txt_nivel" id="txt_nivel" class="form-control">
+
+                        <label for="txt_metodo_pago" class="form-label">Metodo de Pago:</label>
+                        <input type="text" name="txt_metodo_pago" id="txt_metodo_pago" class="form-control">
 
                         <label for="txt_cupo" class="form-label">Concepto:</label>
                         <input type="text" name="txt_cupo" id="txt_cupo" class="form-control">
@@ -111,7 +116,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="agregarEditorial" method="post">
+                    <form action="agregarCliente" method="post">
 
                         <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
                         <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control">
