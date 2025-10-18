@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="<?= base_url('css/background.css'); ?>">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
@@ -15,28 +16,38 @@
     <title>Personal</title>
 </head>
 
-<body class="container mt-4">
+<body class="container mt-4 background-image-gestion-personal">
 
 
-    <h1 class="mt-5">Gestion personal <i class="bi bi-person-rolodex"></i></h1>
-    <h4 class="mb-5">Admin</h4>
-    <!-- <a href="log" class="btn btn-outline-dark">LOG IN <i class="bi bi-people-fill"></i></a>
-    <br> -->
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Primera columna: Logo -->
+            <div class="col-auto">
+                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            </div>
 
-    <!-- Modal para agregar usuario -->
+            <!-- Segunda columna: 3 elementos alineados -->
+            <div class="col">
+                <div class="d-flex flex-column">
+                    <h1 class="mt-5 text-light">GESTION PERSONAL <i class="bi bi-person-rolodex"></i></h1>
+                    <h4 class="mb-5 text-light">ADMIN</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="verAdminHome" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="verAdminHome" class="ms-5 btn btn btn-outline-dark border border-light text-light">Home <i class="bi bi-house"></i></a>
 
         <!-- Button trigger modal -->
         <div class="d-flex flex-column align-items-right">
-            <button type="button" class="btn btn-outline-dark my-1" data-bs-toggle="modal"
+            <button type="button" class="btn btn-outline-dark my-1 border border-light text-light" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
                 Agregar Personal <i class="bi bi-person-plus"></i>
             </button>
 
-            <a href="verPuestoAdmin" class="btn btn btn-outline-dark">Ir a puestos <i
+            <a href="verPuestoAdmin" class="btn btn btn-outline-dark border border-light text-light">Ir a puestos <i
                     class="bi bi-person-gear"></i></a>
         </div>
 
