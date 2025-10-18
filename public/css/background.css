@@ -5,4 +5,58 @@
     background-repeat: no-repeat;
     height: 100vh; 
     width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-update-pago {
+    background-image: 
+        linear-gradient(rgba(30, 172, 243, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/update-pago.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-admin-gerente {
+    background-image: 
+        linear-gradient(rgba(30, 172, 243, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/administrador-gerente.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-gestion-personal {
+    background-image: 
+        linear-gradient(rgba(30, 172, 243, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/gestion-personal.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-update-personal {
+    background-image: 
+        linear-gradient(rgba(30, 172, 243, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/update-personal.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
