@@ -60,3 +60,94 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+.background-image-gestion-membresias {
+    background-image: 
+        linear-gradient(rgba(30, 172, 243, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/gestion-membresias.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-update-membresias {
+    background-image: 
+        linear-gradient(rgba(30, 172, 243, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/update-membresia.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-pagos-admin {
+    background-image: 
+        linear-gradient(rgba(30, 172, 243, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/pagos-admin.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-estado-membresia-admin {
+    background-image: 
+        linear-gradient(rgba(30, 172, 243, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/estado-membresia.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-update-estado-membresia {
+    background-image: 
+        linear-gradient(rgba(30, 172, 243, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/update-estado-membresia.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-clientes-admin {
+    background-image: 
+        linear-gradient(rgba(30, 172, 243, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/base-clientes.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-update-cliente {
+    background-image: 
+        linear-gradient(rgba(30, 172, 243, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../images/update-cliente.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

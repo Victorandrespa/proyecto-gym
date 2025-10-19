@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?= base_url('css/background.css'); ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -15,22 +16,32 @@
     <title>Estado Membresias</title>
 </head>
 
-<body class="container mt-4">
+<body class="container mt-4 background-image-estado-membresia-admin">
 
 
-    <h1 class="mt-5">Estado de Membresias <i class="bi bi-bar-chart"></i></h1>
-    <h4 class="mb-5">Admin</h4>
-    <!-- <a href="log" class="btn btn-outline-dark">LOG IN <i class="bi bi-people-fill"></i></a>
-    <br> -->
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Primera columna: Logo -->
+            <div class="col-auto">
+                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            </div>
 
-    <!-- Modal para agregar usuario -->
+            <!-- Segunda columna: 3 elementos alineados -->
+            <div class="col">
+                <div class="d-flex flex-column">
+                    <h1 class="mt-5 text-light">ESTADO MEMBRESIA <i class="bi bi-bar-chart"></i></h1>
+                    <h4 class="mb-5 text-light">ADMIN</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="verAdminHome" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="verAdminHome" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Realizar un Pago <i class="bi bi-credit-card"></i>
+        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Agregar Estado <i class="bi bi-credit-card"></i>
         </button>
 
 
@@ -41,7 +52,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Realizar un Pago</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Estado</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -50,23 +61,20 @@
                         <label for="txt_pago_id" class="form-label">ID:</label>
                         <input type="text" name="txt_pago_id" id="txt_pago_id" class="form-control">
 
-                        <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
+                        <label for="txt_cliente_id" class="form-label">Membresia:</label>
                         <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control">
 
-                        <label for="txt_membresia_id" class="form-label">Membresia ID:</label>
+                        <label for="txt_membresia_id" class="form-label">Cliente:</label>
                         <input type="text" name="txt_membresia_id" id="txt_membresia_id" class="form-control">
 
-                        <label for="txt_fecha_pago" class="form-label">Fecha de pago:</label>
+                        <label for="txt_fecha_pago" class="form-label">Fecha de inicio:</label>
                         <input type="date" name="txt_fecha_pago" id="txt_fecha_pago" class="form-control">
 
-                        <label for="txt_monto" class="form-label">Monto:</label>
+                        <label for="txt_monto" class="form-label">Fecha Fin:</label>
                         <input type="number" name="txt_monto" id="txt_monto" class="form-control">
 
-                        <label for="txt_metodo_pago" class="form-label">Metodo de Pago:</label>
+                        <label for="txt_metodo_pago" class="form-label">Estado:</label>
                         <input type="text" name="txt_metodo_pago" id="txt_metodo_pago" class="form-control">
-
-                        <label for="txt_concepto" class="form-label">Concepto:</label>
-                        <input type="text" name="txt_concepto" id="txt_concepto" class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
                             <button type="submit"
