@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="<?= base_url('css/background.css'); ?>">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
@@ -15,21 +16,31 @@
     <title>Membresias</title>
 </head>
 
-<body class="container mt-4">
+<body class="background-image-gestion-membresias container mt-4">
 
 
-    <h1 class="mt-5">Gestion de Membresias <i class="bi bi-floppy"></i></h1>
-    <h4 class="mb-5">Admin</h4>
-    <!-- <a href="log" class="btn btn-outline-dark">LOG IN <i class="bi bi-people-fill"></i></a>
-    <br> -->
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Primera columna: Logo -->
+            <div class="col-auto">
+                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            </div>
 
-    <!-- Modal para agregar usuario -->
+            <!-- Segunda columna: 3 elementos alineados -->
+            <div class="col">
+                <div class="d-flex flex-column">
+                    <h1 class="mt-5 text-light">GESTION DE MEMBRESIAS <i class="bi bi-floppy"></i></h1>
+                    <h4 class="mb-5 text-light">ADMIN</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="verAdminHome" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="verAdminHome" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Agregar membresia <i class="bi bi-plus-circle"></i>
         </button>
 
@@ -80,7 +91,7 @@
 
     <br><br>
 
-  
+
 
     <!-- Tabla de resultados -->
 
@@ -98,38 +109,38 @@
         </thead>
         <tbody>
             <?php
-                foreach ($datos as $registro) {
-                    ?>
-            <tr>
-                <td>
-                    <?php echo ($registro['membresia_id']) ?>
-                </td>
-                <td>
-                    <?= $registro['tipo_plan']; ?>
-                </td>
-                <td>
-                    <?= $registro['precio']; ?>
-                </td>
-                <td>
-                    <?= $registro['duracion_meses']; ?>
-                </td>
-                <td>
-                    <?= $registro['beneficios']; ?>
-                </td>
-                <td>
-                    <?= $registro['sede']; ?>
-                </td>
+            foreach ($datos as $registro) {
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ($registro['membresia_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['tipo_plan']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['precio']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['duracion_meses']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['beneficios']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['sede']; ?>
+                    </td>
 
-                <td class="d-flex justify-content-center gap-2 ">
-                    <a href="<?= base_url('update_membresia/') . $registro['membresia_id']; ?>"
-                        class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                    <a href="<?= base_url('eliminar_membresia/') . $registro['membresia_id']; ?>"
-                        class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-                </td>
-            </tr>
+                    <td class="d-flex justify-content-center gap-2 ">
+                        <a href="<?= base_url('update_membresia/') . $registro['membresia_id']; ?>"
+                            class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                        <a href="<?= base_url('eliminar_membresia/') . $registro['membresia_id']; ?>"
+                            class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
             <?php
-                }
-                ?>
+            }
+            ?>
         </tbody>
     </table>
 
