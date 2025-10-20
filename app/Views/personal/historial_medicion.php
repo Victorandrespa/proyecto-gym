@@ -7,30 +7,41 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="<?= base_url('css/background-personal.css'); ?>">
     <title>Historial Medicion</title>
 </head>
 
-<body class="container mt-4">
+<body class="container mt-4 background-image-personal-historial-medicion">
 
 
-    <h1 class="mt-5">Historial de Medicion</h1>
-    <h4 class="mb-5">Personal</h4>
-    <!-- <a href="log" class="btn btn-outline-dark">LOG IN <i class="bi bi-people-fill"></i></a>
-    <br> -->
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Primera columna: Logo -->
+            <div class="col-auto">
+                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            </div>
 
-    <!-- Modal para agregar usuario -->
+            <!-- Segunda columna: 3 elementos alineados -->
+            <div class="col">
+                <div class="d-flex flex-column">
+                    <h1 class="mt-5 text-light">HISTORIAL DE MEDICION</h1>
+                    <h4 class="mb-5 text-light">PERSONAL</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="verPersonalHome" class="btn btn btn-outline-dark">Home <i class="bi bi-house"></i></a>
+        <a href="verPersonalHome" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
 
         <div class="d-flex flex-column align-items-right">
-            <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-outline-dark my-2 text-light border border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Agregar Historial <i class="bi bi-folder2-open"></i>
             </button>
 
-            <a href="verPlanNutricionPersonal" class="btn btn btn-outline-dark">Planes Nutricionales <i class="bi bi-clipboard-heart"></i></a>
+            <a href="verPlanNutricionPersonal" class="btn btn btn-outline-dark text-light border border-light">Planes Nutricionales <i class="bi bi-clipboard-heart"></i></a>
         </div>
 
 

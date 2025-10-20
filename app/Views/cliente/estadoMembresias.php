@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="<?= base_url('css/background-clientes.css'); ?>">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
@@ -15,26 +16,31 @@
     <title>Estado Membresias</title>
 </head>
 
-<body class="container mt-4">
+<body class="container mt-4 background-image-estado-membresias">
 
 
-    <h1 class="mt-5">Estado de Membresias <i class="bi bi-bar-chart"></i></h1>
-    <h4 class="mb-5">Cliente</h4>
-    <!-- <a href="log" class="btn btn-outline-dark">LOG IN <i class="bi bi-people-fill"></i></a>
-    <br> -->
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Primera columna: Logo -->
+            <div class="col-auto">
+                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            </div>
 
-
-
-
-
-
-    <!-- Modal para agregar usuario -->
+            <!-- Segunda columna: 3 elementos alineados -->
+            <div class="col">
+                <div class="d-flex flex-column">
+                    <h1 class="mt-5 text-light">ESTADO DE MEMBRESIA <i class="bi bi-bar-chart"></i></h1>
+                    <h4 class="mb-5 text-light">CLIENTE</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="verHome" class="btn btn btn-outline-dark">Home Principal<i class="bi bi-house"></i></a>
+        <a href="verHome" class="btn btn btn-outline-dark text-light border border-light ms-5">Home Principal <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-dark my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Realizar un Pago <i class="bi bi-credit-card"></i>
         </button>
 

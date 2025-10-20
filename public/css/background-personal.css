@@ -1,0 +1,98 @@
+.background-image-personal-main {
+    background-image: 
+        url('../images/personal-gestiones-administrativas-filter.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-personal-gestionar-actividades {
+    background-image: 
+        url('../images/personal-gestionar-actividades.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-personal-update-actividades {
+    background-image: 
+        url('../images/personal-update-actividad.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-personal-base-clientes {
+    background-image: 
+        url('../images/personal-base-clientes.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+.background-image-personal-historial-medicion {
+    background-image: 
+        url('../images/personal-historial-medicion.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-personal-update-historial-medicion {
+    background-image: 
+        url('../images/personal-update-historial-medicion.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-personal-plan-nutricional {
+    background-image: 
+        url('../images/personal-plan-nutricional.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-personal-update-plan-nutricional {
+    background-image: 
+        url('../images/personal-update-plan-nutricional.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+

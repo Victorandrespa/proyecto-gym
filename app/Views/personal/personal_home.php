@@ -7,53 +7,63 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="<?= base_url('css/background-personal.css'); ?>">
     <title>Personal</title>
 </head>
 
-<body class="container mt-4">
+<body class="container mt-4 background-image-personal-main">
 
 
-    <h1 class="mt-5">Gestiones Administrativas</h1>
-    <h4 class="mb-4">Personal</h4>
-    <!-- <a href="log" class="btn btn-outline-dark">LOG IN  <i class="bi bi-people-fill"></i></a>
-        <br> -->
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Primera columna: Logo -->
+            <div class="col-auto">
+                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            </div>
 
-    <div class="d-flex flex-row justify-content-between align-items-center">
+            <!-- Segunda columna: 3 elementos alineados -->
+            <div class="col">
+                <div class="d-flex flex-column">
+                    <h1 class="mt-5 text-light">GESTIONES ADMINISTRATIVAS</h1>
+                    <h4 class="mb-5 text-light">ENTRENADORES</h4>
+                </div>
 
-        <a href="verHome" class="btn btn btn-outline-dark">Menu Principal <i class="bi bi-house"></i></a>
-        <!-- Button trigger modal -->
-
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <a href="verHome" class="btn btn btn-outline-dark text-light border border-light">Menu Principal <i class="bi bi-house"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="d-flex justify-content-around mt-3">
 
         <div class="d-grid gap-2 mt-5" style="width: 50%;">
-            <a href="verActividadPersonal" class="btn btn-outline-dark fs-4">Gestionar Actividades <i
+            <a href="verActividadPersonal" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Gestionar Actividades <i
                     class="bi bi-flag"></i></a>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-dark fs-4" data-bs-toggle="modal"
+            <button type="button" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light" data-bs-toggle="modal"
                 data-bs-target="#exampleModal2">
                 Registro de Clientes <i class="bi bi-person"></i>
             </button>
 
-            <a href="verClientePersonal" class="btn btn-outline-dark fs-4">Base de datos Clientes <i
+            <a href="verClientePersonal" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Base de datos Clientes <i
                     class="bi bi-database"></i></a>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-dark fs-4" data-bs-toggle="modal"
+            <button type="button" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
                 Procesar un pago <i class="bi bi-credit-card"></i>
             </button>
 
-            
-            <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4">Estados membresias <i
+
+            <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Estados membresias <i
                     class="bi bi-file-bar-graph"></i></a>
 
-            <a href="verHistorialMedicionPersonal" class="btn btn-outline-dark fs-4">Historial Medicion <i
+            <a href="verHistorialMedicionPersonal" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Historial Medicion <i
                     class="bi bi-clipboard-check"></i></a>
 
-            
+
 
 
         </div>
