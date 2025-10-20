@@ -1,0 +1,59 @@
+.background-image-clientes-main {
+    background-image: 
+        url('../images/clientes-main-background.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-clientes-asignacion {
+    background-image: 
+        url('../images/clientes-asignaciones.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-clientes-update-asignacion {
+    background-image: 
+        url('../images/clientes-asignacionesu.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-clientes-historial {
+    background-image: 
+        url('../images/clientes-historial-medicion.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background-image-estado-membresias {
+    background-image: 
+        url('../images/estado-membresias.png');
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

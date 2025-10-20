@@ -7,33 +7,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="<?= base_url('css/background-clientes.css'); ?>">
     <title>Cliente</title>
 </head>
 
-<body class="container mt-4">
+<body class="container mt-4 background-image-clientes-main">
 
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Primera columna: Logo -->
+            <div class="col-auto">
+                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            </div>
 
-    <h1 class="mt-5">Cliente App</h1>
-    <h5 class="mb-4">Bienvenido</h5>
+            <!-- Segunda columna: 3 elementos alineados -->
+            <div class="col">
+                <div class="d-flex flex-column">
+                    <h1 class="mt-5 text-light">CLIENTE APP</h1>
+                    <h4 class="mb-5 text-light">BIENVENIDO!</h4>
 
-
-    <div class="d-flex flex-row justify-content-between align-items-center">
-
-        <a href="verHome" class="btn btn btn-outline-dark">Menu Principal <i class="bi bi-house"></i></a>
-        <!-- Button trigger modal -->
-
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <a href="verHome" class="btn btn btn-outline-dark text-light border border-light">Menu Principal <i class="bi bi-house"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="d-flex justify-content-around mt-3">
 
         <div class="d-grid gap-2 mt-5" style="width: 50%;">
-            <a href="verAsignacionCliente" class="btn btn-outline-dark fs-4">Asignarme actividades <i
+            <a href="verAsignacionCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Asignarme actividades <i
                     class="bi bi-flag"></i></a>
-            <a href="verHistorialMedicionCliente" class="btn btn-outline-dark fs-4">Historial de Medicion <i
+            <a href="verHistorialMedicionCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Historial de Medicion <i
                     class="bi bi-clipboard-check"></i></a>
-            <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4">Estado membresia <i
+            <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Estado membresia <i
                     class="bi bi-file-person"></i></a>
-            <button type="button" class="btn btn-outline-dark fs-4" data-bs-toggle="modal"
+            <button type="button" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
                 Realizar un Pago <i class="bi bi-credit-card"></i>
             </button>
