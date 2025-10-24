@@ -15,6 +15,8 @@
     <title>Asignacion</title>
 </head>
 
+
+
 <body class="container mt-4 background-image-clientes-asignacion">
 
 
@@ -44,6 +46,20 @@
     <br><br>
 
 
+    <input type="text" id="txt_cliente_id" value="" placeholder="Ingresa tu ID">
+
+    <script>
+        function setClienteId(form) {
+            const clienteId = document.getElementById('txt_cliente_id').value;
+            if (!clienteId) {
+                alert("Debes ingresar tu ID de cliente.");
+                return false; // evita enviar el formulario
+            }
+            document.getElementById('cliente_id_hidden').value = clienteId;
+            return confirm('¿Seguro que deseas eliminar esta asignación?');
+        }
+    </script>
+
 
     <!-- Tabla de resultados -->
 
@@ -58,6 +74,7 @@
                 <th>Fecha</th>
                 <th>Hora</th>
                 <th>Cupo</th>
+                <th>Asignados</th>
                 <th class="text-center">Asignacion</th>
             </tr>
         </thead>
@@ -84,17 +101,33 @@
                     <td>
                         <?= $registro['fecha']; ?>
                     </td>
-                     <td>
+                    <td>
                         <?= $registro['hora']; ?>
                     </td>
-                     <td>
+                    <td>
                         <?= $registro['cupo_maximo']; ?>
                     </td>
-                    <td class="d-flex justify-content-center gap-2 ">
-                        <a href="<?= base_url('update_asignacion/') . $registro['actividad_id']; ?>"
-                            class="btn btn-outline-dark"><i class="bi bi-pin-angle"></i></a>                        
+                    <td>
+                        <?= $registro['asignados']; ?>
                     </td>
 
+                    <td class="d-flex justify-content-center gap-2">
+                        <button
+                            class="btn btn-outline-dark btn-agregar"
+                            data-actividad="<?= $registro['actividad_id']; ?>">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                        <form method="POST" action="<?= base_url('buscar_asignacion'); ?>">
+                            <input type="hidden" name="cliente_id" id="cliente_id_hidden">
+                            <input type="hidden" name="actividad_id" value="<?= $registro['actividad_id']; ?>">
+                            <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Seguro que deseas eliminar esta asignación?');">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </form>
+
+
+
+                    </td>
                 </tr>
             <?php
             }
@@ -102,12 +135,46 @@
         </tbody>
     </table>
 
-
-
-
-
-
-
 </body>
+
+<script>
+    document.querySelectorAll('.btn-agregar').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const actividadId = btn.getAttribute('data-actividad');
+            const clienteId = document.getElementById('txt_cliente_id').value;
+
+            if (!clienteId) {
+                alert("Debes ingresar tu ID de cliente.");
+                return;
+            }
+
+            if (confirm("¿Deseas asignarte a esta clase?")) {
+                // Crear formulario dinámico
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '<?= base_url("agregarAsignacion") ?>';
+
+                // Inputs ocultos
+                const inputActividad = document.createElement('input');
+                inputActividad.type = 'hidden';
+                inputActividad.name = 'actividad_id';
+                inputActividad.value = actividadId;
+
+                const inputCliente = document.createElement('input');
+                inputCliente.type = 'hidden';
+                inputCliente.name = 'cliente_id';
+                inputCliente.value = clienteId;
+
+                // Añadir inputs al form
+                form.appendChild(inputActividad);
+                form.appendChild(inputCliente);
+
+                // Añadir form al body y enviarlo
+                document.body.appendChild(form);
+                form.submit();
+            }
+        });
+    });
+</script>
 
 </html>

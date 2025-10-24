@@ -118,7 +118,9 @@ $routes->post('editar_medicion', 'HistorialMedicionController::editar/$1');
 
 //Asignacion
 
+$routes->post('buscar_asignacion', 'AsignacionController::buscarAsignacion');
 $routes->get('eliminar_asignacion/(:segment)', 'AsignacionController::eliminar/$1');
+
 $routes->get('update_asignacion/(:segment)', 'AsignacionController::buscar/$1');
 
 $routes->post('agregarAsignacion', 'AsignacionController::agregarAsignacion');

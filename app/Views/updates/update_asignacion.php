@@ -20,7 +20,7 @@
 
                     <label for="txt_asignacion_id" class="form-label text-light">ASIGNACION ID:</label>
                     <input type="text" name="txt_asignacion_id" id="txt_asignacion_id" class="form-control"
-                        value="<?= $datos['asignacion_id'] ?>" readonly>
+                        value="<?= $datos['actividad_id'] ?>" readonly>
 
                     <label for="txt_cliente_id" class="form-label text-light">CLIENTE:</label>
                     <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control"
