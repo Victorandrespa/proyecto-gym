@@ -48,17 +48,6 @@
 
     <input type="text" id="txt_cliente_id" value="" placeholder="Ingresa tu ID">
 
-    <script>
-        function setClienteId(form) {
-            const clienteId = document.getElementById('txt_cliente_id').value;
-            if (!clienteId) {
-                alert("Debes ingresar tu ID de cliente.");
-                return false; // evita enviar el formulario
-            }
-            document.getElementById('cliente_id_hidden').value = clienteId;
-            return confirm('¿Seguro que deseas eliminar esta asignación?');
-        }
-    </script>
 
 
     <!-- Tabla de resultados -->
@@ -117,15 +106,13 @@
                             data-actividad="<?= $registro['actividad_id']; ?>">
                             <i class="bi bi-pencil"></i>
                         </button>
-                        <form method="POST" action="<?= base_url('buscar_asignacion'); ?>">
-                            <input type="hidden" name="cliente_id" id="cliente_id_hidden">
+                        <form method="POST" action="<?= base_url('buscar_asignacion'); ?>" onsubmit="return confirm('¿Seguro que deseas eliminar esta asignación?');">
                             <input type="hidden" name="actividad_id" value="<?= $registro['actividad_id']; ?>">
-                            <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Seguro que deseas eliminar esta asignación?');">
-                                <i class="bi bi-trash"></i>
+                            <input type="hidden" name="cliente_id" id="cliente_id_hidden_<?= $registro['actividad_id']; ?>">
+                            <button type="submit" class="btn btn-outline-danger">
+                                <i class="bi bi-trash"></i> Eliminar
                             </button>
                         </form>
-
-
 
                     </td>
                 </tr>
@@ -175,6 +162,17 @@
             }
         });
     });
+
+    // Cada vez que se envíe un formulario, se copia el clienteId del input principal
+    const clienteInput = document.getElementById('txt_cliente_id');
+
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function() {
+            const hiddenInput = this.querySelector('input[name="cliente_id"]');
+            hiddenInput.value = clienteInput.value;
+        });
+    });
 </script>
+
 
 </html>

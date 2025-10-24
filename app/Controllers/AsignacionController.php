@@ -45,26 +45,6 @@ class AsignacionController extends BaseController
         return view('cliente/asignacion_cliente', $datos);
     }
 
-    /*  public function agregarAsignacion()
-    {
-        helper('generarCodigo');
-
-        //crear un objeto de tipo empleado model
-        $registro = new AsignacionModel();
-
-        $asignacion_id = generarCodigo('asignacion', 'asignacion_id', 'AS');
-
-        $datos = [
-            'asignacion_id' => $asignacion_id,
-            'cliente_id' => $this->request->getPost('txt_cliente_id'),
-            'actividad_id' => $this->request->getPost('txt_actividad_id'),
-            'estado' => $this->request->getPost('txt_estado'),
-            'fecha_reservacion' => $this->request->getPost('txt_fecha_reservacion'),
-
-        ];
-        $registro->insert($datos);
-        return $this->index();
-    } */
 
     public function agregarAsignacion()
     {
@@ -106,33 +86,6 @@ class AsignacionController extends BaseController
         return redirect()->back();
     }
 
-    public function buscarAsignacion()
-    {
-        $clienteId = $this->request->getPost('cliente_id');
-        $actividadId = $this->request->getPost('actividad_id');
-
-        if (!$clienteId || !$actividadId) {
-            session()->setFlashdata('error', 'Faltan datos para buscar la asignación.');
-            return redirect()->back();
-        }
-
-        $asignacionModel = new AsignacionModel();
-
-        $asignacion = $asignacionModel
-            ->where('cliente_id', $clienteId)
-            ->where('actividad_id', $actividadId)
-            // ->where('estado', 'asignado') // si aplicara
-            ->first();
-
-        if (!$asignacion) {
-            session()->setFlashdata('error', 'No se encontró la asignación o ya estaba desasignada.');
-            return redirect()->to(base_url('verAsignacionCliente'));
-        }
-
-        return redirect()->to(base_url('eliminar_asignacion/' . $asignacion['asignacion_id']));
-    }
-
-
 
     public function eliminar($id)
     {
@@ -152,6 +105,35 @@ class AsignacionController extends BaseController
         $datos['datos'] = $registro->where(['asignacion_id' => $id])->first();
         return view('updates/update_asignacion.php', $datos);
     }
+
+    public function buscarAsignacion()
+    {
+        $clienteId   = $this->request->getPost('cliente_id');
+        $actividadId = $this->request->getPost('actividad_id');
+
+        if (!$clienteId || !$actividadId) {
+            session()->setFlashdata('error', 'Faltan datos para buscar la asignación.');
+            return redirect()->back();
+        }
+
+        $asignacionModel = new AsignacionModel();
+
+        // Buscar la asignación exacta
+        $asignacion = $asignacionModel
+            ->where('cliente_id', $clienteId)
+            ->where('actividad_id', $actividadId)
+            ->first();
+
+        if (!$asignacion) {
+            session()->setFlashdata('error', 'No se encontró la asignación.');
+            return redirect()->back();
+        }
+
+        // Redirigir directamente al eliminar usando el asignacion_id encontrado
+        return redirect()->to(base_url('eliminar_asignacion/' . $asignacion['asignacion_id']));
+    }
+
+
     public function editar($id)
     {
         $datos = [
