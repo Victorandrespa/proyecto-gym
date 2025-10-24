@@ -14,6 +14,8 @@ class ActividadModel extends Model
         'nombre', 
         'modalidad', 
         'nivel', 
+        'fecha', 
+        'hora', 
         'cupo_maximo' 
     ];
     

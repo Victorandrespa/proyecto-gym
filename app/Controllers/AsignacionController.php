@@ -3,27 +3,31 @@
 namespace App\Controllers;
 
 use App\Models\AsignacionModel;
+use App\Models\ActividadModel;
 
 class AsignacionController extends BaseController
 {
     public function index(): string
     {
         //Crea un objeto 
-        $registro = new AsignacionModel();
+        $registro = new ActividadModel();
         $datos['datos'] = $registro->findAll();
         return view('cliente/asignacion_cliente.php', $datos);
     }
 
     public function agregarAsignacion()
     {
+        helper('generarCodigo');
+
         //crear un objeto de tipo empleado model
         $registro = new AsignacionModel();
+
+        $asignacion_id = generarCodigo('asignacion', 'asignacion_id', 'AS');
+
         $datos = [
-            'asignacion_id' => $this->request->getPost('txt_asignacion_id'),
+            'asignacion_id' => $asignacion_id,
             'cliente_id' => $this->request->getPost('txt_cliente_id'),
             'actividad_id' => $this->request->getPost('txt_actividad_id'),
-            'fecha' => $this->request->getPost('txt_fecha'),
-            'hora' => $this->request->getPost('txt_hora'),
             'estado' => $this->request->getPost('txt_estado'),
             'fecha_reservacion' => $this->request->getPost('txt_fecha_reservacion'),
 
@@ -53,8 +57,6 @@ class AsignacionController extends BaseController
             'asignacion_id' => $this->request->getPost('txt_asignacion_id'),
             'cliente_id' => $this->request->getPost('txt_cliente_id'),
             'actividad_id' => $this->request->getPost('txt_actividad_id'),
-            'fecha' => $this->request->getPost('txt_fecha'),
-            'hora' => $this->request->getPost('txt_hora'),
             'estado' => $this->request->getPost('txt_estado'),
             'fecha_reservacion' => $this->request->getPost('txt_fecha_reservacion'),
 

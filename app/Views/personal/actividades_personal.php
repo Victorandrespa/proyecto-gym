@@ -68,6 +68,12 @@
                         <label for="txt_nivel" class="form-label">Nivel:</label>
                         <input type="text" name="txt_nivel" id="txt_nivel" class="form-control">
 
+                        <label for="txt_fecha" class="form-label">Fecha:</label>
+                        <input type="date" name="txt_fecha" id="txt_fecha" class="form-control">
+
+                        <label for="txt_hora" class="form-label">Hora:</label>
+                        <input type="number" name="txt_hora" id="txt_hora" class="form-control">
+
                         <label for="txt_cupo" class="form-label">Cupo Maximo:</label>
                         <input type="number" name="txt_cupo" id="txt_cupo" class="form-control">
 
@@ -99,6 +105,8 @@
                 <th>Nombre</th>
                 <th>Modalidad</th>
                 <th>Nivel</th>
+                <th>Fecha</th>
+                <th>Hora</th>
                 <th>Cupo</th>
                 <th class="text-center">Asignacion</th>
         </thead>
@@ -121,6 +129,12 @@
                     </td>
                     <td>
                         <?= $registro['nivel']; ?>
+                    </td>
+                     <td>
+                        <?= $registro['fecha']; ?>
+                    </td>
+                     <td>
+                        <?= $registro['hora']; ?>
                     </td>
                     <td>
                         <?= $registro['cupo_maximo']; ?>

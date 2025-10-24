@@ -15,10 +15,15 @@ class PlanNutricionController extends BaseController
 
     public function agregarPlanNutricion()
     {
+        helper('generarCodigo');
+        
         //crear un objeto de tipo empleado model
         $registro = new PlanNutricionModel();
+
+        $plan_id = generarCodigo('plan_nutricional', 'plan_id', 'PL');
+
         $datos = [
-            'plan_id' => $this->request->getPost('txt_plan_id'),
+            'plan_id' =>  $plan_id,
             'personal_id' => $this->request->getPost('txt_personal_id'),
             'objetivo' => $this->request->getPost('txt_objetivo'),
             'duracion' => $this->request->getPost('txt_duracion'),

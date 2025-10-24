@@ -23,10 +23,15 @@ class ClienteController extends BaseController
 
     public function agregarCliente()
     {
+        helper('generarCodigo');
+        
         //crear un objeto de tipo empleado model
         $registro = new ClienteModel();
+
+        $cliente_id = generarCodigo('cliente', 'cliente_id', 'CL');
+
         $datos = [
-            'cliente_id' => $this->request->getPost('txt_cliente_id'),
+            'cliente_id' => $cliente_id,
             'nombre' => $this->request->getPost('txt_nombre'),
             'apellido' => $this->request->getPost('txt_apellido'),
             'edad' => $this->request->getPost('txt_edad'),

@@ -15,10 +15,15 @@ class MembresiaController extends BaseController
 
     public function agregarMembresia()
     {
+         helper('generarCodigo');
+
         //crear un objeto de tipo empleado model
         $registro = new MembresiaModel();
+
+        $membresia_id = generarCodigo('membresia', 'membresia_id', 'ME');
+
         $datos = [
-            'membresia_id' => $this->request->getPost('txt_membresia_id'),
+            'membresia_id' =>  $membresia_id,
             'tipo_plan' => $this->request->getPost('txt_tipo_plan'),
             'precio' => $this->request->getPost('txt_precio'),
             'duracion_meses' => $this->request->getPost('txt_duracion_meses'),

@@ -29,15 +29,7 @@
                     <label for="txt_actividad_id" class="form-label text-light">ACTIVIDAD ID:</label>
                     <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control"
                         value="<?= $datos['actividad_id'] ?>">
-
-                    <label for="txt_fecha" class="form-label text-light">FECHA:</label>
-                    <input type="date" name="txt_fecha" id="txt_fecha" class="form-control"
-                        value="<?= $datos['fecha'] ?>">
-
-                    <label for="txt_hora" class="form-label text-light">HORA:</label>
-                    <input type="number" name="txt_hora" id="txt_hora" class="form-control"
-                        value="<?= $datos['hora'] ?>">
-
+                    
                     <label for="txt_estado" class="form-label text-light">ESTADO:</label>
                     <input type="text" name="txt_estado" id="txt_estado" class="form-control"
                         value="<?= $datos['estado'] ?>">

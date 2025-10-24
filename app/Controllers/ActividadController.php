@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\ActividadModel;
 
 class ActividadController extends BaseController
@@ -16,17 +17,24 @@ class ActividadController extends BaseController
 
     public function agregarActividad()
     {
+        helper('generarCodigo');
+
         //crear un objeto de tipo empleado model
         $registro = new ActividadModel();
+
+        $actividad_id = generarCodigo('actividad', 'actividad_id', 'AC');
+
         $datos = [
-            'actividad_id' => $this->request->getPost('txt_actividad_id'),
+            'actividad_id' => $actividad_id,
             'personal_id' => $this->request->getPost('txt_personal_id'),
             'nombre' => $this->request->getPost('txt_nombre'),
             'modalidad' => $this->request->getPost('txt_modalidad'),
             'nivel' => $this->request->getPost('txt_nivel'),
+            'fecha' => $this->request->getPost('txt_fecha'),
+            'hora' => $this->request->getPost('txt_hora'),
             'cupo_maximo' => $this->request->getPost('txt_cupo'),
 
-           
+
         ];
         $registro->insert($datos);
         return $this->index();
@@ -37,31 +45,32 @@ class ActividadController extends BaseController
         $registro = new ActividadModel();
         $registro->delete($id);
 
-        session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
+        session()->setFlashdata('mensaje', 'Registro: ' . $id . ' eliminado exitosamente.');
 
         return redirect()->to(base_url('verActividadPersonal'));
     }
     public function buscar($id)
     {
-        $registro= new ActividadModel();
-        $datos['datos']= $registro->where(['actividad_id' => $id])->first();
+        $registro = new ActividadModel();
+        $datos['datos'] = $registro->where(['actividad_id' => $id])->first();
         return view('updates/update_actividad.php', $datos);
     }
     public function editar($id)
     {
-        $datos= [
+        $datos = [
             'actividad_id' => $this->request->getPost('txt_actividad_id'),
             'personal_id' => $this->request->getPost('txt_personal_id'),
             'nombre' => $this->request->getPost('txt_nombre'),
             'modalidad' => $this->request->getPost('txt_modalidad'),
             'nivel' => $this->request->getPost('txt_nivel'),
+            'fecha' => $this->request->getPost('txt_fecha'),
+            'hora' => $this->request->getPost('txt_hora'),
             'cupo_maximo' => $this->request->getPost('txt_cupo'),
-         
+
         ];
         //print_r($datos);
-        $registro= new ActividadModel();
-        $registro->update($datos['actividad_id'],$datos);
+        $registro = new ActividadModel();
+        $registro->update($datos['actividad_id'], $datos);
         return $this->index();
     }
-
 }

@@ -23,10 +23,15 @@ class HistorialMedicionController extends BaseController
 
     public function agregarHistorialMedicion()
     {
+         helper('generarCodigo');
+         
         //crear un objeto de tipo empleado model
         $registro = new HistorialMedicionModel();
+
+        $medicion_id = generarCodigo('historial_medicion', 'medicion_id', 'HI');
+
         $datos = [
-            'medicion_id' => $this->request->getPost('txt_medicion_id'),
+            'medicion_id' => $medicion_id,
             'plan_id' => $this->request->getPost('txt_plan_id'),
             'cliente_id' => $this->request->getPost('txt_cliente_id'),
             'fecha_medicion' => $this->request->getPost('txt_fecha_medicion'),

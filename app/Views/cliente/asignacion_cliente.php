@@ -51,12 +51,13 @@
         <thead class="table-dark text-center">
             <tr>
                 <th>ID</th>
-                <th>Clinete </th>
-                <th>Actividad </th>
+                <th>Actividad</th>
+                <th>Personal </th>
+                <th>Modalidad</th>
+                <th>Nivel</th>
                 <th>Fecha</th>
                 <th>Hora</th>
-                <th>Estado</th>
-                <th>Fecha Reservacion</th>
+                <th>Cupo</th>
                 <th class="text-center">Asignacion</th>
             </tr>
         </thead>
@@ -66,28 +67,31 @@
             ?>
                 <tr>
                     <td>
-                        <?php echo ($registro['asignacion_id']) ?>
+                        <?php echo ($registro['actividad_id']) ?>
                     </td>
                     <td>
-                        <?= $registro['cliente_id']; ?>
+                        <?= $registro['personal_id']; ?>
                     </td>
                     <td>
-                        <?= $registro['actividad_id']; ?>
+                        <?= $registro['nombre']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['modalidad']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['nivel']; ?>
                     </td>
                     <td>
                         <?= $registro['fecha']; ?>
                     </td>
-                    <td>
+                     <td>
                         <?= $registro['hora']; ?>
                     </td>
-                    <td>
-                        <?= $registro['estado']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['fecha_reservacion']; ?>
+                     <td>
+                        <?= $registro['cupo_maximo']; ?>
                     </td>
                     <td class="d-flex justify-content-center gap-2 ">
-                        <a href="<?= base_url('update_asignacion/') . $registro['asignacion_id']; ?>"
+                        <a href="<?= base_url('update_asignacion/') . $registro['actividad_id']; ?>"
                             class="btn btn-outline-dark"><i class="bi bi-pin-angle"></i></a>                        
                     </td>
 

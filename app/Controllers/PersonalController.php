@@ -16,10 +16,15 @@ class PersonalController extends BaseController
 
     public function agregarPersonal()
     {
+        helper('generarCodigo');
+
         //crear un objeto de tipo empleado model
         $registro = new PersonalModel();
+
+        $personal_id = generarCodigo('personal', 'personal_id', 'PU');
+
         $datos = [
-            'personal_id' => $this->request->getPost('txt_personal_id'),
+            'personal_id' => $personal_id,
             'puesto_id' => $this->request->getPost('txt_puesto_id'),
             'nombre' => $this->request->getPost('txt_nombre'),
             'apellido' => $this->request->getPost('txt_apellido'),
