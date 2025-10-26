@@ -44,11 +44,11 @@
 
                 <div class="d-flex flex-row justify-content-between align-items-center">
 
-                    <a href="verHome" class="btn btn btn-outline-dark text-light border border-light square xyz-in" xyz="inherit up">Home Principal <i class="bi bi-house"></i></a>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-dark my-2 text-light border border-light square xyz-in" xyz="inherit up" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Realizar un Pago <i class="bi bi-credit-card"></i>
-                    </button>
+        <a href="verPersonalHome" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></a>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Realizar un Pago <i class="bi bi-credit-card"></i>
+        </button>
 
 
                 </div>
@@ -97,65 +97,97 @@
                         </div>
                     </div>
                 </div>
+                <div class="modal-body">
+                    <form action="agregarPagoPersonal" method="post">
 
+                        <input type="hidden" name="txt_pago_id" id="txt_pago_id" class="form-control">
 
-                <br><br>
+                        <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
+                        <select name="txt_cliente_id" id="txt_cliente_id" class="form-control" required>
+                            <option value="">-- Seleccione Cliente --</option>
+                            <?php foreach ($clientes as $c): ?>
+                                <option value="<?= $c['cliente_id'] ?>">
+                                    <?= $c['cliente_id'] . ' - ' . $c['nombre'] . ' - ' . $c['apellido'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
-
-
-                <!-- Tabla de resultados -->
-
-                <div class="table-responsive h-50 w-75 mx-auto rounded-5">
-                    <table class="table table-hover table-bordered">
-                        <thead class="table-dark text-center">
-                            <tr>
-                                <th>ID</th>
-                                <th>Membresia </th>
-                                <th>Cliente </th>
-                                <th>Fecha de inicio</th>
-                                <th>Fecha Fin</th>
-                                <th>Estado</th>
-                        </thead>
-                        <tbody>
-                            <?php
-                            foreach ($datos as $registro) {
-                            ?>
-                                <tr>
-                                    <td>
-                                        <?php echo ($registro['estado_membresia_id']) ?>
-                                    </td>
-                                    <td>
-                                        <?= $registro['membresia_id']; ?>
-                                    </td>
-                                    <td>
-                                        <?= $registro['cliente_id']; ?>
-                                    </td>
-                                    <td>
-                                        <?= $registro['fecha_inicio']; ?>
-                                    </td>
-                                    <td>
-                                        <?= $registro['fecha_fin']; ?>
-                                    </td>
-                                    <td>
-                                        <?= $registro['estado']; ?>
-                                    </td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                        <label for="txt_membresia_id" class="form-label">Membresia ID:</label>
+                        <select name="txt_membresia_id" id="txt_membresia_id" class="form-control" required>
+                            <option value="">-- Seleccione Membresia --</option>
+                            <?php foreach ($membresias as $m): ?>
+                                <option value="<?= $m['membresia_id'] ?>">
+                                    <?= $m['membresia_id'] . ' - ' . $m['tipo_plan'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
 
 
-
+                        <label for="txt_metodo_pago" class="form-label">Metodo de pago::</label>
+                        <select name="txt_metodo_pago" id="txt_metodo_pago" class="form-control" required>
+                            <option value="">- Metodo de pago -</option>
+                            <option value="Tarjeta" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Tarjeta') ? 'selected' : '' ?>>Tarjeta</option>
+                            <option value="Efectivo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Efectivo') ? 'selected' : '' ?>>Efectivo</option>
+                        </select>
 
             </body>
 
 
         </div>
     </div>
-</div>
+
+
+    <br><br>
+
+
+
+    <!-- Tabla de resultados -->
+
+    <table class="table mt-5 table-hover table-bordered">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Membresia </th>
+                <th>Cliente </th>
+                <th>Fecha de inicio</th>
+                <th>Fecha Fin</th>
+                <th>Estado</th>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($datos as $registro) {
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ($registro['estado_membresia_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['membresia_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['cliente_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha_inicio']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha_fin']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['estado']; ?>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+
+
+
+
+
+</body>
 
 </html>

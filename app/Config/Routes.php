@@ -28,9 +28,15 @@ $routes->get('verPuestoAdmin', 'PuestoController::index', ['filter' => 'authGuar
 
 
 //Vistas Cliente
-$routes->get('verAsignacionCliente', 'AsignacionController::index', ['filter' => 'authGuard:cliente']);
-$routes->get('verEstadoMembresiaCliente', 'EstadoMembresiaController::index_cliente', ['filter' => 'authGuard:cliente,personal']);
-$routes->get('verHistorialMedicionCliente', 'HistorialMedicionController::index_cliente', ['filter' => 'authGuard:cliente']);
+$routes->get('verAsignacionCliente', 'AsignacionController::index');
+$routes->post('verAsignacionCliente', 'AsignacionController::index');
+
+$routes->get('verEstadoMembresiaCliente', 'EstadoMembresiaController::index_cliente');
+$routes->get('verHistorialMedicionCliente', 'HistorialMedicionController::index_cliente');
+
+$routes->post('home/buscarPorCliente', 'HomeController::buscarPorCliente');
+
+
 
 //Vistas Personal
 $routes->get('verActividadPersonal', 'ActividadController::index', ['filter' => 'authGuard:personal']);
@@ -73,6 +79,9 @@ $routes->get('update_pago/(:segment)', 'PagoController::buscar/$1', ['filter' =>
 $routes->post('agregarPago', 'PagoController::agregarPago', ['filter' => 'authGuard:admin']);
 $routes->post('editar_pago', 'PagoController::editar/$1', ['filter' => 'authGuard:admin']);
 
+$routes->post('agregarPagoAdmin', 'PagoController::agregarPagoAdmin'); 
+$routes->post('agregarPagoPersonal', 'PagoController::agregarPagoPersonal');
+
 //Personal
 
 $routes->get('eliminar_personal/(:segment)', 'PersonalController::eliminar/$1', ['filter' => 'authGuard:admin']);
@@ -88,6 +97,7 @@ $routes->get('update_cliente/(:segment)', 'ClienteController::buscar/$1', ['filt
 
 $routes->post('agregarCliente', 'ClienteController::agregarCliente', ['filter' => 'authGuard:admin']);
 $routes->post('editar_cliente', 'ClienteController::editar/$1', ['filter' => 'authGuard:admin']);
+
 
 //Actividad
 
@@ -118,8 +128,10 @@ $routes->post('editar_medicion', 'HistorialMedicionController::editar/$1', ['fil
 
 //Asignacion
 
-$routes->get('eliminar_asignacion/(:segment)', 'AsignacionController::eliminar/$1', ['filter' => 'authGuard:cliente']);
-$routes->get('update_asignacion/(:segment)', 'AsignacionController::buscar/$1', ['filter' => 'authGuard:cliente']);
+$routes->post('buscar_asignacion', 'AsignacionController::buscarAsignacion');
+$routes->get('eliminar_asignacion/(:segment)', 'AsignacionController::eliminar/$1');
+
+$routes->get('update_asignacion/(:segment)', 'AsignacionController::buscar/$1');
 
 $routes->post('agregarAsignacion', 'AsignacionController::agregarAsignacion', ['filter' => 'authGuard:cliente']);
 $routes->post('editar_asignacion', 'AsignacionController::editar/$1', ['filter' => 'authGuard:cliente']);

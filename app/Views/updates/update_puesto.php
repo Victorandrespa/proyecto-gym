@@ -12,8 +12,10 @@
     <title>Puesto</title>
 </head>
 
-<body class="background-image-update-cliente">
-    <div class="container square xyz-in" xyz="small-100% origin-top">
+<button onclick="window.history.back()" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></button>
+
+<body>
+    <div class="container">
         <div class="row">
             <div class="col-8 offset-2">
                 <h2 class="my-4 text-center text-light">Update Puesto</h2>

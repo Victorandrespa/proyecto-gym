@@ -12,28 +12,30 @@
     <title>Asignacion</title>
 </head>
 
-<div class="container pt-4 pb-4">
-    <div class="row justify-content-center">
-        <div class="col-4 background-image-clientes-update-asignacion rounded-5 w-50 p-3">
+<button onclick="window.history.back()" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></button>
 
-            <body>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-8 offset-2">
-                            <h2 class="my-4 text-light square xyz-in" xyz="small-100% origin-top">UPDATE ASIGNACION</h2>
-                            <form action="<?= base_url('editar_asignacion') ?>" method="post" class="item-group">
+<body class="background-image-clientes-update-asignacion">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2">
+                <h2 class="my-4 text-light">UPDATE ASIGNACION</h2>
+                <form action="<?= base_url('editar_asignacion') ?>" method="post">
+
+                    <label for="txt_asignacion_id" class="form-label text-light">ASIGNACION ID:</label>
+                    <input type="text" name="txt_asignacion_id" id="txt_asignacion_id" class="form-control"
+                        value="<?= $datos['actividad_id'] ?>" readonly>
 
                                 <label for="txt_asignacion_id" class="form-label text-light square xyz-in" xyz="inherit left">ASIGNACION ID:</label>
                                 <input type="text" name="txt_asignacion_id" id="txt_asignacion_id" xyz="inherit left" class="form-control square xyz-in"
                                     value="<?= $datos['asignacion_id'] ?>" readonly>
 
-                                <label for="txt_cliente_id" class="form-label text-light square xyz-in" xyz="inherit up">CLIENTE:</label>
-                                <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control square xyz-in"
-                                    value="<?= $datos['cliente_id'] ?>" xyz="inherit up">
-
-                                <label for="txt_actividad_id" class="form-label text-light square xyz-in" xyz="inherit down">ACTIVIDAD ID:</label>
-                                <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control square xyz-in"
-                                    value="<?= $datos['actividad_id'] ?>" xyz="inherit down">
+                    <label for="txt_actividad_id" class="form-label text-light">ACTIVIDAD ID:</label>
+                    <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control"
+                        value="<?= $datos['actividad_id'] ?>">
+                    
+                    <label for="txt_estado" class="form-label text-light">ESTADO:</label>
+                    <input type="text" name="txt_estado" id="txt_estado" class="form-control"
+                        value="<?= $datos['estado'] ?>">
 
                                 <label for="txt_estado" class="form-label text-light square xyz-in" xyz="inherit down">ESTADO:</label>
                                 <input type="text" name="txt_estado" id="txt_estado" class="form-control square xyz-in"

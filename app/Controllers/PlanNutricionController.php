@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\PlanNutricionModel;
+use App\Models\PersonalModel;
 
 class PlanNutricionController extends BaseController
 {
@@ -10,15 +12,24 @@ class PlanNutricionController extends BaseController
         //Crea un objeto 
         $registro = new PlanNutricionModel();
         $datos['datos'] = $registro->findAll();
+
+        $personal = new PersonalModel();
+        $datos['personal'] = $personal->findAll();
+
         return view('personal/plan_nutricional.php', $datos);
     }
 
     public function agregarPlanNutricion()
     {
+        helper('generarCodigo');
+
         //crear un objeto de tipo empleado model
         $registro = new PlanNutricionModel();
+
+        $plan_id = generarCodigo('plan_nutricional', 'plan_id', 'PL');
+
         $datos = [
-            'plan_id' => $this->request->getPost('txt_plan_id'),
+            'plan_id' =>  $plan_id,
             'personal_id' => $this->request->getPost('txt_personal_id'),
             'objetivo' => $this->request->getPost('txt_objetivo'),
             'duracion' => $this->request->getPost('txt_duracion'),
@@ -34,19 +45,19 @@ class PlanNutricionController extends BaseController
         $registro = new PlanNutricionModel();
         $registro->delete($id);
 
-        session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
+        session()->setFlashdata('mensaje', 'Registro: ' . $id . ' eliminado exitosamente.');
 
         return redirect()->to(base_url('verPlanNutricionPersonal'));
     }
     public function buscar($id)
     {
-        $registro= new PlanNutricionModel();
-        $datos['datos']= $registro->where(['plan_id' => $id])->first();
+        $registro = new PlanNutricionModel();
+        $datos['datos'] = $registro->where(['plan_id' => $id])->first();
         return view('updates/update_plan_nutricion.php', $datos);
     }
     public function editar($id)
     {
-        $datos= [
+        $datos = [
             'plan_id' => $this->request->getPost('txt_plan_id'),
             'personal_id' => $this->request->getPost('txt_personal_id'),
             'objetivo' => $this->request->getPost('txt_objetivo'),
@@ -55,9 +66,8 @@ class PlanNutricionController extends BaseController
 
         ];
         //print_r($datos);
-        $registro= new PlanNutricionModel();
-        $registro->update($datos['plan_id'],$datos);
+        $registro = new PlanNutricionModel();
+        $registro->update($datos['plan_id'], $datos);
         return $this->index();
     }
-
 }

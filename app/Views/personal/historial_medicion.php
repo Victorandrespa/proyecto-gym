@@ -59,14 +59,27 @@
                 <div class="modal-body">
                     <form action="agregarMedicion" method="post">
 
-                        <label for="txt_medicion_id" class="form-label">Medicion ID</label>
-                        <input type="text" name="txt_medicion_id" id="txt_medicion_id" class="form-control">
+                        <input type="hidden" name="txt_medicion_id" id="txt_medicion_id" class="form-control">
 
                         <label for="txt_plan_id" class="form-label">Plan id</label>
-                        <input type="text" name="txt_plan_id" id="txt_plan_id" class="form-control">
+                         <select name="txt_plan_id" id="txt_plan_id" class="form-control" required>
+                            <option value="">-- Seleccione Plan --</option>
+                            <?php foreach ($planes as $m): ?>
+                                <option value="<?= $m['plan_id'] ?>">
+                                    <?= $m['plan_id'] . ' - ' . $m['objetivo'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
                         <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
-                        <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control">
+                        <select name="txt_cliente_id" id="txt_cliente_id" class="form-control" required>
+                            <option value="">-- Seleccione Cliente --</option>
+                            <?php foreach ($clientes as $m): ?>
+                                <option value="<?= $m['cliente_id'] ?>">
+                                    <?= $m['cliente_id'] . ' - ' . $m['nombre'] . ' - ' . $m['apellido'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
                         <label for="txt_fecha_medicion" class="form-label">Fecha de medicion:</label>
                         <input type="date" name="txt_fecha_medicion" id="txt_fecha_medicion" class="form-control">

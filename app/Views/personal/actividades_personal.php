@@ -54,20 +54,42 @@
                 <div class="modal-body">
                     <form action="agregarActividad" method="post">
 
-                        <label for="txt_actividad_id" class="form-label">Actividad ID</label>
-                        <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control">
+                        <input type="hidden" name="txt_actividad_id" id="txt_actividad_id" class="form-control">
 
                         <label for="txt_personal_id" class="form-label">Personal id</label>
-                        <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control">
+                        <select name="txt_personal_id" id="txt_personal_id" class="form-control" required>
+                            <option value="">-- Seleccione Personal --</option>
+                            <?php foreach ($personal as $m): ?>
+                                <option value="<?= $m['personal_id'] ?>">
+                                    <?= $m['personal_id'] . ' - ' . $m['nombre'] . ' - ' . $m['apellido'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
                         <label for="txt_nombre" class="form-label">Nombre:</label>
                         <input type="text" name="txt_nombre" id="txt_nombre" class="form-control">
 
                         <label for="txt_modalidad" class="form-label">Modalidad:</label>
-                        <input type="text" name="txt_modalidad" id="txt_modalidad" class="form-control">
+                        <select name="txt_modalidad" id="txt_modalidad" class="form-control" required>
+                            <option value="">- Seleccione Modalidad -</option>
+                            <option value="Personal" <?= (isset($datos['modalidad']) && $datos['modalidad'] == 'Personal') ? 'selected' : '' ?>>Personal</option>
+                            <option value="Virtual" <?= (isset($datos['modalidad']) && $datos['modalidad'] == 'Virtual') ? 'selected' : '' ?>>Virtual</option>
+                            <option value="Presencial" <?= (isset($datos['modalidad']) && $datos['modalidad'] == 'Presencial') ? 'selected' : '' ?>>Presencial</option>
+                        </select>
 
                         <label for="txt_nivel" class="form-label">Nivel:</label>
-                        <input type="text" name="txt_nivel" id="txt_nivel" class="form-control">
+                        <select name="txt_nivel" id="txt_nivel" class="form-control" required>
+                            <option value="">- Seleccione Nivel -</option>
+                            <option value="Principiante" <?= (isset($datos['nivel']) && $datos['nivel'] == 'Principiante') ? 'selected' : '' ?>>Principiante</option>
+                            <option value="Intermedio" <?= (isset($datos['nivel']) && $datos['nivel'] == 'Intermedio') ? 'selected' : '' ?>>Intermedio</option>
+                            <option value="Avanzado" <?= (isset($datos['nivel']) && $datos['nivel'] == 'Avanzado') ? 'selected' : '' ?>>Avanzado</option>
+                        </select>
+
+                        <label for="txt_fecha" class="form-label">Fecha:</label>
+                        <input type="date" name="txt_fecha" id="txt_fecha" class="form-control">
+
+                        <label for="txt_hora" class="form-label">Hora:</label>
+                        <input type="number" name="txt_hora" id="txt_hora" class="form-control">
 
                         <label for="txt_cupo" class="form-label">Cupo Maximo:</label>
                         <input type="number" name="txt_cupo" id="txt_cupo" class="form-control">
@@ -92,55 +114,61 @@
 
     <!-- Tabla de resultados -->
 
-    <div class="table-responsive h-75 mx-auto rounded-5">
-        <table class="table table-hover table-bordered">
-            <thead class="table-dark text-center">
+    <table class="table mt-5 table-hover table-bordered">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>Actividad</th>
+                <th>Personal</th>
+                <th>Nombre</th>
+                <th>Modalidad</th>
+                <th>Nivel</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Cupo</th>
+                <th class="text-center">Asignacion</th>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($datos as $registro) {
+            ?>
                 <tr>
-                    <th>Actividad</th>
-                    <th>Personal</th>
-                    <th>Nombre</th>
-                    <th>Modalidad</th>
-                    <th>Nivel</th>
-                    <th>Cupo</th>
-                    <th class="text-center">Asignacion</th>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($datos as $registro) {
-                ?>
-                    <tr>
-                        <td>
-                            <?php echo ($registro['actividad_id']) ?>
-                        </td>
-                        <td>
-                            <?= $registro['personal_id']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['nombre']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['modalidad']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['nivel']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['cupo_maximo']; ?>
-                        </td>
+                    <td>
+                        <?php echo ($registro['actividad_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['personal_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['nombre']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['modalidad']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['nivel']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['hora']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['cupo_maximo']; ?>
+                    </td>
 
-                        <td class="d-flex justify-content-center gap-2 ">
-                            <a href="<?= base_url('update_actividad/') . $registro['actividad_id']; ?>"
-                                class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                            <a href="<?= base_url('eliminar_actividad/') . $registro['actividad_id']; ?>"
-                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-                        </td>
-                    </tr>
-                <?php
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
+                    <td class="d-flex justify-content-center gap-2 ">
+                        <a href="<?= base_url('update_actividad/') . $registro['actividad_id']; ?>"
+                            class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                        <a href="<?= base_url('eliminar_actividad/') . $registro['actividad_id']; ?>"
+                            class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
 
 
 

@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\PersonalModel;
+use App\Models\PuestoModel;
+
 
 class PersonalController extends BaseController
 {
@@ -11,15 +13,25 @@ class PersonalController extends BaseController
         //Crea un objeto 
         $registro = new PersonalModel();
         $datos['datos'] = $registro->findAll();
+
+        $puesto = new PuestoModel();
+        $datos['departamentos'] = $puesto->select('puesto_id, departamento')->findAll();
+        $datos['puestos'] = $puesto->select('puesto_id, rol')->findAll();
+       
         return view('admin/personal_admin.php', $datos);
     }
 
     public function agregarPersonal()
     {
+        helper('generarCodigo');
+
         //crear un objeto de tipo empleado model
         $registro = new PersonalModel();
+
+        $personal_id = generarCodigo('personal', 'personal_id', 'PU');
+
         $datos = [
-            'personal_id' => $this->request->getPost('txt_personal_id'),
+            'personal_id' => $personal_id,
             'puesto_id' => $this->request->getPost('txt_puesto_id'),
             'nombre' => $this->request->getPost('txt_nombre'),
             'apellido' => $this->request->getPost('txt_apellido'),

@@ -65,14 +65,28 @@
                 <div class="modal-body">
                     <form action="agregarPuesto" method="post">
 
-                        <label for="txt_puesto_id" class="form-label">Puesto ID</label>
-                        <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control">
 
-                        <label for="txt_rol" class="form-label">Rol: </label>
-                        <input type="text" name="txt_rol" id="txt_rol" class="form-control">
+                        <input type="hidden" name="txt_puesto_id" id="txt_puesto_id" class="form-control">
+
+                        <label for="txt_rol" class="form-label">Rol:</label>
+                        <input list="puesto" name="txt_rol" id="txt_rol" class="form-control">
+                        <datalist id="puesto">
+                            <?php foreach ($puestos as $dep): ?>
+                                <option value="<?= $dep['rol']; ?>">
+                                    <?= $dep['rol']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </datalist>
 
                         <label for="txt_departamento" class="form-label">Departamento:</label>
-                        <input type="text" name="txt_departamento" id="txt_departamento" class="form-control">
+                        <input list="depto" name="txt_departamento" id="txt_departamento" class="form-control">
+                        <datalist id="depto">
+                            <?php foreach ($departamentos as $dep): ?>
+                                <option value="<?= $dep['departamento']; ?>">
+                                    <?= $dep['departamento']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </datalist>
 
                         <label for="txt_descripcion" class="form-label">Descripcion:</label>
                         <input type="text" name="txt_descripcion" id="txt_descripcion" class="form-control">
