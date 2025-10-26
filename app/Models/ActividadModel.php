@@ -14,7 +14,10 @@ class ActividadModel extends Model
         'nombre', 
         'modalidad', 
         'nivel', 
-        'cupo_maximo' 
+        'fecha', 
+        'hora', 
+        'cupo_maximo',
+        'asignados' 
     ];
     
 }

@@ -12,8 +12,6 @@ class AsignacionModel extends Model
         'asignacion_id',
         'cliente_id',
         'actividad_id',
-        'fecha',
-        'hora',
         'estado',
         'fecha_reservacion'
     ];

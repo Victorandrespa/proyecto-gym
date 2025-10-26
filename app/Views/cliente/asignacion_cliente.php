@@ -16,9 +16,9 @@
     <title>Asignacion</title>
 </head>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-4 background-image-clientes-asignacion rounded-5 w-50 p-3">
+
+
+<body class="container mt-4 background-image-clientes-asignacion">
 
             <body class="container mt-4">
 
@@ -108,9 +108,145 @@
 
                 <footer class="mb-5">.</footer>
 
-            </body>
-        </div>
-    </div>
-</div>
+    <br><br>
+
+
+   
+    <form method="POST" action="<?= base_url('verAsignacionCliente'); ?>" class="d-flex gap-2">
+        <input type="text" name="cliente_id" id="txt_cliente_id" class="form-control"
+            placeholder="Código cliente"
+            value="<?= session()->get('cliente_id') ?? '' ?>">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+
+    <!-- Tabla de resultados -->
+
+    <table class="table mt-5 table-hover table-bordered">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>Actividad</th>
+                <th>Personal </th>
+                <th>Modalidad</th>
+                <th>Nivel</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Cupo</th>
+                <th>Asignados</th>
+                <th>Estatus</th>
+                <th class="text-center">Asignacion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($datos as $registro) {
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ($registro['actividad_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['personal_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['nombre']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['modalidad']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['nivel']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['hora']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['cupo_maximo']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['asignados']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['reservacion']; ?>
+                    </td>
+
+                    <td class="d-flex justify-content-center gap-2">
+                        <button
+                            class="btn btn-outline-dark btn-agregar"
+                            data-actividad="<?= $registro['actividad_id']; ?>">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                        <form method="POST" action="<?= base_url('buscar_asignacion'); ?>" onsubmit="return confirm('¿Seguro que deseas eliminar esta asignación?');">
+                            <input type="hidden" name="actividad_id" value="<?= $registro['actividad_id']; ?>">
+                            <input type="hidden" name="cliente_id" id="cliente_id_hidden_<?= $registro['actividad_id']; ?>">
+                            <button type="submit" class="btn btn-outline-danger">
+                                <i class="bi bi-trash"></i> Eliminar
+                            </button>
+                        </form>
+
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+
+</body>
+
+<script>
+    document.querySelectorAll('.btn-agregar').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const actividadId = btn.getAttribute('data-actividad');
+            const clienteId = document.getElementById('txt_cliente_id').value;
+
+            if (!clienteId) {
+                alert("Debes ingresar tu ID de cliente.");
+                return;
+            }
+
+            if (confirm("¿Deseas asignarte a esta clase?")) {
+                // Crear formulario dinámico
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '<?= base_url("agregarAsignacion") ?>';
+
+                // Inputs ocultos
+                const inputActividad = document.createElement('input');
+                inputActividad.type = 'hidden';
+                inputActividad.name = 'actividad_id';
+                inputActividad.value = actividadId;
+
+                const inputCliente = document.createElement('input');
+                inputCliente.type = 'hidden';
+                inputCliente.name = 'cliente_id';
+                inputCliente.value = clienteId;
+
+                // Añadir inputs al form
+                form.appendChild(inputActividad);
+                form.appendChild(inputCliente);
+
+                // Añadir form al body y enviarlo
+                document.body.appendChild(form);
+                form.submit();
+            }
+        });
+    });
+
+    // Cada vez que se envíe un formulario, se copia el clienteId del input principal
+    const clienteInput = document.getElementById('txt_cliente_id');
+
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function() {
+            const hiddenInput = this.querySelector('input[name="cliente_id"]');
+            hiddenInput.value = clienteInput.value;
+        });
+    });
+</script>
+
 
 </html>

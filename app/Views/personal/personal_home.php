@@ -57,8 +57,9 @@
             </button>
 
 
-            <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Estados membresias <i
-                    class="bi bi-file-bar-graph"></i></a>
+            <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Estado membresia <i
+                    class="bi bi-file-person"></i></a>
+
 
             <a href="verHistorialMedicionPersonal" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Historial Medicion <i
                     class="bi bi-clipboard-check"></i></a>
@@ -80,28 +81,45 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="agregarPago" method="post">
+                    <form action="agregarPagoPersonal" method="post">
 
-                        <label for="txt_actividad_id" class="form-label">ID:</label>
-                        <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control">
+                        <input type="hidden" name="txt_pago_id" id="txt_pago_id" class="form-control">
 
-                        <label for="txt_personal_id" class="form-label">Cliente ID:</label>
-                        <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control">
+                        <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
+                        <select name="txt_cliente_id" id="txt_cliente_id" class="form-control" required>
+                            <option value="">-- Seleccione Cliente --</option>
+                            <?php foreach ($clientes as $c): ?>
+                                <option value="<?= $c['cliente_id'] ?>">
+                                    <?= $c['cliente_id'] . ' - ' . $c['nombre'] . ' - ' . $c['apellido'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
-                        <label for="txt_nombre" class="form-label">Membresia ID:</label>
-                        <input type="text" name="txt_nombre" id="txt_nombre" class="form-control">
+                        <label for="txt_membresia_id" class="form-label">Membresia ID:</label>
+                        <select name="txt_membresia_id" id="txt_membresia_id" class="form-control" required>
+                            <option value="">-- Seleccione Membresia --</option>
+                            <?php foreach ($membresias as $m): ?>
+                                <option value="<?= $m['membresia_id'] ?>">
+                                    <?= $m['membresia_id'] . ' - ' . $m['tipo_plan'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
-                        <label for="txt_modalidad" class="form-label">Fecha de pago:</label>
-                        <input type="date" name="txt_modalidad" id="txt_modalidad" class="form-control">
+                        <label for="txt_fecha_pago" class="form-label">Fecha de pago:</label>
+                        <input type="date" name="txt_fecha_pago" id="txt_fecha_pago" class="form-control">
 
-                        <label for="txt_nivel" class="form-label">Monto:</label>
-                        <input type="number" name="txt_nivel" id="txt_nivel" class="form-control">
+                        <label for="txt_monto" class="form-label">Monto:</label>
+                        <input type="number" name="txt_monto" id="txt_monto" class="form-control">
 
-                        <label for="txt_metodo_pago" class="form-label">Metodo de Pago:</label>
-                        <input type="text" name="txt_metodo_pago" id="txt_metodo_pago" class="form-control">
+                        <label for="txt_metodo_pago" class="form-label">Metodo de pago::</label>
+                        <select name="txt_metodo_pago" id="txt_metodo_pago" class="form-control" required>
+                            <option value="">- Metodo de pago -</option>
+                            <option value="Activo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Tarjeta') ? 'selected' : '' ?>>Tarjeta</option>
+                            <option value="Inactivo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Efectivo') ? 'selected' : '' ?>>Efectivo</option>
+                        </select>
 
-                        <label for="txt_cupo" class="form-label">Concepto:</label>
-                        <input type="text" name="txt_cupo" id="txt_cupo" class="form-control">
+                        <label for="txt_concepto" class="form-label">Concepto:</label>
+                        <input type="text" name="txt_concepto" id="txt_concepto" class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
                             <button type="submit"
@@ -128,8 +146,7 @@
                 <div class="modal-body">
                     <form action="agregarCliente" method="post">
 
-                        <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
-                        <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control">
+                        <input type="hidden" name="txt_cliente_id" id="txt_cliente_id" class="form-control">
 
                         <label for="txt_nombre" class="form-label">Nombre:</label>
                         <input type="text" name="txt_nombre" id="txt_nombre" class="form-control">
@@ -169,6 +186,8 @@
             </div>
         </div>
     </div>
+
+
 
 
 

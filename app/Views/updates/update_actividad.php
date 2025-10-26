@@ -11,6 +11,9 @@
     <title>Actividad</title>
 </head>
 
+
+<button onclick="window.history.back()" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></button>
+
 <body class="background-image-personal-update-actividades">
     <div class="container">
         <div class="row">
@@ -37,6 +40,14 @@
                     <label for="txt_nivel" class="form-label text-light">NIVEL:</label>
                     <input type="text" name="txt_nivel" id="txt_nivel" class="form-control"
                         value="<?= $datos['nivel'] ?>">
+
+                    <label for="txt_fecha" class="form-label text-light">FECHA:</label>
+                    <input type="text" name="txt_fecha" id="txt_fecha" class="form-control"
+                        value="<?= $datos['fecha'] ?>">
+
+                    <label for="txt_hora" class="form-label text-light">HORA:</label>
+                    <input type="text" name="txt_hora" id="txt_hora" class="form-control"
+                        value="<?= $datos['hora'] ?>">
 
                     <label for="txt_cupo" class="form-label text-light">CUPO MAXIMO:</label>
                     <input type="number" name="txt_cupo" id="txt_cupo" class="form-control"

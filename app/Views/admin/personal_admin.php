@@ -65,11 +65,18 @@
                 <div class="modal-body">
                     <form action="agregarPersonal" method="post">
 
-                        <label for="txt_personal_id" class="form-label">Personal ID:</label>
-                        <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control">
 
-                        <label for="txt_puesto_id" class="form-label">Puesto ID:</label>
-                        <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control">
+                        <input type="hidden" name="txt_personal_id" id="txt_personal_id" class="form-control">
+
+                        <label for="txt_puesto_id" class="form-label">Puesto:</label>
+                        <input list="puesto" name="txt_puesto_id" id="txt_puesto_id" class="form-control">
+                        <datalist id="puesto">
+                            <?php foreach ($puestos as $puesto): ?>
+                                <option value="<?= $puesto['puesto_id'] ?>">
+                                    <?= $puesto['puesto_id'] . ' - ' . $puesto['rol'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </datalist>
 
                         <label for="txt_nombre" class="form-label">Nombre:</label>
                         <input type="text" name="txt_nombre" id="txt_nombre" class="form-control">
@@ -88,13 +95,29 @@
                             class="form-control">
 
                         <label for="txt_estado" class="form-label">Estado:</label>
-                        <input type="text" name="txt_estado" id="txt_estado" class="form-control">
+                        <select name="txt_estado" id="txt_estado" class="form-control" required>
+                            <option value="">-- Seleccione Estado --</option>
+                            <option value="Activo" <?= (isset($datos['estado']) && $datos['estado'] == 'Activo') ? 'selected' : '' ?>>Activo</option>
+                            <option value="Inactivo" <?= (isset($datos['estado']) && $datos['estado'] == 'Inactivo') ? 'selected' : '' ?>>Inactivo</option>
+                        </select>
+
 
                         <label for="txt_horario" class="form-label">Horario:</label>
-                        <input type="number" name="txt_horario" id="txt_horario" class="form-control">
+                        <select name="txt_horario" id="txt_horario" class="form-control" required>
+                            <option value="">-- Seleccione Horario --</option>
+                            <option value="Matutino" <?= (isset($datos['horario']) && $datos['horario'] == 'Matutino') ? 'selected' : '' ?>>Matutino</option>
+                            <option value="Vespertino" <?= (isset($datos['horario']) && $datos['horario'] == 'Vespertino') ? 'selected' : '' ?>>Vespertino</option>
+                        </select>
+
 
                         <label for="txt_sede" class="form-label">Sede:</label>
-                        <input type="text" name="txt_sede" id="txt_sede" class="form-control">
+                        <select name="txt_sede" id="txt_sede" class="form-control" required>
+                            <option value="">-- Seleccione Sede --</option>
+                            <option value="CAES" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'CAES') ? 'selected' : '' ?>>CAES</option>
+                            <option value="Zona14" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'Zona14') ? 'selected' : '' ?>>Zona14</option>
+                            <option value="Todas" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'Todas') ? 'selected' : '' ?>>Todas</option>
+                        </select>
+
 
                         <div class="d-flex justify-content-center mt-3">
                             <button type="submit"

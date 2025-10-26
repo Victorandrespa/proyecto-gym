@@ -29,8 +29,6 @@
 
         <div class="d-flex flex-column justify-content-between align-items-left">
             <a href="verAdminHome" class="btn btn btn-outline-dark my-1">Home <i class="bi bi-house"></i></a>
-            <a href="verPersonalAdmin" class="btn btn btn-outline-dark">Gestion de Personal <i
-                    class="bi bi-person-rolodex"></i></a>
         </div>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-dark my-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -51,14 +49,28 @@
                 <div class="modal-body">
                     <form action="agregarPuesto" method="post">
 
-                        <label for="txt_puesto_id" class="form-label">Puesto ID</label>
-                        <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control">
 
-                        <label for="txt_rol" class="form-label">Rol: </label>
-                        <input type="text" name="txt_rol" id="txt_rol" class="form-control">
+                        <input type="hidden" name="txt_puesto_id" id="txt_puesto_id" class="form-control">
+
+                        <label for="txt_rol" class="form-label">Rol:</label>
+                        <input list="puesto" name="txt_rol" id="txt_rol" class="form-control">
+                        <datalist id="puesto">
+                            <?php foreach ($puestos as $dep): ?>
+                                <option value="<?= $dep['rol']; ?>">
+                                    <?= $dep['rol']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </datalist>
 
                         <label for="txt_departamento" class="form-label">Departamento:</label>
-                        <input type="text" name="txt_departamento" id="txt_departamento" class="form-control">
+                        <input list="depto" name="txt_departamento" id="txt_departamento" class="form-control">
+                        <datalist id="depto">
+                            <?php foreach ($departamentos as $dep): ?>
+                                <option value="<?= $dep['departamento']; ?>">
+                                    <?= $dep['departamento']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </datalist>
 
                         <label for="txt_descripcion" class="form-label">Descripcion:</label>
                         <input type="text" name="txt_descripcion" id="txt_descripcion" class="form-control">
@@ -93,34 +105,34 @@
         </thead>
         <tbody>
             <?php
-                foreach ($datos as $registro) {
-                    ?>
-            <tr>
-                <td>
-                    <?php echo ($registro['puesto_id']) ?>
-                </td>
-                <td>
-                    <?= $registro['rol']; ?>
-                </td>
-                <td>
-                    <?= $registro['departamento']; ?>
-                </td>
-                <td>
-                    <?= $registro['descripcion']; ?>
-                </td>
-               
+            foreach ($datos as $registro) {
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ($registro['puesto_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['rol']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['departamento']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['descripcion']; ?>
+                    </td>
 
 
-                <td class="d-flex justify-content-center gap-2 ">
-                    <a href="<?= base_url('update_puesto/') . $registro['puesto_id']; ?>"
-                        class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                    <a href="<?= base_url('eliminar_puesto/') . $registro['puesto_id']; ?>"
-                        class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-                </td>
-            </tr>
+
+                    <td class="d-flex justify-content-center gap-2 ">
+                        <a href="<?= base_url('update_puesto/') . $registro['puesto_id']; ?>"
+                            class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                        <a href="<?= base_url('eliminar_puesto/') . $registro['puesto_id']; ?>"
+                            class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
             <?php
-                }
-                ?>
+            }
+            ?>
         </tbody>
     </table>
 
