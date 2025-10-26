@@ -8,6 +8,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="<?= base_url('css/background.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
@@ -19,35 +20,35 @@
 <body class="container mt-4 background-image-gestion-personal">
 
 
-    <div class="container">
+    <div class="container item-group" xyz="fade stagger">
         <div class="row align-items-center">
             <!-- Primera columna: Logo -->
-            <div class="col-auto">
-                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            <div class="col-auto square xyz-in">
+                <img src="<?= base_url('images/evolvere-logo-250.png') ?>" alt="Logo" class="img-fluid">
             </div>
 
             <!-- Segunda columna: 3 elementos alineados -->
             <div class="col">
                 <div class="d-flex flex-column">
-                    <h1 class="mt-5 text-light">GESTION PERSONAL <i class="bi bi-person-rolodex"></i></h1>
-                    <h4 class="mb-5 text-light">ADMIN</h4>
+                    <h1 class="mt-5 text-light square xyz-in">GESTION PERSONAL <i class="bi bi-person-rolodex"></i></h1>
+                    <h4 class="mb-5 text-light square xyz-in">ADMIN</h4>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="d-flex flex-row justify-content-between align-items-center">
+    <div class="d-flex flex-row justify-content-between align-items-center item-group" xyz="fade stagger">
 
-        <a href="verAdminHome" class="ms-5 btn btn btn-outline-dark border border-light text-light">Home <i class="bi bi-house"></i></a>
+        <a href="verAdminHome" class="ms-5 btn btn btn-outline-dark border border-light text-light square xyz-in">Home <i class="bi bi-house"></i></a>
 
         <!-- Button trigger modal -->
-        <div class="d-flex flex-column align-items-right">
-            <button type="button" class="btn btn-outline-dark my-1 border border-light text-light" data-bs-toggle="modal"
+        <div class="d-flex flex-column align-items-right item-group" xyz="fade stagger">
+            <button type="button" class="btn btn-outline-dark my-1 border border-light text-light square xyz-in" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
                 Agregar Personal <i class="bi bi-person-plus"></i>
             </button>
 
-            <a href="verPuestoAdmin" class="btn btn btn-outline-dark border border-light text-light">Ir a puestos <i
+            <a href="verPuestoAdmin" class="btn btn btn-outline-dark border border-light text-light square xyz-in">Ir a puestos <i
                     class="bi bi-person-gear"></i></a>
         </div>
 
@@ -114,72 +115,75 @@
 
     <!-- Tabla de resultados -->
 
-    <table class="table mt-5 table-hover table-bordered">
-        <thead class="table-dark text-center">
-            <tr>
-                <th>ID</th>
-                <th>Puesto</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Telefono</th>
-                <th>Email</th>
-                <th>Fecha de Contratacion</th>
-                <th>Estado</th>
-                <th>Horario</th>
-                <th>Sede</th>
-                <th class="text-center">Editar</th>
-        </thead>
-        <tbody>
-            <?php
-            foreach ($datos as $registro) {
-            ?>
+    <div class="table-responsive h-75 mx-auto rounded-5">
+        <table class="table table-hover table-bordered">
+            <thead class="table-dark text-center">
                 <tr>
-                    <td>
-                        <?php echo ($registro['personal_id']) ?>
-                    </td>
-                    <td>
-                        <?= $registro['puesto_id']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['nombre']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['apellido']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['telefono']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['email']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['fecha_contratacion']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['estado']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['horario']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['sede_principal']; ?>
-                    </td>
+                    <th>ID</th>
+                    <th>Puesto</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Fecha de Contratacion</th>
+                    <th>Estado</th>
+                    <th>Horario</th>
+                    <th>Sede</th>
+                    <th class="text-center">Editar</th>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($datos as $registro) {
+                ?>
+                    <tr>
+                        <td>
+                            <?php echo ($registro['personal_id']) ?>
+                        </td>
+                        <td>
+                            <?= $registro['puesto_id']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['nombre']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['apellido']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['telefono']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['email']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['fecha_contratacion']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['estado']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['horario']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['sede_principal']; ?>
+                        </td>
 
 
-                    <td class="d-flex justify-content-center gap-2 ">
-                        <a href="<?= base_url('update_personal/') . $registro['personal_id']; ?>" class="btn btn-outline-dark"><i
-                                class="bi bi-pencil"></i></a>
-                        <a href="<?= base_url('eliminar_personal/') . $registro['personal_id']; ?>"
-                            class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
+                        <td class="d-flex justify-content-center gap-2 ">
+                            <a href="<?= base_url('update_personal/') . $registro['personal_id']; ?>" class="btn btn-outline-dark"><i
+                                    class="bi bi-pencil"></i></a>
+                            <a href="<?= base_url('eliminar_personal/') . $registro['personal_id']; ?>"
+                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 
 
+    <br><br>
 
 
 

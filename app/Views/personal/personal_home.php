@@ -8,28 +8,29 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="<?= base_url('css/background-personal.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
     <title>Personal</title>
 </head>
 
 <body class="container mt-4 background-image-personal-main">
 
 
-    <div class="container">
+    <div class="container item-group" xyz="fade stagger">
         <div class="row align-items-center">
             <!-- Primera columna: Logo -->
-            <div class="col-auto">
-                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            <div class="col-auto square xyz-in">
+                <img src="<?= base_url('images/evolvere-logo-250.png') ?>" alt="Logo" class="img-fluid">
             </div>
 
             <!-- Segunda columna: 3 elementos alineados -->
             <div class="col">
                 <div class="d-flex flex-column">
-                    <h1 class="mt-5 text-light">GESTIONES ADMINISTRATIVAS</h1>
-                    <h4 class="mb-5 text-light">ENTRENADORES</h4>
+                    <h1 class="mt-5 text-light square xyz-in">GESTIONES ADMINISTRATIVAS</h1>
+                    <h4 class="mb-5 text-light square xyz-in">ENTRENADORES</h4>
                 </div>
 
-                <div class="d-flex flex-row justify-content-between align-items-center">
-                    <a href="verHome" class="btn btn btn-outline-dark text-light border border-light">Menu Principal <i class="bi bi-house"></i></a>
+                <div class="d-flex flex-row justify-content-between align-items-center item-group" xyz="fade stagger">
+                    <a href="verHome" class="btn btn btn-outline-dark text-light border border-light square xyz-in">Menu Principal <i class="bi bi-house"></i></a>
                 </div>
             </div>
         </div>
@@ -37,30 +38,30 @@
 
     <div class="d-flex justify-content-around mt-3">
 
-        <div class="d-grid gap-2 mt-5" style="width: 50%;">
-            <a href="verActividadPersonal" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Gestionar Actividades <i
+        <div class="d-grid gap-2 mt-5 item-group" style="width: 50%;">
+            <a href="verActividadPersonal" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light square xyz-in border border-5" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">Gestionar Actividades <i
                     class="bi bi-flag"></i></a>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light" data-bs-toggle="modal"
-                data-bs-target="#exampleModal2">
+            <button type="button" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light square xyz-in border border-5" data-bs-toggle="modal"
+                data-bs-target="#exampleModal2" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">
                 Registro de Clientes <i class="bi bi-person"></i>
             </button>
 
-            <a href="verClientePersonal" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Base de datos Clientes <i
+            <a href="verClientePersonal" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light square xyz-in border border-5" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">Base de datos Clientes <i
                     class="bi bi-database"></i></a>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light square xyz-in border border-5" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">
                 Procesar un pago <i class="bi bi-credit-card"></i>
             </button>
 
 
-            <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Estados membresias <i
+            <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light square xyz-in border border-5" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">Estados membresias <i
                     class="bi bi-file-bar-graph"></i></a>
 
-            <a href="verHistorialMedicionPersonal" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Historial Medicion <i
+            <a href="verHistorialMedicionPersonal" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light square xyz-in border border-5" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">Historial Medicion <i
                     class="bi bi-clipboard-check"></i></a>
 
 

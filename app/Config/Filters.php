@@ -25,16 +25,17 @@ class Filters extends BaseFilters
      * or [filter_name => [classname1, classname2, ...]]
      */
     public array $aliases = [
-        'csrf'          => CSRF::class,
-        'toolbar'       => DebugToolbar::class,
-        'honeypot'      => Honeypot::class,
-        'invalidchars'  => InvalidChars::class,
-        'secureheaders' => SecureHeaders::class,
-        'cors'          => Cors::class,
-        'forcehttps'    => ForceHTTPS::class,
-        'pagecache'     => PageCache::class,
-        'performance'   => PerformanceMetrics::class,
-    ];
+    'csrf'          => \CodeIgniter\Filters\CSRF::class,
+    'toolbar'       => \CodeIgniter\Filters\DebugToolbar::class,
+    'honeypot'      => Honeypot::class,
+    'invalidchars'  => InvalidChars::class,
+    'secureheaders' => SecureHeaders::class,
+    'cors'          => Cors::class,
+    'forcehttps'    => ForceHTTPS::class,
+    'pagecache'     => PageCache::class,
+    'performance'   => PerformanceMetrics::class,
+    'authGuard'     => \App\Filters\AuthGuard::class,
+];
 
     /**
      * List of special required filters.
@@ -71,16 +72,30 @@ class Filters extends BaseFilters
      * }
      */
     public array $globals = [
-        'before' => [
-            // 'honeypot',
-            // 'csrf',
-            // 'invalidchars',
+    'before' => [
+        'authGuard' => [
+            'except' => [
+                '/',                 // Página principal pública
+                'verHome',           // Página principal pública
+                'login/*',           // Login
+                'logout',            // Logout
+                'css/*',             // Assets
+                'js/*',
+                'images/*',
+            ],
         ],
-        'after' => [
-            // 'honeypot',
-            // 'secureheaders',
-        ],
-    ];
+        // Otros filtros globales si los necesitas
+        // 'honeypot',
+        // 'csrf',
+        // 'invalidchars',
+    ],
+    'after' => [
+        'toolbar',
+        // 'honeypot',
+        // 'secureheaders',
+    ],
+];
+
 
     /**
      * List of filter aliases that works on a

@@ -8,62 +8,97 @@
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="<?= base_url('css/background.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
     <title>Personal</title>
 </head>
 
 <body class="background-image-update-personal">
-    <div class="container">
+    <div class="container square xyz-in" xyz="small-100% origin-top">
         <div class="row">
             <div class="col-8 offset-2">
-                <h2 class="my-4 text-light">UPDATE PERSONAL</h2>
+                <h2 class="my-4 text-light text-center">UPDATE PERSONAL</h2>
+
                 <form action="<?= base_url('editar_personal') ?>" method="post">
+                    <div class="row">
+                        <!-- Columna izquierda -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txt_personal_id" class="form-label text-light">PERSONAL:</label>
+                                <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control"
+                                    value="<?= $datos['personal_id'] ?>" readonly>
+                            </div>
 
-                    <label for="txt_personal_id" class="form-label text-light">PERSONAL:</label>
-                    <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control"
-                        value="<?= $datos['personal_id'] ?>" readonly>
+                            <div class="mb-3">
+                                <label for="txt_puesto_id" class="form-label text-light">PUESTO ID:</label>
+                                <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control"
+                                    value="<?= $datos['puesto_id'] ?>">
+                            </div>
 
-                    <label for="txt_puesto_id" class="form-label text-light">PUESTO ID:</label>
-                    <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control"
-                        value="<?= $datos['puesto_id'] ?>" >
+                            <div class="mb-3">
+                                <label for="txt_nombre" class="form-label text-light">NOMBRE:</label>
+                                <input type="text" name="txt_nombre" id="txt_nombre" class="form-control"
+                                    value="<?= $datos['nombre'] ?>">
+                            </div>
 
-                    <label for="txt_nombre" class="form-label text-light">NOMBRE:</label>
-                    <input type="text" name="txt_nombre" id="txt_nombre" class="form-control"
-                        value="<?= $datos['nombre'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_apellido" class="form-label text-light">APELLIDO:</label>
+                                <input type="text" name="txt_apellido" id="txt_apellido" class="form-control"
+                                    value="<?= $datos['apellido'] ?>">
+                            </div>
 
-                    <label for="txt_apellido" class="form-label text-light">APELLIDO:</label>
-                    <input type="text" name="txt_apellido" id="txt_apellido" class="form-control"
-                        value="<?= $datos['apellido'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_telefono" class="form-label text-light">TELEFONO:</label>
+                                <input type="number" name="txt_telefono" id="txt_telefono" class="form-control"
+                                    value="<?= $datos['telefono'] ?>">
+                            </div>
+                        </div>
 
-                    <label for="txt_telefono" class="form-label text-light">TELEFONO:</label>
-                    <input type="number" name="txt_telefono" id="txt_telefono" class="form-control"
-                        value="<?= $datos['telefono'] ?>">
+                        <!-- Columna derecha -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txt_email" class="form-label text-light">EMAIL:</label>
+                                <input type="email" name="txt_email" id="txt_email" class="form-control"
+                                    value="<?= $datos['email'] ?>">
+                            </div>
 
-                    <label for="txt_email" class="form-label text-light">EMAIL:</label>
-                    <input type="email" name="txt_email" id="txt_email" class="form-control"
-                        value="<?= $datos['email'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_fecha_contratacion" class="form-label text-light">FECHA CONTRATACION:</label>
+                                <input type="date" name="txt_fecha_contratacion" id="txt_fecha_contratacion" class="form-control"
+                                    value="<?= $datos['fecha_contratacion'] ?>">
+                            </div>
 
-                    <label for="txt_fecha_contratacion" class="form-label text-light">FECHA CONTRATACION:</label>
-                    <input type="date" name="txt_fecha_contratacion" id="txt_fecha_contratacion" class="form-control"
-                        value="<?= $datos['fecha_contratacion'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_estado" class="form-label text-light">ESTADO:</label>
+                                <input type="text" name="txt_estado" id="txt_estado" class="form-control"
+                                    value="<?= $datos['estado'] ?>">
+                            </div>
 
-                    <label for="txt_estado" class="form-label text-light">ESTADO:</label>
-                    <input type="text" name="txt_estado" id="txt_estado" class="form-control"
-                        value="<?= $datos['estado'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_horario" class="form-label text-light">HORARIO:</label>
+                                <input type="number" name="txt_horario" id="txt_horario" class="form-control"
+                                    value="<?= $datos['horario'] ?>">
+                            </div>
 
-                    <label for="txt_horario" class="form-label text-light">HORARIO:</label>
-                    <input type="number" name="txt_horario" id="txt_horario" class="form-control"
-                        value="<?= $datos['horario'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_sede" class="form-label text-light">SEDE PRINCIPAL:</label>
+                                <input type="text" name="txt_sede" id="txt_sede" class="form-control"
+                                    value="<?= $datos['sede_principal'] ?>">
+                            </div>
+                        </div>
+                    </div>
 
-                    <label for="txt_sede" class="form-label text-light">SEDE PRINCIPAL:</label>
-                    <input type="text" name="txt_sede" id="txt_sede" class="form-control"
-                        value="<?= $datos['sede_principal'] ?>">
-
-                    <button type="submit" class="btn btn-outline-dark mt-3 mb-4 w-100 text-light rounded-pill border border-light">Guardar</button>
-
+                    <!-- Botón -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-light mt-3 mb-4 w-100 rounded-pill border border-light">
+                            Guardar
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+</body>
+
 
 
 

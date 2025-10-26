@@ -35,14 +35,6 @@
                                 <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control square xyz-in"
                                     value="<?= $datos['actividad_id'] ?>" xyz="inherit down">
 
-                                <label for="txt_fecha" class="form-label text-light square xyz-in" xyz="inherit left">FECHA:</label>
-                                <input type="date" name="txt_fecha" id="txt_fecha" class="form-control square xyz-in"
-                                    value="<?= $datos['fecha'] ?>" xyz="inherit left">
-
-                                <label for="txt_hora" class="form-label text-light square xyz-in" xyz="inherit up">HORA:</label>
-                                <input type="number" name="txt_hora" id="txt_hora" class="form-control square xyz-in"
-                                    value="<?= $datos['hora'] ?>" xyz="inherit up">
-
                                 <label for="txt_estado" class="form-label text-light square xyz-in" xyz="inherit down">ESTADO:</label>
                                 <input type="text" name="txt_estado" id="txt_estado" class="form-control square xyz-in"
                                     value="<?= $datos['estado'] ?>" xyz="inherit down">

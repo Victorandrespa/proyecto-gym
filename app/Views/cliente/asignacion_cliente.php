@@ -18,7 +18,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-4 background-image-clientes-asignacion rounded-5 w-50 p-3">
+        <div class="col-4 background-image-clientes-asignacion rounded-5 w-50 p-3 border border-dark border-5">
 
             <body class="container mt-4">
 
@@ -59,8 +59,6 @@
                                 <th>ID</th>
                                 <th>Clinete </th>
                                 <th>Actividad </th>
-                                <th>Fecha</th>
-                                <th>Hora</th>
                                 <th>Estado</th>
                                 <th>Fecha Reservacion</th>
                                 <th class="text-center">Asignacion</th>
@@ -79,12 +77,6 @@
                                     </td>
                                     <td>
                                         <?= $registro['actividad_id']; ?>
-                                    </td>
-                                    <td>
-                                        <?= $registro['fecha']; ?>
-                                    </td>
-                                    <td>
-                                        <?= $registro['hora']; ?>
                                     </td>
                                     <td>
                                         <?= $registro['estado']; ?>
@@ -106,7 +98,7 @@
                 </div>
 
 
-                <footer class="mb-5">.</footer>
+                <br><br>
 
             </body>
         </div>

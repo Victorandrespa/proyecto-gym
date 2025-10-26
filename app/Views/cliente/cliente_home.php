@@ -14,7 +14,7 @@
 
 <div class="container item-group mb-5">
     <div class="row justify-content-center">
-        <div class="col-4 background-image-clientes-main rounded-5 w-50 p-3">
+        <div class="col-4 background-image-clientes-main rounded-5 w-50 p-3 border border-dark border-5">
 
             <body class="container mt-4">
 
@@ -42,13 +42,13 @@
                 <div class="d-flex justify-content-around mt-3">
 
                     <div class="d-grid gap-2 mt-5 item-group" style="width: 50%;">
-                        <a href="verAsignacionCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light mb-3 square xyz-in" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">Asignarme actividades <i
+                        <a href="verAsignacionCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light mb-3 square xyz-in border border-5" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">Asignarme actividades <i
                                 class="bi bi-flag"></i></a>
-                        <a href="verHistorialMedicionCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light mb-3 square xyz-in" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">Historial de Medicion <i
+                        <a href="verHistorialMedicionCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light mb-3 square xyz-in border border-5" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">Historial de Medicion <i
                                 class="bi bi-clipboard-check"></i></a>
-                        <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light mb-3 square xyz-in" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">Estado membresia <i
+                        <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light mb-3 square xyz-in border border-5" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite">Estado membresia <i
                                 class="bi bi-file-person"></i></a>
-                        <button type="button" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-lightssss square xyz-in" data-bs-toggle="modal" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite"
+                        <button type="button" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-lightssss square xyz-in border border-5" data-bs-toggle="modal" xyz="duration-20 ease-in-out-back flip-up-100% iterate-infinite"
                             data-bs-target="#exampleModal">
                             Realizar un Pago <i class="bi bi-credit-card"></i>
                         </button>
