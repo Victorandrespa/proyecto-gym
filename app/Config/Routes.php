@@ -13,7 +13,7 @@ $routes->get('/', 'Home::index');
 $routes->get('verHome', 'Home::index');
 // $routes->get('verAdminHome', 'Home::admin_view');
 // $routes->get('verClienteHome', 'Home::cliente_view');
-// $routes->get('verPersonalHome', 'Home::personal_view');
+// $routes->get('verPersonalHome', 'Home::personal_view'); 
 
 
 

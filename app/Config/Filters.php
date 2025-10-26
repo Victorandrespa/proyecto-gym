@@ -77,7 +77,8 @@ class Filters extends BaseFilters
             'except' => [
                 '/',                 // Página principal pública
                 'verHome',           // Página principal pública
-                'login/*',           // Login
+                'login',             // Login POST/route exact
+                'login/*',           // Login (with segment)
                 'logout',            // Logout
                 'css/*',             // Assets
                 'js/*',
