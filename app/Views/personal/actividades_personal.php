@@ -8,6 +8,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="<?= base_url('css/background-personal.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
     <title>Actividades</title>
 </head>
 
@@ -15,28 +16,28 @@
 
 
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center item-group" xyz="fade stagger">
             <!-- Primera columna: Logo -->
-            <div class="col-auto">
-                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            <div class="col-auto square xyz-in">
+                <img src="<?= base_url('images/evolvere-logo-250.png') ?>" alt="Logo" class="img-fluid">
             </div>
 
             <!-- Segunda columna: 3 elementos alineados -->
             <div class="col">
                 <div class="d-flex flex-column">
-                    <h1 class="mt-5 text-light">CALENDARIO DE ACTIVIDADES <i class="bi bi-floppy"></i></h1>
-                    <h4 class="mb-5 text-light">ENTRENADOR</h4>
+                    <h1 class="mt-5 text-light square xyz-in">CALENDARIO DE ACTIVIDADES <i class="bi bi-floppy"></i></h1>
+                    <h4 class="mb-5 text-light square xyz-in">ENTRENADOR</h4>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="d-flex flex-row justify-content-between align-items-center">
+    <div class="d-flex flex-row justify-content-between align-items-center item-group" xyz="fade stagger">
 
-        <a href="verPersonalHome" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></a>
+        <a href="verPersonalHome" class="btn btn btn-outline-dark text-light border border-light ms-5 square xyz-in">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light square xyz-in" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Agregar actividad <i class="bi bi-flag"></i>
         </button>
 

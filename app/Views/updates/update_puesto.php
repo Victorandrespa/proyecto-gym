@@ -7,6 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="<?= base_url('css/background.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
     <title>Puesto</title>
 </head>
 
@@ -16,31 +18,52 @@
     <div class="container">
         <div class="row">
             <div class="col-8 offset-2">
-                <h2 class="my-4">Update Puesto</h2>
+                <h2 class="my-4 text-center text-light">Update Puesto</h2>
+
                 <form action="<?= base_url('editar_puesto') ?>" method="post">
+                    <div class="row">
+                        <!-- Columna izquierda -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txt_puesto_id" class="form-label text-light">Puesto ID:</label>
+                                <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control"
+                                    value="<?= $datos['puesto_id'] ?>" readonly>
+                            </div>
 
-                    <label for="txt_puesto_id" class="form-label">Puesto ID:</label>
-                    <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control"
-                        value="<?= $datos['puesto_id'] ?>" readonly>
+                            <div class="mb-3">
+                                <label for="txt_rol" class="form-label text-light">Rol:</label>
+                                <input type="text" name="txt_rol" id="txt_rol" class="form-control"
+                                    value="<?= $datos['rol'] ?>">
+                            </div>
+                        </div>
 
-                    <label for="txt_rol" class="form-label">Rol:</label>
-                    <input type="text" name="txt_rol" id="txt_rol" class="form-control"
-                        value="<?= $datos['rol'] ?>">
+                        <!-- Columna derecha -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txt_departamento" class="form-label text-light">Departamento:</label>
+                                <input type="text" name="txt_departamento" id="txt_departamento" class="form-control"
+                                    value="<?= $datos['departamento'] ?>">
+                            </div>
 
-                    <label for="txt_departamento" class="form-label">Departamento:</label>
-                    <input type="text" name="txt_departamento" id="txt_departamento" class="form-control"
-                        value="<?= $datos['departamento'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_descripcion" class="form-label text-light">Descripcion:</label>
+                                <input type="text" name="txt_descripcion" id="txt_descripcion" class="form-control"
+                                    value="<?= $datos['descripcion'] ?>">
+                            </div>
+                        </div>
+                    </div>
 
-                    <label for="txt_descripcion" class="form-label">Descripcion:</label>
-                    <input type="text" name="txt_descripcion" id="txt_descripcion" class="form-control"
-                        value="<?= $datos['descripcion'] ?>">
-
-                    <button type="submit" class="btn btn-outline-dark mt-3 w-100">Guardar</button>
-
+                    <!-- Botón -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-light mt-3 mb-4 w-100 rounded-pill border border-light">
+                            Guardar
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+
 
 
 

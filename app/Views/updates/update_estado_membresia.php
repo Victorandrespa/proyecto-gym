@@ -8,49 +8,75 @@
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="<?= base_url('css/background.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
     <title>Estado Membresia</title>
 </head>
 
 <button onclick="window.history.back()" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></button>
 
 <body class="background-image-update-estado-membresia">
-    <div class="container">
+    <div class="container square xyz-in" xyz="small-100% origin-top">
         <div class="row">
             <div class="col-8 offset-2">
-                <h2 class="my-4 text-light">UPDATE ESTADO MEMBRESIA</h2>
+                <h2 class="my-4 text-light text-center">UPDATE ESTADO MEMBRESIA</h2>
+
                 <form action="<?= base_url('editar_estado_membresia') ?>" method="post">
+                    <div class="row">
+                        <!-- Columna izquierda -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txt_estado_membresia_id" class="form-label text-light">ESTADO MEMBRESIA ID:</label>
+                                <input type="text" name="txt_estado_membresia_id" id="txt_estado_membresia_id" class="form-control"
+                                    value="<?= $datos['estado_membresia_id'] ?>" readonly>
+                            </div>
 
-                    <label for="txt_estado_membresia_id" class="form-label text-light">ESTADO MEMBRESIA ID:</label>
-                    <input type="text" name="txt_estado_membresia_id" id="txt_estado_membresia_id" class="form-control"
-                        value="<?= $datos['estado_membresia_id'] ?>" readonly>
+                            <div class="mb-3">
+                                <label for="txt_membresia_id" class="form-label text-light">MEMBRESIA ID:</label>
+                                <input type="text" name="txt_membresia_id" id="txt_membresia_id" class="form-control"
+                                    value="<?= $datos['membresia_id'] ?>">
+                            </div>
 
-                    <label for="txt_membresia_id" class="form-label text-light">MEMBRESIA ID:</label>
-                    <input type="text" name="txt_membresia_id" id="txt_membresia_id" class="form-control"
-                        value="<?= $datos['membresia_id'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_cliente_id" class="form-label text-light">CLIENTE ID:</label>
+                                <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control"
+                                    value="<?= $datos['cliente_id'] ?>">
+                            </div>
+                        </div>
 
-                    <label for="txt_cliente_id" class="form-label text-light">CLIENTE ID:</label>
-                    <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control"
-                        value="<?= $datos['cliente_id'] ?>">
+                        <!-- Columna derecha -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txt_fecha_inicio" class="form-label text-light">FECHA INICIO:</label>
+                                <input type="date" name="txt_fecha_inicio" id="txt_fecha_inicio" class="form-control"
+                                    value="<?= $datos['fecha_inicio'] ?>">
+                            </div>
 
-                    <label for="txt_fecha_inicio" class="form-label text-light">FECHA INICIO:</label>
-                    <input type="date" name="txt_fecha_inicio" id="txt_fecha_inicio" class="form-control"
-                        value="<?= $datos['fecha_inicio'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_fecha_fin" class="form-label text-light">FECHA FIN:</label>
+                                <input type="date" name="txt_fecha_fin" id="txt_fecha_fin" class="form-control"
+                                    value="<?= $datos['fecha_fin'] ?>">
+                            </div>
 
-                    <label for="txt_fecha_fin" class="form-label text-light">FECHA FIN:</label>
-                    <input type="date" name="txt_fecha_fin" id="txt_fecha_fin" class="form-control"
-                        value="<?= $datos['fecha_fin'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_estado" class="form-label text-light">ESTADO:</label>
+                                <input type="text" name="txt_estado" id="txt_estado" class="form-control"
+                                    value="<?= $datos['estado'] ?>">
+                            </div>
+                        </div>
+                    </div>
 
-                    <label for="txt_estado" class="form-label text-light">ESTADO:</label>
-                    <input type="text" name="txt_estado" id="txt_estado" class="form-control"
-                        value="<?= $datos['estado'] ?>">
-
-
-                    <button type="submit" class="btn btn-outline-dark mt-3 w-100 text-light rounded-pill border border-light">Guardar</button>
-
+                    <!-- Botón -->
+                    <div class="text-center">
+                        <button type="submit"
+                            class="btn btn-outline-dark mt-3 w-100 text-light rounded-pill border border-light">
+                            Guardar
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+
 
 
 

@@ -8,6 +8,7 @@
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="<?= base_url('css/background-personal.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
     <title>Actividad</title>
 </head>
 
@@ -15,52 +16,68 @@
 <button onclick="window.history.back()" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></button>
 
 <body class="background-image-personal-update-actividades">
-    <div class="container">
+    <div class="container square xyz-in" xyz="small-100% origin-top">
         <div class="row">
             <div class="col-8 offset-2">
-                <h2 class="my-4 text-light">UPDATE ACTIVIDAD</h2>
+                <h2 class="my-4 text-light text-center">UPDATE ACTIVIDAD</h2>
+
                 <form action="<?= base_url('editar_actividad') ?>" method="post">
+                    <div class="row">
+                        <!-- Columna izquierda -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txt_actividad_id" class="form-label text-light">ACTIVIDAD ID:</label>
+                                <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control"
+                                    value="<?= $datos['actividad_id'] ?>" readonly>
+                            </div>
 
-                    <label for="txt_actividad_id" class="form-label text-light">ACTIVIDAD ID:</label>
-                    <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control"
-                        value="<?= $datos['actividad_id'] ?>" readonly>
+                            <div class="mb-3">
+                                <label for="txt_personal_id" class="form-label text-light">PERSONAL ID:</label>
+                                <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control"
+                                    value="<?= $datos['personal_id'] ?>">
+                            </div>
 
-                    <label for="txt_personal_id" class="form-label text-light">PERSONAL ID:</label>
-                    <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control"
-                        value="<?= $datos['personal_id'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_nombre" class="form-label text-light">NOMBRE:</label>
+                                <input type="text" name="txt_nombre" id="txt_nombre" class="form-control"
+                                    value="<?= $datos['nombre'] ?>">
+                            </div>
+                        </div>
 
-                    <label for="txt_nombre" class="form-label text-light">NOMBRE:</label>
-                    <input type="text" name="txt_nombre" id="txt_nombre" class="form-control"
-                        value="<?= $datos['nombre'] ?>">
+                        <!-- Columna derecha -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="txt_modalidad" class="form-label text-light">MODALIDAD:</label>
+                                <input type="text" name="txt_modalidad" id="txt_modalidad" class="form-control"
+                                    value="<?= $datos['modalidad'] ?>">
+                            </div>
 
-                    <label for="txt_modalidad" class="form-label text-light">MODALIDAD:</label>
-                    <input type="text" name="txt_modalidad" id="txt_modalidad" class="form-control"
-                        value="<?= $datos['modalidad'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_nivel" class="form-label text-light">NIVEL:</label>
+                                <input type="text" name="txt_nivel" id="txt_nivel" class="form-control"
+                                    value="<?= $datos['nivel'] ?>">
+                            </div>
 
-                    <label for="txt_nivel" class="form-label text-light">NIVEL:</label>
-                    <input type="text" name="txt_nivel" id="txt_nivel" class="form-control"
-                        value="<?= $datos['nivel'] ?>">
+                            <div class="mb-3">
+                                <label for="txt_cupo" class="form-label text-light">CUPO MÁXIMO:</label>
+                                <input type="number" name="txt_cupo" id="txt_cupo" class="form-control"
+                                    value="<?= $datos['cupo_maximo'] ?>">
+                            </div>
+                        </div>
+                    </div>
 
-                    <label for="txt_fecha" class="form-label text-light">FECHA:</label>
-                    <input type="text" name="txt_fecha" id="txt_fecha" class="form-control"
-                        value="<?= $datos['fecha'] ?>">
-
-                    <label for="txt_hora" class="form-label text-light">HORA:</label>
-                    <input type="text" name="txt_hora" id="txt_hora" class="form-control"
-                        value="<?= $datos['hora'] ?>">
-
-                    <label for="txt_cupo" class="form-label text-light">CUPO MAXIMO:</label>
-                    <input type="number" name="txt_cupo" id="txt_cupo" class="form-control"
-                        value="<?= $datos['cupo_maximo'] ?>">
-
-
-
-                    <button type="submit" class="btn btn-outline-dark mt-3 w-100 text-light rounded-pill border border-light">Guardar</button>
-
+                    <!-- Botón -->
+                    <div class="text-center">
+                        <button type="submit"
+                            class="btn btn-outline-dark mt-3 w-100 text-light rounded-pill border border-light">
+                            Guardar
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+
 
 
 

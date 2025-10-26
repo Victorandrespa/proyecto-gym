@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= base_url('css/background.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -19,29 +20,29 @@
 <body class="container mt-4 background-image-estado-membresia-admin">
 
 
-    <div class="container">
+    <div class="container item-group" xyz="fade stagger">
         <div class="row align-items-center">
             <!-- Primera columna: Logo -->
-            <div class="col-auto">
-                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            <div class="col-auto square xyz-in">
+                <img src="<?= base_url('images/evolvere-logo-250.png') ?>" alt="Logo" class="img-fluid">
             </div>
 
             <!-- Segunda columna: 3 elementos alineados -->
             <div class="col">
                 <div class="d-flex flex-column">
-                    <h1 class="mt-5 text-light">ESTADO MEMBRESIA <i class="bi bi-bar-chart"></i></h1>
-                    <h4 class="mb-5 text-light">ADMIN</h4>
+                    <h1 class="mt-5 text-light square xyz-in">ESTADO MEMBRESIA <i class="bi bi-bar-chart"></i></h1>
+                    <h4 class="mb-5 text-light square xyz-in">ADMIN</h4>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="d-flex flex-row justify-content-between align-items-center">
+    <div class="d-flex flex-row justify-content-between align-items-center item-group" xyz="fade stagger">
 
-        <a href="verAdminHome" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></a>
+        <a href="verAdminHome" class="btn btn btn-outline-dark text-light border border-light ms-5 square xyz-in">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Agregar Pago <i class="bi bi-credit-card"></i>
+        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light square xyz-in" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Agregar Estado <i class="bi bi-credit-card"></i>
         </button>
 
 
@@ -115,57 +116,59 @@
 
     <!-- Tabla de resultados -->
 
-    <table class="table mt-5 table-hover table-bordered">
-        <thead class="table-dark text-center">
-            <tr>
-                <th>ID</th>
-                <th>Membresia </th>
-                <th>Cliente </th>
-                <th>Fecha de inicio</th>
-                <th>Fecha Fin</th>
-                <th>Estado</th>
-                <th class="text-center">Editar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            foreach ($datos as $registro) {
-            ?>
+    <div class="table-responsive h-75 mx-auto rounded-5">
+        <table class="table table-hover table-bordered">
+            <thead class="table-dark text-center">
                 <tr>
-                    <td>
-                        <?php echo ($registro['estado_membresia_id']) ?>
-                    </td>
-                    <td>
-                        <?= $registro['membresia_id']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['cliente_id']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['fecha_inicio']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['fecha_fin']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['estado']; ?>
-                    </td>
-
-                    <td class="d-flex justify-content-center gap-2 ">
-                        <a href="<?= base_url('update_estado_membresia/') . $registro['estado_membresia_id']; ?>"
-                            class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                        <a href="<?= base_url('eliminar_estado_membresia/') . $registro['estado_membresia_id']; ?>"
-                            class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-                    </td>
+                    <th>ID</th>
+                    <th>Membresia </th>
+                    <th>Cliente </th>
+                    <th>Fecha de inicio</th>
+                    <th>Fecha Fin</th>
+                    <th>Estado</th>
+                    <th class="text-center">Editar</th>
                 </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($datos as $registro) {
+                ?>
+                    <tr>
+                        <td>
+                            <?php echo ($registro['estado_membresia_id']) ?>
+                        </td>
+                        <td>
+                            <?= $registro['membresia_id']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['cliente_id']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['fecha_inicio']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['fecha_fin']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['estado']; ?>
+                        </td>
+
+                        <td class="d-flex justify-content-center gap-2 ">
+                            <a href="<?= base_url('update_estado_membresia/') . $registro['estado_membresia_id']; ?>"
+                                class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                            <a href="<?= base_url('eliminar_estado_membresia/') . $registro['estado_membresia_id']; ?>"
+                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 
 
-
+    <br><br>
 
 </body>
 

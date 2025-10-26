@@ -8,6 +8,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="<?= base_url('css/background-personal.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
@@ -19,28 +20,28 @@
 <body class="container mt-4 background-image-personal-base-clientes">
 
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center item-group" xyz="fade stagger">
             <!-- Primera columna: Logo -->
-            <div class="col-auto">
-                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            <div class="col-auto square xyz-in">
+                <img src="<?= base_url('images/evolvere-logo-250.png') ?>" alt="Logo" class="img-fluid">
             </div>
 
             <!-- Segunda columna: 3 elementos alineados -->
             <div class="col">
                 <div class="d-flex flex-column">
-                    <h1 class="mt-5 text-light">BASE DE DATOS CLIENTES <i class="bi bi-database"></i></h1>
-                    <h4 class="mb-5 text-light">PERSONAL</h4>
+                    <h1 class="mt-5 text-light square xyz-in">BASE DE DATOS CLIENTES <i class="bi bi-database"></i></h1>
+                    <h4 class="mb-5 text-light square xyz-in">PERSONAL</h4>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="d-flex flex-row justify-content-between align-items-center">
+    <div class="d-flex flex-row justify-content-between align-items-center item-group" xyz="fade stagger">
 
-        <a href="verPersonalHome" class="btn btn btn-outline-dark text-light border border-light ms-5">Home Principal <i class="bi bi-house"></i></a>
+        <a href="verPersonalHome" class="btn btn btn-outline-dark text-light border border-light ms-5 square xyz-in">Home Principal <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light square xyz-in" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Agrega un Cliente <i class="bi bi-person-plus"></i>
         </button>
 
@@ -102,61 +103,63 @@
 
     <!-- Tabla de resultados -->
 
-    <table class="table mt-5 table-hover table-bordered">
-        <thead class="table-dark text-center">
-            <tr>
-                <th>ID</th>
-                <th>Nombre </th>
-                <th>Apellido </th>
-                <th>Edad </th>
-                <th>Telefono</th>
-                <th>Email</th>
-                <th>Contacto de Emergencia</th>
-                <th>Telefono de Emergencia</th>
-                <th>Fecha de Registro</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            foreach ($datos as $registro) {
-            ?>
+    <div class="table-responsive h-75 mx-auto rounded-5">
+        <table class="table table-hover table-bordered">
+            <thead class="table-dark text-center">
                 <tr>
-                    <td>
-                        <?php echo ($registro['cliente_id']) ?>
-                    </td>
-                    <td>
-                        <?= $registro['nombre']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['apellido']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['edad']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['telefono']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['email']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['contacto_emergencia']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['telefono_emergencia']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['fecha_registro']; ?>
-                    </td>
-
+                    <th>ID</th>
+                    <th>Nombre </th>
+                    <th>Apellido </th>
+                    <th>Edad </th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Contacto de Emergencia</th>
+                    <th>Telefono de Emergencia</th>
+                    <th>Fecha de Registro</th>
                 </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($datos as $registro) {
+                ?>
+                    <tr>
+                        <td>
+                            <?php echo ($registro['cliente_id']) ?>
+                        </td>
+                        <td>
+                            <?= $registro['nombre']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['apellido']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['edad']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['telefono']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['email']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['contacto_emergencia']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['telefono_emergencia']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['fecha_registro']; ?>
+                        </td>
 
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 
+    <br><br>
 
 
 </body>

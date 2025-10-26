@@ -14,7 +14,7 @@
 
 <div class="container item-group mb-5">
     <div class="row justify-content-center">
-        <div class="col-4 background-image-clientes-main rounded-5 w-50 p-3">
+        <div class="col-4 background-image-clientes-main rounded-5 w-50 p-3 border border-dark border-5">
 
             <body class="container mt-4">
 

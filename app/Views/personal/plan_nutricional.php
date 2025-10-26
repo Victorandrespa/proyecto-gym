@@ -8,6 +8,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="<?= base_url('css/background-personal.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
@@ -19,31 +20,31 @@
 <body class="container mt-4 background-image-personal-plan-nutricional">
 
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center item-group" xyz="fade stagger">
             <!-- Primera columna: Logo -->
-            <div class="col-auto">
-                <img src="<?= base_url('images/logo-white-char250.png') ?>" alt="Logo" class="img-fluid">
+            <div class="col-auto square xyz-in">
+                <img src="<?= base_url('images/evolvere-logo-250.png') ?>" alt="Logo" class="img-fluid">
             </div>
 
             <!-- Segunda columna: 3 elementos alineados -->
             <div class="col">
                 <div class="d-flex flex-column">
-                    <h1 class="mt-5 text-light">PLAN NUTRICIONAL <i class="bi bi-journal-richtext"></i></h1>
-                    <h4 class="mb-5 text-light">PERSONAL</h4>
+                    <h1 class="mt-5 text-light square xyz-in">PLAN NUTRICIONAL <i class="bi bi-journal-richtext"></i></h1>
+                    <h4 class="mb-5 text-light square xyz-in">PERSONAL</h4>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="d-flex flex-row justify-content-between align-items-center">
+    <div class="d-flex flex-row justify-content-between align-items-center item-group" xyz="fade stagger">
 
 
         <div class="d-flex flex-column align-items-left">
-            <a href="verPersonalHome" class="btn btn btn-outline-dark mb-1 text-light border border-light ms-5">Home Principal <i class="bi bi-house"></i></a>
-            <a href="verHistorialMedicionPersonal" class="btn btn btn-outline-dark text-light border border-light ms-5">Regresar Historial <i class="bi bi-arrow-return-left"></i></a>
+            <a href="verPersonalHome" class="btn btn btn-outline-dark mb-1 text-light border border-light ms-5 square xyz-in">Home Principal <i class="bi bi-house"></i></a>
+            <a href="verHistorialMedicionPersonal" class="btn btn btn-outline-dark text-light border border-light ms-5 square xyz-in">Regresar Historial <i class="bi bi-arrow-return-left"></i></a>
         </div>
 
-        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light square xyz-in" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Agrega Plan Nutricional <i class="bi bi-clipboard2-check"></i>
         </button>
 
@@ -102,51 +103,53 @@
 
     <!-- Tabla de resultados -->
 
-    <table class="table mt-5 table-hover table-bordered">
-        <thead class="table-dark text-center">
-            <tr>
-                <th>ID</th>
-                <th>Personal </th>
-                <th>Objetivo</th>
-                <th>Duracion</th>
-                <th>Descripcion</th>
-                <th class="text-center">Editar</th>
-        </thead>
-        <tbody>
-            <?php
-            foreach ($datos as $registro) {
-            ?>
+    <div class="table-responsive h-75 mx-auto rounded-5">
+        <table class="table table-hover table-bordered">
+            <thead class="table-dark text-center">
                 <tr>
-                    <td>
-                        <?php echo ($registro['plan_id']) ?>
-                    </td>
-                    <td>
-                        <?= $registro['personal_id']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['objetivo']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['duracion']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['descripcion']; ?>
-                    </td>
+                    <th>ID</th>
+                    <th>Personal </th>
+                    <th>Objetivo</th>
+                    <th>Duracion</th>
+                    <th>Descripcion</th>
+                    <th class="text-center">Editar</th>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($datos as $registro) {
+                ?>
+                    <tr>
+                        <td>
+                            <?php echo ($registro['plan_id']) ?>
+                        </td>
+                        <td>
+                            <?= $registro['personal_id']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['objetivo']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['duracion']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['descripcion']; ?>
+                        </td>
 
 
 
-                    <td class="d-flex justify-content-center gap-2 ">
-                        <a href="<?= base_url('update_plan_nutricion/') . $registro['plan_id']; ?>"
-                            class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                        <a href="<?= base_url('eliminar_plan_nutricion/') . $registro['plan_id']; ?>"
-                            class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
+                        <td class="d-flex justify-content-center gap-2 ">
+                            <a href="<?= base_url('update_plan_nutricion/') . $registro['plan_id']; ?>"
+                                class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                            <a href="<?= base_url('eliminar_plan_nutricion/') . $registro['plan_id']; ?>"
+                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 
 
 
