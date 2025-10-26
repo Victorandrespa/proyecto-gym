@@ -11,6 +11,9 @@
     <title>Actividad</title>
 </head>
 
+
+<button onclick="window.history.back()" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></button>
+
 <body class="background-image-personal-update-actividades">
     <div class="container">
         <div class="row">

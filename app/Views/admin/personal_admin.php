@@ -65,18 +65,18 @@
                 <div class="modal-body">
                     <form action="agregarPersonal" method="post">
 
-                        
+
                         <input type="hidden" name="txt_personal_id" id="txt_personal_id" class="form-control">
 
                         <label for="txt_puesto_id" class="form-label">Puesto:</label>
-                        <select name="txt_puesto_id" id="txt_puesto_id" class="form-control" required>
-                            <option value="">-- Seleccione Puesto --</option>
+                        <input list="puesto" name="txt_puesto_id" id="txt_puesto_id" class="form-control">
+                        <datalist id="puesto">
                             <?php foreach ($puestos as $puesto): ?>
                                 <option value="<?= $puesto['puesto_id'] ?>">
                                     <?= $puesto['puesto_id'] . ' - ' . $puesto['rol'] ?>
                                 </option>
                             <?php endforeach; ?>
-                        </select>
+                        </datalist>
 
                         <label for="txt_nombre" class="form-label">Nombre:</label>
                         <input type="text" name="txt_nombre" id="txt_nombre" class="form-control">
@@ -115,6 +115,7 @@
                             <option value="">-- Seleccione Sede --</option>
                             <option value="CAES" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'CAES') ? 'selected' : '' ?>>CAES</option>
                             <option value="Zona14" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'Zona14') ? 'selected' : '' ?>>Zona14</option>
+                            <option value="Todas" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'Todas') ? 'selected' : '' ?>>Todas</option>
                         </select>
 
 

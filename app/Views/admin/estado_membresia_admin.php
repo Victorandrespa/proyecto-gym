@@ -89,8 +89,8 @@
                         <label for="txt_metodo_pago" class="form-label">Metodo de pago::</label>
                          <select name="txt_metodo_pago" id="txt_metodo_pago" class="form-control" required>
                             <option value="">- Metodo de pago -</option>
-                            <option value="Activo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Tarjeta') ? 'selected' : '' ?>>Tarjeta</option>
-                            <option value="Inactivo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Efectivo') ? 'selected' : '' ?>>Efectivo</option>
+                            <option value="Tarjeta" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Tarjeta') ? 'selected' : '' ?>>Tarjeta</option>
+                            <option value="Efectivo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Efectivo') ? 'selected' : '' ?>>Efectivo</option>
                         </select>
 
                         <label for="txt_concepto" class="form-label">Concepto:</label>

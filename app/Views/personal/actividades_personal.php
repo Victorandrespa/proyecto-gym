@@ -53,20 +53,36 @@
                 <div class="modal-body">
                     <form action="agregarActividad" method="post">
 
-                        <label for="txt_actividad_id" class="form-label">Actividad ID</label>
-                        <input type="text" name="txt_actividad_id" id="txt_actividad_id" class="form-control">
+                        <input type="hidden" name="txt_actividad_id" id="txt_actividad_id" class="form-control">
 
                         <label for="txt_personal_id" class="form-label">Personal id</label>
-                        <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control">
+                        <select name="txt_personal_id" id="txt_personal_id" class="form-control" required>
+                            <option value="">-- Seleccione Personal --</option>
+                            <?php foreach ($personal as $m): ?>
+                                <option value="<?= $m['personal_id'] ?>">
+                                    <?= $m['personal_id'] . ' - ' . $m['nombre'] . ' - ' . $m['apellido'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
                         <label for="txt_nombre" class="form-label">Nombre:</label>
                         <input type="text" name="txt_nombre" id="txt_nombre" class="form-control">
 
                         <label for="txt_modalidad" class="form-label">Modalidad:</label>
-                        <input type="text" name="txt_modalidad" id="txt_modalidad" class="form-control">
+                        <select name="txt_modalidad" id="txt_modalidad" class="form-control" required>
+                            <option value="">- Seleccione Modalidad -</option>
+                            <option value="Personal" <?= (isset($datos['modalidad']) && $datos['modalidad'] == 'Personal') ? 'selected' : '' ?>>Personal</option>
+                            <option value="Virtual" <?= (isset($datos['modalidad']) && $datos['modalidad'] == 'Virtual') ? 'selected' : '' ?>>Virtual</option>
+                            <option value="Presencial" <?= (isset($datos['modalidad']) && $datos['modalidad'] == 'Presencial') ? 'selected' : '' ?>>Presencial</option>
+                        </select>
 
                         <label for="txt_nivel" class="form-label">Nivel:</label>
-                        <input type="text" name="txt_nivel" id="txt_nivel" class="form-control">
+                        <select name="txt_nivel" id="txt_nivel" class="form-control" required>
+                            <option value="">- Seleccione Nivel -</option>
+                            <option value="Principiante" <?= (isset($datos['nivel']) && $datos['nivel'] == 'Principiante') ? 'selected' : '' ?>>Principiante</option>
+                            <option value="Intermedio" <?= (isset($datos['nivel']) && $datos['nivel'] == 'Intermedio') ? 'selected' : '' ?>>Intermedio</option>
+                            <option value="Avanzado" <?= (isset($datos['nivel']) && $datos['nivel'] == 'Avanzado') ? 'selected' : '' ?>>Avanzado</option>
+                        </select>
 
                         <label for="txt_fecha" class="form-label">Fecha:</label>
                         <input type="date" name="txt_fecha" id="txt_fecha" class="form-control">
@@ -130,10 +146,10 @@
                     <td>
                         <?= $registro['nivel']; ?>
                     </td>
-                     <td>
+                    <td>
                         <?= $registro['fecha']; ?>
                     </td>
-                     <td>
+                    <td>
                         <?= $registro['hora']; ?>
                     </td>
                     <td>

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ActividadModel;
+use App\Models\PersonalModel;
 
 class ActividadController extends BaseController
 {
@@ -11,6 +12,10 @@ class ActividadController extends BaseController
         //Crea un objeto 
         $registro = new ActividadModel();
         $datos['datos'] = $registro->findAll();
+
+        $personal = new PersonalModel();
+        $datos['personal'] = $personal->select('personal_id, nombre, apellido')->findAll();
+
         return view('personal/actividades_personal.php', $datos);
     }
 

@@ -53,24 +53,24 @@
                         <input type="hidden" name="txt_puesto_id" id="txt_puesto_id" class="form-control">
 
                         <label for="txt_rol" class="form-label">Rol:</label>
-                        <select name="txt_rol" id="txt_rol" class="form-control" required>
-                            <option value="">-- Seleccione Rol --</option>
+                        <input list="puesto" name="txt_rol" id="txt_rol" class="form-control">
+                        <datalist id="puesto">
                             <?php foreach ($puestos as $dep): ?>
                                 <option value="<?= $dep['rol']; ?>">
                                     <?= $dep['rol']; ?>
                                 </option>
                             <?php endforeach; ?>
-                        </select>
+                        </datalist>
 
                         <label for="txt_departamento" class="form-label">Departamento:</label>
-                        <select name="txt_departamento" id="txt_departamento" class="form-control" required>
-                            <option value="">-- Seleccione Departamento --</option>
+                        <input list="depto" name="txt_departamento" id="txt_departamento" class="form-control">
+                        <datalist id="depto">
                             <?php foreach ($departamentos as $dep): ?>
                                 <option value="<?= $dep['departamento']; ?>">
                                     <?= $dep['departamento']; ?>
                                 </option>
                             <?php endforeach; ?>
-                        </select>
+                        </datalist>
 
                         <label for="txt_descripcion" class="form-label">Descripcion:</label>
                         <input type="text" name="txt_descripcion" id="txt_descripcion" class="form-control">

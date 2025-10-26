@@ -57,11 +57,19 @@
                 <div class="modal-body">
                     <form action="agregarMembresia" method="post">
 
-                       
+
                         <input type="hidden" name="txt_membresia_id" id="txt_membresia_id" class="form-control">
 
                         <label for="txt_tipo_plan" class="form-label">Tipo de Plan:</label>
-                        <input type="text" name="txt_tipo_plan" id="txt_tipo_plan" class="form-control">
+                        <input list="plan" name="txt_tipo_plan" id="txt_tipo_plan" class="form-control">
+                        <datalist id="plan">
+                             <?php foreach ($membresias as $t): ?>
+                                <option value="<?= $t['tipo_plan'] ?>">
+                                    <?= $t['tipo_plan'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </datalist>
+
 
                         <label for="txt_precio" class="form-label">Precio:</label>
                         <input type="number" name="txt_precio" id="txt_precio" class="form-control">
@@ -77,6 +85,7 @@
                             <option value="">-- Seleccione Sede --</option>
                             <option value="CAES" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'CAES') ? 'selected' : '' ?>>CAES</option>
                             <option value="Zona14" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'Zona14') ? 'selected' : '' ?>>Zona14</option>
+                            <option value="Todas" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'Todas') ? 'selected' : '' ?>>Todas</option>
                         </select>
 
                         <div class="d-flex justify-content-center mt-3">

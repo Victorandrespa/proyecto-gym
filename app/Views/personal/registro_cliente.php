@@ -58,8 +58,7 @@
                 <div class="modal-body">
                     <form action="agregarCliente" method="post">
 
-                        <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
-                        <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control">
+                        <input type="hidden" name="txt_cliente_id" id="txt_cliente_id" class="form-control">
 
                         <label for="txt_nombre" class="form-label">Nombre:</label>
                         <input type="text" name="txt_nombre" id="txt_nombre" class="form-control">

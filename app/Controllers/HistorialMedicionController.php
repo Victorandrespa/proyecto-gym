@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\HistorialMedicionModel;
+use App\Models\PlanNutricionModel;
+use App\Models\ClienteModel;
 
 class HistorialMedicionController extends BaseController
 {
@@ -10,6 +13,10 @@ class HistorialMedicionController extends BaseController
         //Crea un objeto 
         $registro = new HistorialMedicionModel();
         $datos['datos'] = $registro->findAll();
+
+        $planes = new PlanNutricionModel();
+        $datos['planes'] = $planes->select('plan_id, objetivo')->findAll();
+
         return view('cliente/historial_cliente.php', $datos);
     }
 
@@ -18,13 +25,21 @@ class HistorialMedicionController extends BaseController
         //Crea un objeto 
         $registro = new HistorialMedicionModel();
         $datos['datos'] = $registro->findAll();
+
+        $planes = new PlanNutricionModel();
+        $datos['planes'] = $planes->select('plan_id, objetivo')->findAll();
+
+        $clientes = new ClienteModel();
+        $datos['clientes'] = $clientes->select('cliente_id, nombre, apellido')->findAll();
+
+
         return view('personal/historial_medicion.php', $datos);
     }
 
     public function agregarHistorialMedicion()
     {
-         helper('generarCodigo');
-         
+        helper('generarCodigo');
+
         //crear un objeto de tipo empleado model
         $registro = new HistorialMedicionModel();
 
@@ -51,19 +66,19 @@ class HistorialMedicionController extends BaseController
         $registro = new HistorialMedicionModel();
         $registro->delete($id);
 
-        session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
+        session()->setFlashdata('mensaje', 'Registro: ' . $id . ' eliminado exitosamente.');
 
         return redirect()->to(base_url('verHistorialMedicionPersonal'));
     }
     public function buscar($id)
     {
-        $registro= new HistorialMedicionModel();
-        $datos['datos']= $registro->where(['medicion_id' => $id])->first();
+        $registro = new HistorialMedicionModel();
+        $datos['datos'] = $registro->where(['medicion_id' => $id])->first();
         return view('updates/update_historial_medicion.php', $datos);
     }
     public function editar($id)
     {
-        $datos= [
+        $datos = [
             'medicion_id' => $this->request->getPost('txt_medicion_id'),
             'plan_id' => $this->request->getPost('txt_plan_id'),
             'cliente_id' => $this->request->getPost('txt_cliente_id'),
@@ -75,9 +90,8 @@ class HistorialMedicionController extends BaseController
             'observaciones' => $this->request->getPost('txt_observaciones'),
         ];
         //print_r($datos);
-        $registro= new HistorialMedicionModel();
-        $registro->update($datos['medicion_id'],$datos);
+        $registro = new HistorialMedicionModel();
+        $registro->update($datos['medicion_id'], $datos);
         return $this->index_personal();
     }
-
 }

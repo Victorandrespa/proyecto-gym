@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\MembresiaModel;
 
 class MembresiaController extends BaseController
@@ -10,12 +11,14 @@ class MembresiaController extends BaseController
         //Crea un objeto 
         $registro = new MembresiaModel();
         $datos['datos'] = $registro->findAll();
+        $datos['membresias'] = $registro->select('tipo_plan')->findAll();
+
         return view('admin/membresia_admin.php', $datos);
     }
 
     public function agregarMembresia()
     {
-         helper('generarCodigo');
+        helper('generarCodigo');
 
         //crear un objeto de tipo empleado model
         $registro = new MembresiaModel();
@@ -40,19 +43,19 @@ class MembresiaController extends BaseController
         $registro = new MembresiaModel();
         $registro->delete($id);
 
-        session()->setFlashdata('mensaje', 'Registro: '.$id.' eliminado exitosamente.');
+        session()->setFlashdata('mensaje', 'Registro: ' . $id . ' eliminado exitosamente.');
 
         return redirect()->to(base_url('verMembresiaAdmin'));
     }
     public function buscar($id)
     {
-        $registro= new MembresiaModel();
-        $datos['datos']= $registro->where(['membresia_id' => $id])->first();
+        $registro = new MembresiaModel();
+        $datos['datos'] = $registro->where(['membresia_id' => $id])->first();
         return view('updates/update_membresia.php', $datos);
     }
     public function editar($id)
     {
-        $datos= [
+        $datos = [
             'membresia_id' => $this->request->getPost('txt_membresia_id'),
             'tipo_plan' => $this->request->getPost('txt_tipo_plan'),
             'precio' => $this->request->getPost('txt_precio'),
@@ -62,9 +65,8 @@ class MembresiaController extends BaseController
 
         ];
         //print_r($datos);
-        $registro= new MembresiaModel();
-        $registro->update($datos['membresia_id'],$datos);
+        $registro = new MembresiaModel();
+        $registro->update($datos['membresia_id'], $datos);
         return $this->index();
     }
-
 }

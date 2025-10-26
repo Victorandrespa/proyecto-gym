@@ -61,11 +61,17 @@
                 <div class="modal-body">
                     <form action="agregarPlanNutricion" method="post">
 
-                        <label for="txt_plan_id" class="form-label">Plan ID:</label>
-                        <input type="text" name="txt_plan_id" id="txt_plan_id" class="form-control">
+                        <input type="hidden" name="txt_plan_id" id="txt_plan_id" class="form-control">
 
                         <label for="txt_personal_id" class="form-label">Personal ID:</label>
-                        <input type="text" name="txt_personal_id" id="txt_personal_id" class="form-control">
+                        <select name="txt_personal_id" id="txt_personal_id" class="form-control" required>
+                            <option value="">-- Seleccione Personal --</option>
+                            <?php foreach ($personal as $c): ?>
+                                <option value="<?= $c['personal_id'] ?>">
+                                    <?= $c['personal_id'] . ' - ' . $c['nombre'] . ' - ' . $c['apellido'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
                         <label for="txt_objetivo" class="form-label">Objetivo:</label>
                         <input type="text" name="txt_objetivo" id="txt_objetivo" class="form-control">
