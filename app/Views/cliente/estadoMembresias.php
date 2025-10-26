@@ -30,7 +30,7 @@
             <div class="col">
                 <div class="d-flex flex-column">
                     <h1 class="mt-5 text-light">ESTADO DE MEMBRESIA <i class="bi bi-bar-chart"></i></h1>
-                    <h4 class="mb-5 text-light">CLIENTE</h4>
+                    <h4 class="mb-5 text-light">PERSONAL</h4>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
 
     <div class="d-flex flex-row justify-content-between align-items-center">
 
-        <a href="verHome" class="btn btn btn-outline-dark text-light border border-light ms-5">Home Principal <i class="bi bi-house"></i></a>
+        <a href="verPersonalHome" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-dark my-2 text-light border border-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Realizar un Pago <i class="bi bi-credit-card"></i>
@@ -56,16 +56,29 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="agregarPago" method="post">
+                    <form action="agregarPagoPersonal" method="post">
 
-                        <label for="txt_pago_id" class="form-label">ID:</label>
-                        <input type="text" name="txt_pago_id" id="txt_pago_id" class="form-control">
+                        <input type="hidden" name="txt_pago_id" id="txt_pago_id" class="form-control">
 
                         <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
-                        <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control">
+                        <select name="txt_cliente_id" id="txt_cliente_id" class="form-control" required>
+                            <option value="">-- Seleccione Cliente --</option>
+                            <?php foreach ($clientes as $c): ?>
+                                <option value="<?= $c['cliente_id'] ?>">
+                                    <?= $c['cliente_id'] . ' - ' . $c['nombre'] . ' - ' . $c['apellido'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
                         <label for="txt_membresia_id" class="form-label">Membresia ID:</label>
-                        <input type="text" name="txt_membresia_id" id="txt_membresia_id" class="form-control">
+                        <select name="txt_membresia_id" id="txt_membresia_id" class="form-control" required>
+                            <option value="">-- Seleccione Membresia --</option>
+                            <?php foreach ($membresias as $m): ?>
+                                <option value="<?= $m['membresia_id'] ?>">
+                                    <?= $m['membresia_id'] . ' - ' . $m['tipo_plan'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
                         <label for="txt_fecha_pago" class="form-label">Fecha de pago:</label>
                         <input type="date" name="txt_fecha_pago" id="txt_fecha_pago" class="form-control">
@@ -73,8 +86,12 @@
                         <label for="txt_monto" class="form-label">Monto:</label>
                         <input type="number" name="txt_monto" id="txt_monto" class="form-control">
 
-                        <label for="txt_metodo_pago" class="form-label">Metodo de Pago:</label>
-                        <input type="text" name="txt_metodo_pago" id="txt_metodo_pago" class="form-control">
+                        <label for="txt_metodo_pago" class="form-label">Metodo de pago::</label>
+                        <select name="txt_metodo_pago" id="txt_metodo_pago" class="form-control" required>
+                            <option value="">- Metodo de pago -</option>
+                            <option value="Activo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Tarjeta') ? 'selected' : '' ?>>Tarjeta</option>
+                            <option value="Inactivo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Efectivo') ? 'selected' : '' ?>>Efectivo</option>
+                        </select>
 
                         <label for="txt_concepto" class="form-label">Concepto:</label>
                         <input type="text" name="txt_concepto" id="txt_concepto" class="form-control">
@@ -111,31 +128,31 @@
         </thead>
         <tbody>
             <?php
-                foreach ($datos as $registro) {
-                    ?>
-            <tr>
-                 <td>
-                    <?php echo ($registro['estado_membresia_id']) ?>
-                </td>
-                <td>
-                    <?= $registro['membresia_id']; ?>
-                </td>
-                <td>
-                    <?= $registro['cliente_id']; ?>
-                </td>
-                <td>
-                    <?= $registro['fecha_inicio']; ?>
-                </td>
-                <td>
-                    <?= $registro['fecha_fin']; ?>
-                </td>
-                <td>
-                    <?= $registro['estado']; ?>
-                </td>
-            </tr>
+            foreach ($datos as $registro) {
+            ?>
+                <tr>
+                    <td>
+                        <?php echo ($registro['estado_membresia_id']) ?>
+                    </td>
+                    <td>
+                        <?= $registro['membresia_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['cliente_id']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha_inicio']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['fecha_fin']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['estado']; ?>
+                    </td>
+                </tr>
             <?php
-                }
-                ?>
+            }
+            ?>
         </tbody>
     </table>
 

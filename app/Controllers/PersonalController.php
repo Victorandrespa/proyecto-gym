@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\PersonalModel;
+use App\Models\PuestoModel;
+
 
 class PersonalController extends BaseController
 {
@@ -11,6 +13,11 @@ class PersonalController extends BaseController
         //Crea un objeto 
         $registro = new PersonalModel();
         $datos['datos'] = $registro->findAll();
+
+        $puesto = new PuestoModel();
+        $datos['departamentos'] = $puesto->select('puesto_id, departamento')->findAll();
+        $datos['puestos'] = $puesto->select('puesto_id, rol')->findAll();
+       
         return view('admin/personal_admin.php', $datos);
     }
 

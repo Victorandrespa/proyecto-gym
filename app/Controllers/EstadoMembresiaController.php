@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\EstadoMembresiaModel;
+use App\Models\ClienteModel;
+use App\Models\MembresiaModel;
 
 class EstadoMembresiaController extends BaseController
 {
@@ -12,15 +14,29 @@ class EstadoMembresiaController extends BaseController
         //Crea un objeto 
         $registro = new EstadoMembresiaModel();
         $datos['datos'] = $registro->findAll();
+
+        $membresias = new MembresiaModel();
+        $datos['membresias'] = $membresias->select('membresia_id, tipo_plan')->findAll();
+
+        $clientes = new ClienteModel();
+        $datos['clientes'] = $clientes->select('cliente_id, nombre, apellido')->findAll();
+
         return view('admin/estado_membresia_admin.php', $datos);
     }
 
     public function index_cliente(): string
     {
         $this->actualizarEstadosMembresias(); //update membresias
-        //Crea un objeto 
+       //Crea un objeto 
         $registro = new EstadoMembresiaModel();
         $datos['datos'] = $registro->findAll();
+
+        $membresias = new MembresiaModel();
+        $datos['membresias'] = $membresias->select('membresia_id, tipo_plan')->findAll();
+
+        $clientes = new ClienteModel();
+        $datos['clientes'] = $clientes->select('cliente_id, nombre, apellido')->findAll();
+        
         return view('cliente/estadoMembresias.php', $datos);
     }
 

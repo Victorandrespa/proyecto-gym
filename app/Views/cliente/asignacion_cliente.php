@@ -46,8 +46,13 @@
     <br><br>
 
 
-    <input type="text" id="txt_cliente_id" value="" placeholder="Ingresa tu ID">
-
+   
+    <form method="POST" action="<?= base_url('verAsignacionCliente'); ?>" class="d-flex gap-2">
+        <input type="text" name="cliente_id" id="txt_cliente_id" class="form-control"
+            placeholder="Código cliente"
+            value="<?= session()->get('cliente_id') ?? '' ?>">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
 
 
     <!-- Tabla de resultados -->
@@ -64,6 +69,7 @@
                 <th>Hora</th>
                 <th>Cupo</th>
                 <th>Asignados</th>
+                <th>Estatus</th>
                 <th class="text-center">Asignacion</th>
             </tr>
         </thead>
@@ -98,6 +104,9 @@
                     </td>
                     <td>
                         <?= $registro['asignados']; ?>
+                    </td>
+                    <td>
+                        <?= $registro['reservacion']; ?>
                     </td>
 
                     <td class="d-flex justify-content-center gap-2">

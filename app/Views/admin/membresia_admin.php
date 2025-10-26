@@ -57,8 +57,8 @@
                 <div class="modal-body">
                     <form action="agregarMembresia" method="post">
 
-                        <label for="txt_membresia_id" class="form-label">Membresia ID: </label>
-                        <input type="text" name="txt_membresia_id" id="txt_membresia_id" class="form-control">
+                       
+                        <input type="hidden" name="txt_membresia_id" id="txt_membresia_id" class="form-control">
 
                         <label for="txt_tipo_plan" class="form-label">Tipo de Plan:</label>
                         <input type="text" name="txt_tipo_plan" id="txt_tipo_plan" class="form-control">
@@ -73,7 +73,11 @@
                         <input type="text" name="txt_beneficios" id="txt_beneficios" class="form-control">
 
                         <label for="txt_sede" class="form-label">Sede:</label>
-                        <input type="text" name="txt_sede" id="txt_sede" class="form-control">
+                        <select name="txt_sede" id="txt_sede" class="form-control" required>
+                            <option value="">-- Seleccione Sede --</option>
+                            <option value="CAES" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'CAES') ? 'selected' : '' ?>>CAES</option>
+                            <option value="Zona14" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'Zona14') ? 'selected' : '' ?>>Zona14</option>
+                        </select>
 
                         <div class="d-flex justify-content-center mt-3">
                             <button type="submit"

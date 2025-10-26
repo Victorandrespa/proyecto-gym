@@ -34,6 +34,10 @@
         </div>
     </div>
 
+
+
+
+
     <div class="d-flex justify-content-around mt-3">
 
         <div class="d-grid gap-2 mt-5" style="width: 50%;">
@@ -41,8 +45,11 @@
                     class="bi bi-flag"></i></a>
             <a href="verHistorialMedicionCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Historial de Medicion <i
                     class="bi bi-clipboard-check"></i></a>
-            <a href="verEstadoMembresiaCliente" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light">Estado membresia <i
-                    class="bi bi-file-person"></i></a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light" data-bs-toggle="modal"
+                data-bs-target="#exampleModal3">Estados membresias <i
+                    class="bi bi-file-bar-graph"></i>
+            </button>
             <button type="button" class="btn btn-outline-dark fs-4 text-light rounded-pill border border-light" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
                 Realizar un Pago <i class="bi bi-credit-card"></i>
@@ -66,14 +73,27 @@
                 <div class="modal-body">
                     <form action="agregarPago" method="post">
 
-                        <label for="txt_pago_id" class="form-label">ID:</label>
-                        <input type="text" name="txt_pago_id" id="txt_pago_id" class="form-control">
+                        <input type="hidden" name="txt_pago_id" id="txt_pago_id" class="form-control">
 
                         <label for="txt_cliente_id" class="form-label">Cliente ID:</label>
-                        <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control">
+                        <select name="txt_cliente_id" id="txt_cliente_id" class="form-control" required>
+                            <option value="">-- Seleccione Cliente --</option>
+                            <?php foreach ($clientes as $c): ?>
+                                <option value="<?= $c['cliente_id'] ?>">
+                                    <?= $c['cliente_id'] . ' - ' . $c['nombre'] . ' - ' . $c['apellido'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
                         <label for="txt_membresia_id" class="form-label">Membresia ID:</label>
-                        <input type="text" name="txt_membresia_id" id="txt_membresia_id" class="form-control">
+                        <select name="txt_membresia_id" id="txt_membresia_id" class="form-control" required>
+                            <option value="">-- Seleccione Membresia --</option>
+                            <?php foreach ($membresias as $m): ?>
+                                <option value="<?= $m['membresia_id'] ?>">
+                                    <?= $m['membresia_id'] . ' - ' . $m['tipo_plan'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
                         <label for="txt_fecha_pago" class="form-label">Fecha de pago:</label>
                         <input type="date" name="txt_fecha_pago" id="txt_fecha_pago" class="form-control">
@@ -81,8 +101,12 @@
                         <label for="txt_monto" class="form-label">Monto:</label>
                         <input type="number" name="txt_monto" id="txt_monto" class="form-control">
 
-                        <label for="txt_metodo_pago" class="form-label">Metodo de pago:</label>
-                        <input type="text" name="txt_metodo_pago" id="txt_metodo_pago" class="form-control">
+                        <label for="txt_metodo_pago" class="form-label">Metodo de pago::</label>
+                        <select name="txt_metodo_pago" id="txt_metodo_pago" class="form-control" required>
+                            <option value="">- Metodo de pago -</option>
+                            <option value="Activo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Tarjeta') ? 'selected' : '' ?>>Tarjeta</option>
+                            <option value="Inactivo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Efectivo') ? 'selected' : '' ?>>Efectivo</option>
+                        </select>
 
                         <label for="txt_concepto" class="form-label">Concepto:</label>
                         <input type="text" name="txt_concepto" id="txt_concepto" class="form-control">
@@ -101,13 +125,95 @@
     </div>
 
 
+    <!-- Modal Estado Membresia  -->
+    <!--<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Estado de Membresia</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="table mt-5 table-hover table-bordered">
+                        <thead class="table-dark text-center">
+                            <tr>
+                                <th>Membresia </th>
+                                <th>Cliente </th>
+                                <th>Fecha Fin</th>
+                                <th>Estado</th>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
 
 
+    <!-- Modal Estado Membresia -->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Estado de Membresía</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
+                    <table class="table mt-5 table-hover table-bordered">
+                        <thead class="table-dark text-center">
+                            <tr>
+                                <th>ID</th>
+                                <th>Membresia </th>
+                                <th>Cliente </th>
+                                <th>Fecha de inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Estado</th>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($datos as $registro) {
+                            ?>
+                                <tr>
+                                    <td>
+                                        <?php echo ($registro['estado_membresia_id']) ?>
+                                    </td>
+                                    <td>
+                                        <?= $registro['membresia_id']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $registro['cliente_id']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $registro['fecha_inicio']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $registro['fecha_fin']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $registro['estado']; ?>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
 
-
-
-
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

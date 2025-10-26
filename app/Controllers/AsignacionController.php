@@ -11,7 +11,12 @@ class AsignacionController extends BaseController
     {
         $actividadModel   = new ActividadModel();
         $asignacionModel  = new AsignacionModel();
-        $clienteId       = session()->get('cliente_id'); // cliente actual
+
+        if ($this->request->getPost('cliente_id')) {
+            session()->set('cliente_id', $this->request->getPost('cliente_id'));
+        }
+
+        $clienteId = session()->get('cliente_id'); // cliente actual
 
         // Obtiene todas las actividades
         $actividades = $actividadModel->findAll();
@@ -24,15 +29,16 @@ class AsignacionController extends BaseController
             $asignacion = $asignacionModel
                 ->where('actividad_id', $actividadId)
                 ->where('cliente_id', $clienteId)
-                ->where('estado', 'reservado')  // <-- cambio
+                ->where('estado', 'Reservado')
                 ->first();
 
             $registro['esta_asignado'] = $asignacion ? true : false;
+            $registro['reservacion'] = $asignacion ? $asignacion['estado'] : 'No reservado';
 
             // Actualiza el campo 'asignados' contando solo los reservados
             $totalAsignados = $asignacionModel
                 ->where('actividad_id', $actividadId)
-                ->where('estado', 'reservado') // <-- cambio
+                ->where('estado', 'reservado') // 
                 ->countAllResults();
 
 
@@ -41,7 +47,7 @@ class AsignacionController extends BaseController
 
 
         // Vuelve a cargar las actividades con el valor actualizado
-        $datos['datos'] = $actividadModel->findAll();
+        $datos['datos'] = $actividades;
         return view('cliente/asignacion_cliente', $datos);
     }
 
@@ -53,7 +59,7 @@ class AsignacionController extends BaseController
 
         $actividadId = $this->request->getPost('actividad_id');
         $clienteId   = $this->request->getPost('cliente_id');
-        $estado      = 'reservado';
+        $estado      = 'Reservado';
         $fecha       = date('Y-m-d H:i:s');
 
         if (!$actividadId || !$clienteId) {

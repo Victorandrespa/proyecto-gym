@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\PagoModel;
 use App\Models\EstadoMembresiaModel;
 use App\Models\MembresiaModel;
+use App\Models\ClienteModel;
 
 class PagoController extends BaseController
 {
@@ -13,6 +14,13 @@ class PagoController extends BaseController
         //Crea un objeto 
         $registro = new PagoModel();
         $datos['datos'] = $registro->findAll();
+
+        $membresias = new MembresiaModel();
+        $datos['membresias'] = $membresias->select('membresia_id, tipo_plan')->findAll();
+
+        $clientes = new ClienteModel();
+        $datos['clientes'] = $clientes->select('cliente_id, nombre, apellido')->findAll();
+
         return view('admin/pagos_admin.php', $datos);
     }
 
@@ -84,7 +92,17 @@ class PagoController extends BaseController
 
 
 
-        return redirect()->to(base_url('verEstadoMembresiaCliente'));
+        return redirect()->to(base_url('verClienteHome'));
+    }
+    public function agregarPagoAdmin()
+    {
+        $this->agregarPago();
+        return redirect()->to(base_url('verAdminHome'));
+    }
+    public function agregarPagoPersonal()
+    {
+        $this->agregarPago();
+        return redirect()->to(base_url('verPersonalHome'));
     }
     public function eliminar($id)
     {

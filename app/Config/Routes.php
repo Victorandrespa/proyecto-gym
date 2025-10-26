@@ -29,8 +29,14 @@ $routes->get('verPuestoAdmin', 'PuestoController::index');
 
 //Vistas Cliente
 $routes->get('verAsignacionCliente', 'AsignacionController::index');
+$routes->post('verAsignacionCliente', 'AsignacionController::index');
+
 $routes->get('verEstadoMembresiaCliente', 'EstadoMembresiaController::index_cliente');
 $routes->get('verHistorialMedicionCliente', 'HistorialMedicionController::index_cliente');
+
+$routes->post('home/buscarPorCliente', 'HomeController::buscarPorCliente');
+
+
 
 //Vistas Personal
 $routes->get('verActividadPersonal', 'ActividadController::index');
@@ -73,6 +79,9 @@ $routes->get('update_pago/(:segment)', 'PagoController::buscar/$1');
 $routes->post('agregarPago', 'PagoController::agregarPago');
 $routes->post('editar_pago', 'PagoController::editar/$1');
 
+$routes->post('agregarPagoAdmin', 'PagoController::agregarPagoAdmin'); 
+$routes->post('agregarPagoPersonal', 'PagoController::agregarPagoPersonal');
+
 //Personal
 
 $routes->get('eliminar_personal/(:segment)', 'PersonalController::eliminar/$1');
@@ -88,6 +97,7 @@ $routes->get('update_cliente/(:segment)', 'ClienteController::buscar/$1');
 
 $routes->post('agregarCliente', 'ClienteController::agregarCliente');
 $routes->post('editar_cliente', 'ClienteController::editar/$1');
+
 
 //Actividad
 

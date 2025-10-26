@@ -11,6 +11,10 @@ class PuestoController extends BaseController
         //Crea un objeto 
         $registro = new PuestoModel();
         $datos['datos'] = $registro->findAll();
+        $datos['departamentos'] = $registro->select('puesto_id, departamento')->findAll();
+
+        $datos['puestos'] = $registro->select('rol')->findAll();
+
         return view('admin/puesto_admin.php', $datos);
     }
 
