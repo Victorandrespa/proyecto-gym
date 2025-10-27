@@ -46,8 +46,17 @@ class AsignacionController extends BaseController
         }
 
 
-        // Vuelve a cargar las actividades con el valor actualizado
-        $datos['datos'] = $actividades;
+        // Obtener las asignaciones del cliente actual
+        $asignaciones = [];
+        if ($clienteId) {
+            $asignaciones = $asignacionModel->where('cliente_id', $clienteId)->findAll();
+        }
+
+        // Enviar ambos conjuntos de datos a la vista
+        $datos = [
+            'actividades' => $actividades,
+            'asignaciones' => $asignaciones
+        ];
         return view('cliente/asignacion_cliente', $datos);
     }
 

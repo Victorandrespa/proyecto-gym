@@ -12,26 +12,28 @@
     <title>Puesto</title>
 </head>
 
-<button onclick="window.history.back()" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></button>
+<div class="p-4">
+    <button onclick="window.history.back()" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></button>
+</div>
 
-<body>
-    <div class="container">
+<body class="background-image-update-personal">
+    <div class="container square xyz-in" xyz="small-100% origin-top">
         <div class="row">
             <div class="col-8 offset-2">
-                <h2 class="my-4 text-center text-light">Update Puesto</h2>
+                <h2 class="my-4 text-center text-light">UPDATE PUESTO</h2>
 
                 <form action="<?= base_url('editar_puesto') ?>" method="post">
                     <div class="row">
                         <!-- Columna izquierda -->
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="txt_puesto_id" class="form-label text-light">Puesto ID:</label>
+                                <label for="txt_puesto_id" class="form-label text-light">PUESTO ID:</label>
                                 <input type="text" name="txt_puesto_id" id="txt_puesto_id" class="form-control"
                                     value="<?= $datos['puesto_id'] ?>" readonly>
                             </div>
 
                             <div class="mb-3">
-                                <label for="txt_rol" class="form-label text-light">Rol:</label>
+                                <label for="txt_rol" class="form-label text-light">ROL:</label>
                                 <input type="text" name="txt_rol" id="txt_rol" class="form-control"
                                     value="<?= $datos['rol'] ?>">
                             </div>
@@ -40,13 +42,13 @@
                         <!-- Columna derecha -->
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="txt_departamento" class="form-label text-light">Departamento:</label>
+                                <label for="txt_departamento" class="form-label text-light">DEPARTAMENTO:</label>
                                 <input type="text" name="txt_departamento" id="txt_departamento" class="form-control"
                                     value="<?= $datos['departamento'] ?>">
                             </div>
 
                             <div class="mb-3">
-                                <label for="txt_descripcion" class="form-label text-light">Descripcion:</label>
+                                <label for="txt_descripcion" class="form-label text-light">DESCRIPCION:</label>
                                 <input type="text" name="txt_descripcion" id="txt_descripcion" class="form-control"
                                     value="<?= $datos['descripcion'] ?>">
                             </div>

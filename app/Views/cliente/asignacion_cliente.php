@@ -65,34 +65,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            foreach ($datos as $registro) {
-                            ?>
+                            <?php if (!empty($asignaciones)): ?>
+                                <?php foreach ($asignaciones as $registro): ?>
+                                    <tr>
+                                        <td><?= esc($registro['asignacion_id']) ?></td>
+                                        <td><?= esc($registro['cliente_id']) ?></td>
+                                        <td><?= esc($registro['actividad_id']) ?></td>
+                                        <td><?= esc($registro['estado']) ?></td>
+                                        <td><?= esc($registro['fecha_reservacion']) ?></td>
+                                        <td class="d-flex justify-content-center gap-2">
+                                            <a href="<?= base_url('update_asignacion/') . $registro['asignacion_id']; ?>"
+                                                class="btn btn-outline-dark"><i class="bi bi-pin-angle fs-4"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
                                 <tr>
-                                    <td>
-                                        <?php echo ($registro['asignacion_id']) ?>
-                                    </td>
-                                    <td>
-                                        <?= $registro['cliente_id']; ?>
-                                    </td>
-                                    <td>
-                                        <?= $registro['actividad_id']; ?>
-                                    </td>
-                                    <td>
-                                        <?= $registro['estado']; ?>
-                                    </td>
-                                    <td>
-                                        <?= $registro['fecha_reservacion']; ?>
-                                    </td>
-                                    <td class="d-flex justify-content-center gap-2">
-                                        <a href="<?= base_url('update_asignacion/') . $registro['asignacion_id']; ?>"
-                                            class="btn btn-outline-dark"><i class="bi bi-pin-angle fs-4"></i></a>
-                                    </td>
-
+                                    <td colspan="6" class="text-center">No hay asignaciones para mostrar</td>
                                 </tr>
-                            <?php
-                            }
-                            ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
@@ -132,7 +123,8 @@
         </thead>
         <tbody>
             <?php
-            foreach ($datos as $registro) {
+            if (!empty($actividades)):
+            foreach ($actividades as $registro):
             ?>
                 <tr>
                     <td>
@@ -183,7 +175,8 @@
                     </td>
                 </tr>
             <?php
-            }
+            endforeach;
+            endif;
             ?>
         </tbody>
     </table>
