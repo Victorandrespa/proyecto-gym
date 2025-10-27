@@ -12,13 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="../app.js"></script>
 
     <title>Personal</title>
 </head>
 
 <body class="container mt-4 background-image-gestion-personal">
-
 
     <div class="container item-group" xyz="fade stagger">
         <div class="row align-items-center">
@@ -52,7 +50,6 @@
                     class="bi bi-person-gear"></i></a>
         </div>
 
-
     </div>
 
     <!-- Modal -->
@@ -65,7 +62,6 @@
                 </div>
                 <div class="modal-body">
                     <form action="agregarPersonal" method="post">
-
 
                         <input type="hidden" name="txt_personal_id" id="txt_personal_id" class="form-control">
 
@@ -102,14 +98,12 @@
                             <option value="Inactivo" <?= (isset($datos['estado']) && $datos['estado'] == 'Inactivo') ? 'selected' : '' ?>>Inactivo</option>
                         </select>
 
-
                         <label for="txt_horario" class="form-label">Horario:</label>
                         <select name="txt_horario" id="txt_horario" class="form-control" required>
                             <option value="">-- Seleccione Horario --</option>
                             <option value="Matutino" <?= (isset($datos['horario']) && $datos['horario'] == 'Matutino') ? 'selected' : '' ?>>Matutino</option>
                             <option value="Vespertino" <?= (isset($datos['horario']) && $datos['horario'] == 'Vespertino') ? 'selected' : '' ?>>Vespertino</option>
                         </select>
-
 
                         <label for="txt_sede" class="form-label">Sede:</label>
                         <select name="txt_sede" id="txt_sede" class="form-control" required>
@@ -119,10 +113,16 @@
                             <option value="Todas" <?= (isset($datos['sede_principal']) && $datos['sede_principal'] == 'Todas') ? 'selected' : '' ?>>Todas</option>
                         </select>
 
-
                         <div class="d-flex justify-content-center mt-3">
+                            <!-- Confirmación antes de enviar el formulario -->
                             <button type="submit"
-                                class="btn btn-outline-dark mt-2 justify-content-center">Guardar</button>
+                                class="btn btn-outline-dark mt-2 justify-content-center"
+                                data-confirm
+                                data-method="form"
+                                data-confirm-title="¿Guardar personal?"
+                                data-confirm-text="Se registrará un nuevo personal.">
+                                Guardar
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -135,9 +135,7 @@
 
     <br><br>
 
-
     <!-- Tabla de resultados -->
-
     <div class="table-responsive h-75 mx-auto rounded-5">
         <table class="table table-hover table-bordered">
             <thead class="table-dark text-center">
@@ -153,64 +151,45 @@
                     <th>Horario</th>
                     <th>Sede</th>
                     <th class="text-center">Editar</th>
+                </tr>
             </thead>
             <tbody>
-                <?php
-                foreach ($datos as $registro) {
-                ?>
+                <?php foreach ($datos as $registro): ?>
                     <tr>
-                        <td>
-                            <?php echo ($registro['personal_id']) ?>
-                        </td>
-                        <td>
-                            <?= $registro['puesto_id']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['nombre']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['apellido']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['telefono']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['email']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['fecha_contratacion']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['estado']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['horario']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['sede_principal']; ?>
-                        </td>
-
+                        <td><?= $registro['personal_id'] ?></td>
+                        <td><?= $registro['puesto_id']; ?></td>
+                        <td><?= $registro['nombre']; ?></td>
+                        <td><?= $registro['apellido']; ?></td>
+                        <td><?= $registro['telefono']; ?></td>
+                        <td><?= $registro['email']; ?></td>
+                        <td><?= $registro['fecha_contratacion']; ?></td>
+                        <td><?= $registro['estado']; ?></td>
+                        <td><?= $registro['horario']; ?></td>
+                        <td><?= $registro['sede_principal']; ?></td>
 
                         <td class="d-flex justify-content-center gap-2 ">
-                            <a href="<?= base_url('update_personal/') . $registro['personal_id']; ?>" class="btn btn-outline-dark"><i
-                                    class="bi bi-pencil"></i></a>
+                            <a href="<?= base_url('update_personal/') . $registro['personal_id']; ?>" class="btn btn-outline-dark">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <!-- Confirmación antes de eliminar -->
                             <a href="<?= base_url('eliminar_personal/') . $registro['personal_id']; ?>"
-                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                               class="btn btn-outline-danger"
+                               data-confirm
+                               data-confirm-title="¿Eliminar personal?"
+                               data-confirm-text="Esta acción no se puede deshacer."
+                               data-confirm-icon="warning">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
-                <?php
-                }
-                ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 
-
     <br><br>
 
-
-
-
+    <?= view('partials/alerts_footer') ?>
+    <script src="<?= base_url('js/app.js'); ?>"></script>
 </body>
-
 </html>

@@ -69,7 +69,8 @@ $routes->get('eliminar_estado_membresia/(:segment)', 'EstadoMembresiaController:
 $routes->get('update_estado_membresia/(:segment)', 'EstadoMembresiaController::buscar/$1', ['filter' => 'authGuard:admin,personal']);
 
 $routes->post('agregarEstadoMembresia', 'EstadoMembresiaController::agregarEstadoMembresia', ['filter' => 'authGuard:admin,personal']);
-$routes->post('editar_estado_membresia', 'EstadoMembresiaController::editar/$1', ['filter' => 'authGuard:admin,personal']);
+$routes->post('editar_estado_membresia', 'EstadoMembresiaController::editar', ['filter' => 'authGuard:admin,personal']);
+
 
 //Pago
 

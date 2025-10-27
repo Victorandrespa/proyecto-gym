@@ -12,13 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="../app.js"></script>
     <title>Puestos</title>
 
 </head>
 
 <body class="container mt-4 background-image-pagos-admin">
-
 
     <div class="container item-group" xyz="fade stagger">
         <div class="row align-items-center">
@@ -65,7 +63,6 @@
                 <div class="modal-body">
                     <form action="agregarPuesto" method="post">
 
-
                         <input type="hidden" name="txt_puesto_id" id="txt_puesto_id" class="form-control">
 
                         <label for="txt_rol" class="form-label">Rol:</label>
@@ -92,8 +89,15 @@
                         <input type="text" name="txt_descripcion" id="txt_descripcion" class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
+                            <!-- Confirmación antes de enviar el formulario -->
                             <button type="submit"
-                                class="btn btn-outline-dark mt-2 justify-content-center">Guardar</button>
+                                class="btn btn-outline-dark mt-2 justify-content-center"
+                                data-confirm
+                                data-method="form"
+                                data-confirm-title="¿Guardar puesto?"
+                                data-confirm-text="Se registrará un nuevo puesto.">
+                                Guardar
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -104,12 +108,9 @@
         </div>
     </div>
 
-
     <br><br>
 
-
     <!-- Tabla de resultados -->
-
     <div class="table-responsive h-75 mx-auto rounded-5">
         <table class="table table-hover table-bordered">
             <thead class="table-dark text-center">
@@ -138,13 +139,18 @@
                             <?= $registro['descripcion']; ?>
                         </td>
 
-
-
                         <td class="d-flex justify-content-center gap-2 ">
                             <a href="<?= base_url('update_puesto/') . $registro['puesto_id']; ?>"
                                 class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                            <!-- Confirmación antes de eliminar -->
                             <a href="<?= base_url('eliminar_puesto/') . $registro['puesto_id']; ?>"
-                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                                class="btn btn-outline-danger"
+                                data-confirm
+                                data-confirm-title="¿Eliminar puesto?"
+                                data-confirm-text="Esta acción no se puede deshacer."
+                                data-confirm-icon="warning">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
                 <?php
@@ -154,12 +160,8 @@
         </table>
     </div>
 
-
-
-
-
-
-
+    <?= view('partials/alerts_footer') ?>
+    <script src="<?= base_url('js/app.js'); ?>"></script>
 </body>
 
 </html>

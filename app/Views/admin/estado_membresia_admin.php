@@ -12,25 +12,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="../app.js"></script>
 
-    <title>Estado Membresias</title>
+    <title>Estado Membresías</title>
 </head>
 
 <body class="container mt-4 background-image-estado-membresia-admin">
 
-
     <div class="container item-group" xyz="fade stagger">
         <div class="row align-items-center">
-            <!-- Primera columna: Logo -->
             <div class="col-auto square xyz-in">
                 <img src="<?= base_url('images/evolvere-logo-250.png') ?>" alt="Logo" class="img-fluid">
             </div>
-
-            <!-- Segunda columna: 3 elementos alineados -->
             <div class="col">
                 <div class="d-flex flex-column">
-                    <h1 class="mt-5 text-light square xyz-in">ESTADO MEMBRESIA <i class="bi bi-bar-chart"></i></h1>
+                    <h1 class="mt-5 text-light square xyz-in">ESTADO MEMBRESÍA <i class="bi bi-bar-chart"></i></h1>
                     <h4 class="mb-5 text-light square xyz-in">ADMIN</h4>
                 </div>
             </div>
@@ -38,14 +33,15 @@
     </div>
 
     <div class="d-flex flex-row justify-content-between align-items-center item-group" xyz="fade stagger">
+        <a href="verAdminHome" class="btn btn-outline-dark text-light border border-light ms-5 square xyz-in">
+            Home <i class="bi bi-house"></i>
+        </a>
 
-        <a href="verAdminHome" class="btn btn btn-outline-dark text-light border border-light ms-5 square xyz-in">Home <i class="bi bi-house"></i></a>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light square xyz-in" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <!-- Botón para abrir el modal -->
+        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light square xyz-in"
+            data-bs-toggle="modal" data-bs-target="#exampleModal">
             Agregar Estado <i class="bi bi-credit-card"></i>
         </button>
-
-
     </div>
 
     <!-- Modal -->
@@ -71,9 +67,9 @@
                             <?php endforeach; ?>
                         </select>
 
-                        <label for="txt_membresia_id" class="form-label">Membresia ID:</label>
+                        <label for="txt_membresia_id" class="form-label">Membresía ID:</label>
                         <select name="txt_membresia_id" id="txt_membresia_id" class="form-control" required>
-                            <option value="">-- Seleccione Membresia --</option>
+                            <option value="">-- Seleccione Membresía --</option>
                             <?php foreach ($membresias as $m): ?>
                                 <option value="<?= $m['membresia_id'] ?>">
                                     <?= $m['membresia_id'] . ' - ' . $m['tipo_plan'] ?>
@@ -87,9 +83,9 @@
                         <label for="txt_monto" class="form-label">Monto:</label>
                         <input type="number" name="txt_monto" id="txt_monto" class="form-control">
 
-                        <label for="txt_metodo_pago" class="form-label">Metodo de pago::</label>
-                         <select name="txt_metodo_pago" id="txt_metodo_pago" class="form-control" required>
-                            <option value="">- Metodo de pago -</option>
+                        <label for="txt_metodo_pago" class="form-label">Método de pago:</label>
+                        <select name="txt_metodo_pago" id="txt_metodo_pago" class="form-control" required>
+                            <option value="">- Método de pago -</option>
                             <option value="Tarjeta" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Tarjeta') ? 'selected' : '' ?>>Tarjeta</option>
                             <option value="Efectivo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Efectivo') ? 'selected' : '' ?>>Efectivo</option>
                         </select>
@@ -98,78 +94,77 @@
                         <input type="text" name="txt_concepto" id="txt_concepto" class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
+                            <!-- Confirmación antes de enviar el formulario -->
                             <button type="submit"
-                                class="btn btn-outline-dark mt-2 justify-content-center">Guardar</button>
+                                class="btn btn-outline-dark mt-2 justify-content-center"
+                                data-confirm
+                                data-method="form"
+                                data-confirm-title="¿Guardar estado?"
+                                data-confirm-text="Se registrará un nuevo estado de membresía.">
+                                Guardar
+                            </button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>
 
-
     <br><br>
 
-
     <!-- Tabla de resultados -->
-
     <div class="table-responsive h-75 mx-auto rounded-5">
         <table class="table table-hover table-bordered">
             <thead class="table-dark text-center">
                 <tr>
                     <th>ID</th>
-                    <th>Membresia </th>
-                    <th>Cliente </th>
+                    <th>Membresía</th>
+                    <th>Cliente</th>
                     <th>Fecha de inicio</th>
-                    <th>Fecha Fin</th>
+                    <th>Fecha fin</th>
                     <th>Estado</th>
-                    <th class="text-center">Editar</th>
+                    <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <?php
-                foreach ($datos as $registro) {
-                ?>
+                <?php foreach ($datos as $registro): ?>
                     <tr>
-                        <td>
-                            <?php echo ($registro['estado_membresia_id']) ?>
-                        </td>
-                        <td>
-                            <?= $registro['membresia_id']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['cliente_id']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['fecha_inicio']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['fecha_fin']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['estado']; ?>
-                        </td>
+                        <td><?= $registro['estado_membresia_id']; ?></td>
+                        <td><?= $registro['membresia_id']; ?></td>
+                        <td><?= $registro['cliente_id']; ?></td>
+                        <td><?= $registro['fecha_inicio']; ?></td>
+                        <td><?= $registro['fecha_fin']; ?></td>
+                        <td><?= $registro['estado']; ?></td>
 
-                        <td class="d-flex justify-content-center gap-2 ">
+                        <td class="d-flex justify-content-center gap-2">
                             <a href="<?= base_url('update_estado_membresia/') . $registro['estado_membresia_id']; ?>"
-                                class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                                class="btn btn-outline-dark">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+
+                            <!-- Confirmación antes de eliminar -->
                             <a href="<?= base_url('eliminar_estado_membresia/') . $registro['estado_membresia_id']; ?>"
-                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                                class="btn btn-outline-danger"
+                                data-confirm
+                                data-confirm-title="¿Eliminar estado?"
+                                data-confirm-text="Esta acción no se puede deshacer."
+                                data-confirm-icon="warning">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
-                <?php
-                }
-                ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 
-
     <br><br>
 
-</body>
+    <?= view('partials/alerts_footer') ?>
+    <script src="<?= base_url('js/app.js'); ?>"></script>
 
+</body>
 </html>

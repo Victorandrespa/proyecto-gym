@@ -30,11 +30,11 @@
 # DATABASE
 #--------------------------------------------------------------------
 
-# database.default.hostname = localhost
-# database.default.database = ci4
-# database.default.username = root
-# database.default.password = root
-# database.default.DBDriver = MySQLi
+ database.default.hostname = localhost
+ database.default.database = ci4
+ database.default.username = root
+ database.default.password = root
+ database.default.DBDriver = MySQLi
 # database.default.DBPrefix =
 # database.default.port = 3306
 
@@ -59,8 +59,8 @@
 # SESSION
 #--------------------------------------------------------------------
 
-# session.driver = 'CodeIgniter\Session\Handlers\FileHandler'
-# session.savePath = null
+ session.driver = 'CodeIgniter\Session\Handlers\FileHandler'
+ session.savePath = null
 
 #--------------------------------------------------------------------
 # LOGGER

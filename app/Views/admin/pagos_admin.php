@@ -12,13 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="../app.js"></script>
 
     <title>Pagos</title>
 </head>
 
 <body class="container mt-4 background-image-pagos-admin">
-
 
     <div class="container item-group" xyz="fade stagger">
         <div class="row align-items-center">
@@ -38,13 +36,11 @@
     </div>
 
     <div class="d-flex flex-row justify-content-between align-items-center item-group" xyz="fade stagger">
-
         <a href="verAdminHome" class="btn btn btn-outline-dark ms-5 text-light square xyz-in">Home <i class="bi bi-house"></i></a>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-dark my-2 text-light square xyz-in" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Realizar un Pago <i class="bi bi-plus-circle"></i>
         </button>
-
     </div>
 
     <!-- Modal -->
@@ -87,7 +83,7 @@
                         <input type="number" name="txt_monto" id="txt_monto" class="form-control">
 
                         <label for="txt_metodo_pago" class="form-label">Metodo de pago::</label>
-                         <select name="txt_metodo_pago" id="txt_metodo_pago" class="form-control" required>
+                        <select name="txt_metodo_pago" id="txt_metodo_pago" class="form-control" required>
                             <option value="">- Metodo de pago -</option>
                             <option value="Tarjeta" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Tarjeta') ? 'selected' : '' ?>>Tarjeta</option>
                             <option value="Efectivo" <?= (isset($datos['metodo_pago']) && $datos['metodo_pago'] == 'Efectivo') ? 'selected' : '' ?>>Efectivo</option>
@@ -97,8 +93,15 @@
                         <input type="text" name="txt_concepto" id="txt_concepto" class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
+                            <!-- Confirmación antes de enviar el formulario -->
                             <button type="submit"
-                                class="btn btn-outline-dark mt-2 justify-content-center">Guardar</button>
+                                class="btn btn-outline-dark mt-2 justify-content-center"
+                                data-confirm
+                                data-method="form"
+                                data-confirm-title="¿Guardar pago?"
+                                data-confirm-text="Se registrará un nuevo pago.">
+                                Guardar
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -109,15 +112,9 @@
         </div>
     </div>
 
-
-
-
     <br><br>
 
-
-
     <!-- Tabla de resultados -->
-
     <div class="table-responsive h-75 mx-auto rounded-5">
         <table class="table table-hover table-bordered">
             <thead class="table-dark text-center">
@@ -133,51 +130,40 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                foreach ($datos as $registro) {
-                ?>
+                <?php foreach ($datos as $registro): ?>
                     <tr>
-                        <td>
-                            <?php echo ($registro['pago_id']) ?>
-                        </td>
-                        <td>
-                            <?= $registro['cliente_id']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['membresia_id']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['fecha_pago']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['monto']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['metodo_pago']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['concepto']; ?>
-                        </td>
+                        <td><?= $registro['pago_id'] ?></td>
+                        <td><?= $registro['cliente_id']; ?></td>
+                        <td><?= $registro['membresia_id']; ?></td>
+                        <td><?= $registro['fecha_pago']; ?></td>
+                        <td><?= $registro['monto']; ?></td>
+                        <td><?= $registro['metodo_pago']; ?></td>
+                        <td><?= $registro['concepto']; ?></td>
 
                         <td class="d-flex justify-content-center gap-2 ">
                             <a href="<?= base_url('update_pago/') . $registro['pago_id']; ?>"
-                                class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                                class="btn btn-outline-dark">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <!-- Confirmación antes de eliminar -->
                             <a href="<?= base_url('eliminar_pago/') . $registro['pago_id']; ?>"
-                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                                class="btn btn-outline-danger"
+                                data-confirm
+                                data-confirm-title="¿Eliminar pago?"
+                                data-confirm-text="Esta acción no se puede deshacer."
+                                data-confirm-icon="warning">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
-                <?php
-                }
-                ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 
-
     <br><br>
 
-
-
+    <?= view('partials/alerts_footer') ?>
+    <script src="<?= base_url('js/app.js'); ?>"></script>
 </body>
-
 </html>

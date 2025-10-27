@@ -12,22 +12,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="../app.js"></script>
 
-    <title>Registo clientes</title>
+    <title>Registro clientes</title>
 </head>
 
 <body class="container mt-4 background-image-clientes-admin">
 
-
     <div class="container item-group" xyz="fade stagger">
         <div class="row align-items-center">
-            <!-- Primera columna: Logo -->
             <div class="col-auto square xyz-in">
                 <img src="<?= base_url('images/evolvere-logo-250.png') ?>" alt="Logo" class="img-fluid">
             </div>
-
-            <!-- Segunda columna: 3 elementos alineados -->
             <div class="col">
                 <div class="d-flex flex-column">
                     <h1 class="mt-5 text-light square xyz-in">BASE DE DATOS CLIENTES <i class="bi bi-database"></i></h1>
@@ -38,14 +33,13 @@
     </div>
 
     <div class="d-flex flex-row justify-content-between align-items-center item-group" xyz="fade stagger">
-
-        <a href="verAdminHome" class="btn btn btn-outline-dark text-light border border-light ms-5 square xyz-in">Home <i class="bi bi-house"></i></a>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light square xyz-in" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <a href="verAdminHome" class="btn btn btn-outline-dark text-light border border-light ms-5 square xyz-in">
+            Home <i class="bi bi-house"></i>
+        </a>
+        <button type="button" class="btn btn-outline-dark my-2 text-light border border-light square xyz-in"
+            data-bs-toggle="modal" data-bs-target="#exampleModal">
             Agrega un Cliente <i class="bi bi-person-plus"></i>
         </button>
-
-
     </div>
 
     <!-- Modal -->
@@ -70,31 +64,36 @@
                         <label for="txt_edad" class="form-label">Edad:</label>
                         <input type="number" name="txt_edad" id="txt_edad" class="form-control">
 
-                        <label for="txt_telefono" class="form-label">Telefono:</label>
+                        <label for="txt_telefono" class="form-label">Teléfono:</label>
                         <input type="number" name="txt_telefono" id="txt_telefono" class="form-control">
 
                         <label for="txt_email" class="form-label">Email:</label>
                         <input type="email" name="txt_email" id="txt_email" class="form-control">
 
                         <label for="txt_contacto_emergencia" class="form-label">Contacto de Emergencia:</label>
-                        <input type="text" name="txt_contacto_emergencia" id="txt_contacto_emergencia"
-                            class="form-control">
+                        <input type="text" name="txt_contacto_emergencia" id="txt_contacto_emergencia" class="form-control">
 
-                        <label for="txt_telefono_emergencia" class="form-label">Telefono de Emergencia:</label>
-                        <input type="number" name="txt_telefono_emergencia" id="txt_telefono_emergencia"
-                            class="form-control">
+                        <label for="txt_telefono_emergencia" class="form-label">Teléfono de Emergencia:</label>
+                        <input type="number" name="txt_telefono_emergencia" id="txt_telefono_emergencia" class="form-control">
 
                         <label for="txt_fecha_registro" class="form-label">Fecha de Registro:</label>
                         <input type="date" name="txt_fecha_registro" id="txt_fecha_registro" class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
+                            <!-- ✅ Confirmación antes de enviar el formulario -->
                             <button type="submit"
-                                class="btn btn-outline-dark mt-2 justify-content-center">Guardar</button>
+                                class="btn btn-outline-dark mt-2 justify-content-center"
+                                data-confirm
+                                data-method="form"
+                                data-confirm-title="¿Guardar cliente?"
+                                data-confirm-text="Se registrará un nuevo cliente.">
+                                Guardar
+                            </button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -102,9 +101,7 @@
 
     <br><br>
 
-
     <!-- Tabla de resultados -->
-
     <div class="table-responsive h-75 mx-auto rounded-5">
         <table class="table table-hover table-bordered">
             <thead class="table-dark text-center">
@@ -113,66 +110,52 @@
                     <th>Nombre </th>
                     <th>Apellido </th>
                     <th>Edad </th>
-                    <th>Telefono</th>
+                    <th>Teléfono</th>
                     <th>Email</th>
                     <th>Contacto de Emergencia</th>
-                    <th>Telefono de Emergencia</th>
+                    <th>Teléfono de Emergencia</th>
                     <th>Fecha de Registro</th>
-                    <th class="text-center">Editar</th>
+                    <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <?php
-                foreach ($datos as $registro) {
-                ?>
+                <?php foreach ($datos as $registro): ?>
                     <tr>
-                        <td>
-                            <?php echo ($registro['cliente_id']) ?>
-                        </td>
-                        <td>
-                            <?= $registro['nombre']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['apellido']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['edad']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['telefono']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['email']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['contacto_emergencia']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['telefono_emergencia']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['fecha_registro']; ?>
-                        </td>
-
-                        <td class="d-flex justify-content-center gap-2 ">
+                        <td><?= $registro['cliente_id']; ?></td>
+                        <td><?= $registro['nombre']; ?></td>
+                        <td><?= $registro['apellido']; ?></td>
+                        <td><?= $registro['edad']; ?></td>
+                        <td><?= $registro['telefono']; ?></td>
+                        <td><?= $registro['email']; ?></td>
+                        <td><?= $registro['contacto_emergencia']; ?></td>
+                        <td><?= $registro['telefono_emergencia']; ?></td>
+                        <td><?= $registro['fecha_registro']; ?></td>
+                        <td class="d-flex justify-content-center gap-2">
                             <a href="<?= base_url('update_cliente/') . $registro['cliente_id']; ?>"
-                                class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                                class="btn btn-outline-dark">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+
+                            <!-- ✅ Confirmación antes de eliminar -->
                             <a href="<?= base_url('eliminar_cliente/') . $registro['cliente_id']; ?>"
-                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                                class="btn btn-outline-danger"
+                                data-confirm
+                                data-confirm-title="¿Eliminar cliente?"
+                                data-confirm-text="Esta acción no se puede deshacer."
+                                data-confirm-icon="warning">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
-                <?php
-                }
-                ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 
-
     <br><br>
 
-
+    <?= view('partials/alerts_footer') ?>
+    <script src="<?= base_url('js/app.js'); ?>"></script>
 
 </body>
-
 </html>
