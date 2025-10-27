@@ -9,99 +9,125 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="<?= base_url('css/background.css'); ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
-    <title>Cliente</title>
+    <title>Actualizar Cliente</title>
 </head>
 
-<button onclick="window.history.back()" class="btn btn btn-outline-dark text-light border border-light ms-5">Home <i class="bi bi-house"></i></button>
-
 <body class="background-image-update-cliente">
-    <div class="container square xyz-in" xyz="small-100% origin-top">
-        <div class="row">
-            <div class="col-8 offset-2">
-                <h2 class="my-4 text-light text-center">UPDATE CLIENTE</h2>
 
-                <form action="<?= base_url('editar_cliente') ?>" method="post">
-                    <div class="row">
-                        <!-- Columna izquierda -->
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="txt_cliente_id" class="form-label text-light">CLIENTE ID:</label>
-                                <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control"
-                                    value="<?= $datos['cliente_id'] ?>" readonly>
+    <div class="container mt-4">
+        <button onclick="window.history.back()" class="btn btn btn-outline-dark text-light border border-light mb-3">
+            <i class="bi bi-house"></i> Home
+        </button>
+
+        <div class="container square xyz-in" xyz="small-100% origin-top">
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <h2 class="my-4 text-light text-center">UPDATE CLIENTE</h2>
+
+                    <form id="formEditarCliente" action="<?= base_url('editar_cliente') ?>" method="post">
+                        <div class="row">
+                            <!-- Columna izquierda -->
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="txt_cliente_id" class="form-label text-light">CLIENTE ID:</label>
+                                    <input type="text" name="txt_cliente_id" id="txt_cliente_id" class="form-control"
+                                        value="<?= $datos['cliente_id'] ?>" readonly>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="txt_nombre" class="form-label text-light">NOMBRE:</label>
+                                    <input type="text" name="txt_nombre" id="txt_nombre" class="form-control"
+                                        value="<?= $datos['nombre'] ?>">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="txt_apellido" class="form-label text-light">APELLIDO:</label>
+                                    <input type="text" name="txt_apellido" id="txt_apellido" class="form-control"
+                                        value="<?= $datos['apellido'] ?>">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="txt_edad" class="form-label text-light">EDAD:</label>
+                                    <input type="number" name="txt_edad" id="txt_edad" class="form-control"
+                                        value="<?= $datos['edad'] ?>">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="txt_telefono" class="form-label text-light">TELÉFONO:</label>
+                                    <input type="text" name="txt_telefono" id="txt_telefono" class="form-control"
+                                        value="<?= $datos['telefono'] ?>">
+                                </div>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="txt_nombre" class="form-label text-light">NOMBRE:</label>
-                                <input type="text" name="txt_nombre" id="txt_nombre" class="form-control"
-                                    value="<?= $datos['nombre'] ?>">
-                            </div>
+                            <!-- Columna derecha -->
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="txt_email" class="form-label text-light">EMAIL:</label>
+                                    <input type="email" name="txt_email" id="txt_email" class="form-control"
+                                        value="<?= $datos['email'] ?>">
+                                </div>
 
-                            <div class="mb-3">
-                                <label for="txt_apellido" class="form-label text-light">APELLIDO:</label>
-                                <input type="text" name="txt_apellido" id="txt_apellido" class="form-control"
-                                    value="<?= $datos['apellido'] ?>">
-                            </div>
+                                <div class="mb-3">
+                                    <label for="txt_contacto_emergencia" class="form-label text-light">CONTACTO DE EMERGENCIA:</label>
+                                    <input type="text" name="txt_contacto_emergencia" id="txt_contacto_emergencia"
+                                        class="form-control" value="<?= $datos['contacto_emergencia'] ?>">
+                                </div>
 
-                            <div class="mb-3">
-                                <label for="txt_edad" class="form-label text-light">EDAD:</label>
-                                <input type="text" name="txt_edad" id="txt_edad" class="form-control"
-                                    value="<?= $datos['edad'] ?>">
-                            </div>
+                                <div class="mb-3">
+                                    <label for="txt_telefono_emergencia" class="form-label text-light">TELÉFONO DE EMERGENCIA:</label>
+                                    <input type="text" name="txt_telefono_emergencia" id="txt_telefono_emergencia"
+                                        class="form-control" value="<?= $datos['telefono_emergencia'] ?>">
+                                </div>
 
-                            <div class="mb-3">
-                                <label for="txt_telefono" class="form-label text-light">TELEFONO:</label>
-                                <input type="text" name="txt_telefono" id="txt_telefono" class="form-control"
-                                    value="<?= $datos['telefono'] ?>">
+                                <div class="mb-3">
+                                    <label for="txt_fecha_registro" class="form-label text-light">FECHA DE REGISTRO:</label>
+                                    <input type="date" name="txt_fecha_registro" id="txt_fecha_registro"
+                                        class="form-control" value="<?= $datos['fecha_registro'] ?>">
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Columna derecha -->
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="txt_email" class="form-label text-light">EMAIL:</label>
-                                <input type="text" name="txt_email" id="txt_email" class="form-control"
-                                    value="<?= $datos['email'] ?>">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="txt_contacto_emergencia" class="form-label text-light">CONTACTO EMERGENCIA:</label>
-                                <input type="text" name="txt_contacto_emergencia" id="txt_contacto_emergencia" class="form-control"
-                                    value="<?= $datos['contacto_emergencia'] ?>">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="txt_telefono_emergencia" class="form-label text-light">TELEFONO EMERGENCIA:</label>
-                                <input type="text" name="txt_telefono_emergencia" id="txt_telefono_emergencia" class="form-control"
-                                    value="<?= $datos['telefono_emergencia'] ?>">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="txt_fecha_registro" class="form-label text-light">FECHA DE REGISTRO:</label>
-                                <input type="text" name="txt_fecha_registro" id="txt_fecha_registro" class="form-control"
-                                    value="<?= $datos['fecha_registro'] ?>">
-                            </div>
+                        <!-- Botón Guardar -->
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-outline-light border border-light w-100 rounded-pill">
+                                <i class="bi bi-save"></i> Guardar cambios
+                            </button>
                         </div>
-                    </div>
-
-                    <!-- Botón -->
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-outline-dark mt-3 w-100 mb-5 text-light rounded-pill border border-light">
-                            Guardar
-                        </button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
-
-
-
-
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
-</body>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script>
+        // Confirmación antes de guardar
+        document.getElementById("formEditarCliente").addEventListener("submit", function (e) {
+            e.preventDefault();
+            Swal.fire({
+                title: "¿Guardar cambios?",
+                text: "Se actualizará la información del cliente.",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#198754",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sí, guardar",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    e.target.submit();
+                }
+            });
+        });
+    </script>
+
+    <?= view('partials/alerts_footer') ?>
+    <script src="<?= base_url('js/app.js'); ?>"></script>
+
+</body>
 </html>

@@ -12,7 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="../app.js"></script>
 
     <title>Plan Nutricional</title>
 </head>
@@ -21,12 +20,10 @@
 
     <div class="container">
         <div class="row align-items-center item-group" xyz="fade stagger">
-            <!-- Primera columna: Logo -->
             <div class="col-auto square xyz-in">
                 <img src="<?= base_url('images/evolvere-logo-250.png') ?>" alt="Logo" class="img-fluid">
             </div>
 
-            <!-- Segunda columna: 3 elementos alineados -->
             <div class="col">
                 <div class="d-flex flex-column">
                     <h1 class="mt-5 text-light square xyz-in">PLAN NUTRICIONAL <i class="bi bi-journal-richtext"></i></h1>
@@ -37,18 +34,14 @@
     </div>
 
     <div class="d-flex flex-row justify-content-between align-items-center item-group" xyz="fade stagger">
-
-
         <div class="d-flex flex-column align-items-left">
             <a href="verPersonalHome" class="btn btn btn-outline-dark mb-1 text-light border border-light ms-5 square xyz-in">Home Principal <i class="bi bi-house"></i></a>
             <a href="verHistorialMedicionPersonal" class="btn btn btn-outline-dark text-light border border-light ms-5 square xyz-in">Regresar Historial <i class="bi bi-arrow-return-left"></i></a>
         </div>
 
         <button type="button" class="btn btn-outline-dark my-2 text-light border border-light square xyz-in" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Agrega Plan Nutricional <i class="bi bi-clipboard2-check"></i>
+            Agregar Plan Nutricional <i class="bi bi-clipboard2-check"></i>
         </button>
-
-
     </div>
 
     <!-- Modal -->
@@ -77,85 +70,77 @@
                         <label for="txt_objetivo" class="form-label">Objetivo:</label>
                         <input type="text" name="txt_objetivo" id="txt_objetivo" class="form-control">
 
-                        <label for="txt_duracion" class="form-label">Duracion:</label>
+                        <label for="txt_duracion" class="form-label">Duración (días):</label>
                         <input type="number" name="txt_duracion" id="txt_duracion" class="form-control">
 
-                        <label for="txt_descripcion" class="form-label">Descripcion:</label>
+                        <label for="txt_descripcion" class="form-label">Descripción:</label>
                         <input type="text" name="txt_descripcion" id="txt_descripcion" class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
+                            <!-- Confirmación antes de guardar -->
                             <button type="submit"
-                                class="btn btn-outline-dark mt-2 justify-content-center">Guardar</button>
+                                class="btn btn-outline-dark mt-2 justify-content-center"
+                                data-confirm
+                                data-method="form"
+                                data-confirm-title="¿Guardar plan nutricional?"
+                                data-confirm-text="Se registrará un nuevo plan nutricional.">
+                                Guardar
+                            </button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>
 
-
     <br><br>
 
-
-
-    <!-- Tabla de resultados -->
-
+    <!-- Tabla -->
     <div class="table-responsive h-75 mx-auto rounded-5">
         <table class="table table-hover table-bordered">
             <thead class="table-dark text-center">
                 <tr>
                     <th>ID</th>
-                    <th>Personal </th>
+                    <th>Personal</th>
                     <th>Objetivo</th>
-                    <th>Duracion</th>
-                    <th>Descripcion</th>
+                    <th>Duración</th>
+                    <th>Descripción</th>
                     <th class="text-center">Editar</th>
+                </tr>
             </thead>
             <tbody>
-                <?php
-                foreach ($datos as $registro) {
-                ?>
+                <?php foreach ($datos as $registro): ?>
                     <tr>
-                        <td>
-                            <?php echo ($registro['plan_id']) ?>
-                        </td>
-                        <td>
-                            <?= $registro['personal_id']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['objetivo']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['duracion']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['descripcion']; ?>
-                        </td>
-
-
+                        <td><?= $registro['plan_id'] ?></td>
+                        <td><?= $registro['personal_id']; ?></td>
+                        <td><?= $registro['objetivo']; ?></td>
+                        <td><?= $registro['duracion']; ?></td>
+                        <td><?= $registro['descripcion']; ?></td>
 
                         <td class="d-flex justify-content-center gap-2 ">
-                            <a href="<?= base_url('update_plan_nutricion/') . $registro['plan_id']; ?>"
-                                class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                            <a href="<?= base_url('update_plan_nutricion/') . $registro['plan_id']; ?>" class="btn btn-outline-dark">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <!-- Confirmación antes de eliminar -->
                             <a href="<?= base_url('eliminar_plan_nutricion/') . $registro['plan_id']; ?>"
-                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                                class="btn btn-outline-danger"
+                                data-confirm
+                                data-confirm-title="¿Eliminar plan?"
+                                data-confirm-text="Esta acción eliminará el plan de forma permanente."
+                                data-confirm-icon="warning">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
-                <?php
-                }
-                ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 
-
-
-
-
-
+    <?= view('partials/alerts_footer') ?>
+    <script src="<?= base_url('js/app.js'); ?>"></script>
 </body>
-
 </html>

@@ -73,7 +73,7 @@ class EstadoMembresiaController extends BaseController
         $datos['datos'] = $registro->where(['estado_membresia_id' => $id])->first();
         return view('updates/update_estado_membresia.php', $datos);
     }
-    public function editar($id)
+    public function editar()
     {
         $datos = [
             'estado_membresia_id' => $this->request->getPost('txt_estado_membresia_id'),

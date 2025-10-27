@@ -14,7 +14,6 @@
 
 <body class="container mt-4 background-image-personal-historial-medicion">
 
-
     <div class="container">
         <div class="row align-items-center item-group" xyz="fade stagger">
             <!-- Primera columna: Logo -->
@@ -33,9 +32,7 @@
     </div>
 
     <div class="d-flex flex-row justify-content-between align-items-center item-group" xyz="fade stagger">
-
         <a href="verPersonalHome" class="btn btn btn-outline-dark text-light border border-light ms-5 square xyz-in">Home <i class="bi bi-house"></i></a>
-        <!-- Button trigger modal -->
 
         <div class="d-flex flex-column align-items-right">
             <button type="button" class="btn btn-outline-dark my-2 text-light border border-light square xyz-in" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -44,8 +41,6 @@
 
             <a href="verPlanNutricionPersonal" class="btn btn btn-outline-dark text-light border border-light square xyz-in">Planes Nutricionales <i class="bi bi-clipboard-heart"></i></a>
         </div>
-
-
     </div>
 
     <!-- Modal -->
@@ -62,7 +57,7 @@
                         <input type="hidden" name="txt_medicion_id" id="txt_medicion_id" class="form-control">
 
                         <label for="txt_plan_id" class="form-label">Plan id</label>
-                         <select name="txt_plan_id" id="txt_plan_id" class="form-control" required>
+                        <select name="txt_plan_id" id="txt_plan_id" class="form-control" required>
                             <option value="">-- Seleccione Plan --</option>
                             <?php foreach ($planes as $m): ?>
                                 <option value="<?= $m['plan_id'] ?>">
@@ -91,19 +86,24 @@
                         <input type="number" name="txt_altura" id="txt_altura" class="form-control">
 
                         <label for="txt_indice_masaCorporal" class="form-label">Indice Masa Corporal:</label>
-                        <input type="number" name="txt_indice_masaCorporal" id="txt_indice_masaCorporal"
-                            class="form-control">
+                        <input type="number" name="txt_indice_masaCorporal" id="txt_indice_masaCorporal" class="form-control">
 
                         <label for="txt_promedio_calorias" class="form-label">Promedio Calorias:</label>
-                        <input type="number" name="txt_promedio_calorias" id="txt_promedio_calorias"
-                            class="form-control">
+                        <input type="number" name="txt_promedio_calorias" id="txt_promedio_calorias" class="form-control">
 
                         <label for="txt_observaciones" class="form-label">Observaciones:</label>
                         <input type="text" name="txt_observaciones" id="txt_observaciones" class="form-control">
 
                         <div class="d-flex justify-content-center mt-3">
+                            <!-- Confirmación antes de enviar -->
                             <button type="submit"
-                                class="btn btn-outline-dark mt-2 justify-content-center">Guardar</button>
+                                class="btn btn-outline-dark mt-2 justify-content-center"
+                                data-confirm
+                                data-method="form"
+                                data-confirm-title="¿Guardar historial?"
+                                data-confirm-text="Se registrará un nuevo historial de medición.">
+                                Guardar
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -116,10 +116,7 @@
 
     <br><br>
 
-
-
     <!-- Tabla de resultados -->
-
     <div class="table-responsive h-75 mx-auto rounded-5">
         <table class="table table-hover table-bordered">
             <thead class="table-dark text-center">
@@ -136,63 +133,40 @@
                     <th class="text-center">Asignacion</th>
             </thead>
             <tbody>
-                <?php
-                foreach ($datos as $registro) {
-                ?>
+                <?php foreach ($datos as $registro): ?>
                     <tr>
-                        <td>
-                            <?php echo ($registro['medicion_id']) ?>
-                        </td>
-                        <td>
-                            <?= $registro['plan_id']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['cliente_id']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['fecha_medicion']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['peso']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['altura']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['indice_masaCorporal']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['promedio_calorias']; ?>
-                        </td>
-                        <td>
-                            <?= $registro['observaciones']; ?>
-                        </td>
-
+                        <td><?= $registro['medicion_id'] ?></td>
+                        <td><?= $registro['plan_id']; ?></td>
+                        <td><?= $registro['cliente_id']; ?></td>
+                        <td><?= $registro['fecha_medicion']; ?></td>
+                        <td><?= $registro['peso']; ?></td>
+                        <td><?= $registro['altura']; ?></td>
+                        <td><?= $registro['indice_masaCorporal']; ?></td>
+                        <td><?= $registro['promedio_calorias']; ?></td>
+                        <td><?= $registro['observaciones']; ?></td>
 
                         <td class="d-flex justify-content-center gap-2 ">
                             <a href="<?= base_url('update_medicion/') . $registro['medicion_id']; ?>"
-                                class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                               class="btn btn-outline-dark">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <!-- Confirmación antes de eliminar -->
                             <a href="<?= base_url('eliminar_medicion/') . $registro['medicion_id']; ?>"
-                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                               class="btn btn-outline-danger"
+                               data-confirm
+                               data-confirm-title="¿Eliminar historial?"
+                               data-confirm-text="Esta acción no se puede deshacer."
+                               data-confirm-icon="warning">
+                                <i class="bi bi-trash"></i>
+                            </a>
                         </td>
                     </tr>
-                <?php
-                }
-                ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
 
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="../app.js"></script>
-
-
+    <?= view('partials/alerts_footer') ?>
+    <script src="<?= base_url('js/app.js'); ?>"></script>
 </body>
-
 </html>
