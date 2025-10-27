@@ -114,61 +114,63 @@
 
     <!-- Tabla de resultados -->
 
-    <table class="table mt-5 table-hover table-bordered">
-        <thead class="table-dark text-center">
-            <tr>
-                <th>Actividad</th>
-                <th>Personal</th>
-                <th>Nombre</th>
-                <th>Modalidad</th>
-                <th>Nivel</th>
-                <th>Fecha</th>
-                <th>Hora</th>
-                <th>Cupo</th>
-                <th class="text-center">Asignacion</th>
-        </thead>
-        <tbody>
-            <?php
-            foreach ($datos as $registro) {
-            ?>
+    <div class="table-responsive h-75 mx-auto rounded-5">
+        <table class="table table-hover table-bordered">
+            <thead class="table-dark text-center">
                 <tr>
-                    <td>
-                        <?php echo ($registro['actividad_id']) ?>
-                    </td>
-                    <td>
-                        <?= $registro['personal_id']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['nombre']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['modalidad']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['nivel']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['fecha']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['hora']; ?>
-                    </td>
-                    <td>
-                        <?= $registro['cupo_maximo']; ?>
-                    </td>
+                    <th>Actividad</th>
+                    <th>Personal</th>
+                    <th>Nombre</th>
+                    <th>Modalidad</th>
+                    <th>Nivel</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Cupo</th>
+                    <th class="text-center">Asignacion</th>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($datos as $registro) {
+                ?>
+                    <tr>
+                        <td>
+                            <?php echo ($registro['actividad_id']) ?>
+                        </td>
+                        <td>
+                            <?= $registro['personal_id']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['nombre']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['modalidad']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['nivel']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['fecha']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['hora']; ?>
+                        </td>
+                        <td>
+                            <?= $registro['cupo_maximo']; ?>
+                        </td>
 
-                    <td class="d-flex justify-content-center gap-2 ">
-                        <a href="<?= base_url('update_actividad/') . $registro['actividad_id']; ?>"
-                            class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
-                        <a href="<?= base_url('eliminar_actividad/') . $registro['actividad_id']; ?>"
-                            class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
+                        <td class="d-flex justify-content-center gap-2 ">
+                            <a href="<?= base_url('update_actividad/') . $registro['actividad_id']; ?>"
+                                class="btn btn-outline-dark"><i class="bi bi-pencil"></i></a>
+                            <a href="<?= base_url('eliminar_actividad/') . $registro['actividad_id']; ?>"
+                                class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 
 
 
